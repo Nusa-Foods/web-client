@@ -18,7 +18,7 @@ export default function LoginPage() {
 
         try {
             const response = await fetch(
-                "https://7d86-180-244-163-147.ngrok-free.app/user/login",
+                `${process.env.BASE_URL}user/login`,
                 {
                     method: "POST",
                     headers: {
@@ -91,7 +91,7 @@ export default function LoginPage() {
 
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full bg-custom-brown-1 text-white font-medium py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             Sign In
                         </button>
@@ -100,7 +100,7 @@ export default function LoginPage() {
                         Don't have an account?{" "}
                         <Link
                             href="/register"
-                            className="text-blue-600 hover:underline"
+                            className="text-custom-brown-1 hover:underline"
                         >
                             Sign Up
                         </Link>

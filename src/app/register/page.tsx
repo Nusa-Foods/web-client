@@ -18,7 +18,7 @@ export default function RegisterPage() {
 
         try {
             const response = await fetch(
-                "https://7d86-180-244-163-147.ngrok-free.app/user/register",
+                `${process.env.BASE_URL}user/register`,
                 {
                     method: "POST",
                     headers: {
@@ -131,7 +131,7 @@ export default function RegisterPage() {
 
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full bg-custom-brown-1 text-white font-medium py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             {isLoading ? "Memuat..." : "Sign Up"}
                         </button>
@@ -140,7 +140,7 @@ export default function RegisterPage() {
                         Already have an account?{" "}
                         <Link
                             href="/login"
-                            className="text-blue-600 hover:underline"
+                            className="text-custom-brown-1 hover:underline"
                         >
                             Sign In
                         </Link>
