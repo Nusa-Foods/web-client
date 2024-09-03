@@ -1,6 +1,53 @@
+"use client";
+import showToast from "@/utils/toast";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginPage() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [error, setError] = useState("");
+    const router = useRouter();
+
+    const [isLoading, setIsLoading] = useState(false);
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        try {
+            const response = await fetch(
+                "https://7d86-180-244-163-147.ngrok-free.app/user/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email: email, password }),
+                }
+            );
+            const data = await response.json();
+            console.log(data);
+
+            if (response.ok) {
+                showToast({
+                    message: "Selamat datang!",
+                    type: "success",
+                });
+                router.push("/");
+            } else {
+                if (data.msg === "Invalid Email/Password")
+                    setError("Email / Password salah");
+                showToast({ message: "Gagal login" });
+            }
+        } catch (err) {
+            console.error("Error during login:", err);
+            setError("An error occurred while logging in.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
     return (
         <>
             <div className="min-h-screen flex items-center justify-center">
@@ -8,7 +55,7 @@ export default function LoginPage() {
                     <h2 className="text-2xl font-bold text-center mb-6">
                         Sign in to your account
                     </h2>
-                    <form action="#">
+                    <form action="#" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label
                                 htmlFor="email"
@@ -21,6 +68,8 @@ export default function LoginPage() {
                                 id="email"
                                 placeholder="example@email.com"
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="mb-4">
@@ -35,9 +84,10 @@ export default function LoginPage() {
                                 id="password"
                                 placeholder=""
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-
 
                         <button
                             type="submit"
@@ -48,12 +98,15 @@ export default function LoginPage() {
                     </form>
                     <p className="text-center text-sm text-gray-600 mt-4">
                         Don't have an account?{" "}
-                        <Link href="/register" className="text-blue-600 hover:underline">
+                        <Link
+                            href="/register"
+                            className="text-blue-600 hover:underline"
+                        >
                             Sign Up
                         </Link>
                     </p>
                 </div>
             </div>
         </>
-    )
+    );
 }
