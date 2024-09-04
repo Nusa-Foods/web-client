@@ -1,9 +1,8 @@
 import RecipeCard from "@/components/RecipeCard";
-import SideBar from "@/components/SideBar";
 
 export default function Discover() {
     return (
-        <main className="flex-grow p-6">
+        <main className="flex-grow p-6 bg-[#F9FAFB]">
             <h1 className="text-3xl font-bold mb-6">
                 Discover Amazing Recipes
             </h1>

@@ -7,10 +7,10 @@ export default function SideBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="bg-white shadow-md md:w-[35%] xl:w-[25%]">
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 {/* Mobile menu button */}
-                <div className="relative flex items-center justify-between h-16 md:hidden">
+                <div className="relative flex items-center justify-between h-16 md:hidden ">
                     <button
                         type="button"
                         className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
