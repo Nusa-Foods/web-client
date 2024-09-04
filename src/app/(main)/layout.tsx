@@ -21,10 +21,11 @@ export default function RootLayout({
                 <ToastContainer />
                 <div className="min-h-screen flex flex-col md:flex-row">
                     {/* Sidebar */}
+
                     <SideBar />
 
                     {/* Main content */}
-                    <main className="flex-grow px-30 h-screen overflow-scroll">
+                    <main className="flex-grow h-screen overflow-scroll">
                         {children}
                     </main>
                 </div>

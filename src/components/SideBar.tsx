@@ -7,7 +7,7 @@ export default function SideBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-white shadow-md md:w-[35%] xl:w-[25%]">
+        <nav className="bg-white shadow-md md:h-screen">
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 {/* Mobile menu button */}
                 <div className="relative flex items-center justify-between h-16 md:hidden ">
