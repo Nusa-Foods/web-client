@@ -1,7 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
@@ -15,14 +15,13 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const specificRoute = "/resume"; // exclude specific router
     return (
         <html lang="en">
             <body className="flex flex-col min-h-screen">
                 <ToastContainer />
                 <NavBar />
-                <main className="flex-grow px-30">
-                    {children}
-                </main>
+                <main className="flex-grow px-30">{children}</main>
                 <Footer />
             </body>
         </html>

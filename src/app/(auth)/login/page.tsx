@@ -17,16 +17,13 @@ export default function LoginPage() {
         setIsLoading(true);
 
         try {
-            const response = await fetch(
-                `${process.env.BASE_URL}user/login`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ email: email, password }),
-                }
-            );
+            const response = await fetch(`${process.env.BASE_URL}user/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email, password }),
+            });
             const data = await response.json();
             console.log(data);
 
@@ -50,9 +47,22 @@ export default function LoginPage() {
     };
     return (
         <>
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
                 <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-                    <h2 className="text-2xl font-bold text-center mb-6">
+                    <Link href="/">
+                        <div className="flex items-center space-x-2 justify-center">
+                            <img
+                                src="/mainLogo.svg"
+                                alt="Nusa Food Logo"
+                                className="w-12 h-12"
+                            />
+                            <span className="text-2xl font-semibold text-[#1F2937]">
+                                Nusa{" "}
+                                <span className="text-[#3A2D18]">Food</span>
+                            </span>
+                        </div>
+                    </Link>
+                    <h2 className="text-md my-5 text-center mb-6">
                         Sign in to your account
                     </h2>
                     <form action="#" onSubmit={handleSubmit}>
@@ -67,7 +77,7 @@ export default function LoginPage() {
                                 type="email"
                                 id="email"
                                 placeholder="example@email.com"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -83,7 +93,7 @@ export default function LoginPage() {
                                 type="password"
                                 id="password"
                                 placeholder=""
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
@@ -91,7 +101,7 @@ export default function LoginPage() {
 
                         <button
                             type="submit"
-                            className="w-full bg-custom-brown-1 text-white font-medium py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full bg-custom-brown-2 text-white font-medium py-2 rounded-lg hover:bg-custom-brown-1 focus:outline-none"
                         >
                             Sign In
                         </button>

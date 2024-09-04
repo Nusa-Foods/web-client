@@ -17,8 +17,12 @@ export default function Home() {
                         <h1 className="text-8xl font-bold text-custom-brown-1 mb-4">
                             Mealtime Stress!
                         </h1>
-                        <p className="text-lg mb-8">
-                            Elevate your dining experience with personalized meal suggestions, easy-to-follow recipes, and a variety of culinary delights. Join our community of satisfied food enthusiasts and enjoy over 500,000 meals served!
+                        <p className="text-lg mb-8 text-gray-500">
+                            Elevate your dining experience with personalized
+                            meal suggestions, easy-to-follow recipes, and a
+                            variety of culinary delights. Join our community of
+                            satisfied food enthusiasts and enjoy over 500,000
+                            meals served!
                         </p>
                         <a
                             href="#"
@@ -39,7 +43,9 @@ export default function Home() {
                 {/* Features Section */}
                 <section className="text-black py-20 w-full flex flex-col items-center">
                     <div className="container mx-auto px-6 text-center">
-                        <h2 className="text-3xl font-bold mb-8">Our Features</h2>
+                        <h2 className="text-3xl font-bold mb-8">
+                            Our Features
+                        </h2>
 
                         <div className="flex flex-col md:justify-between">
                             {/* feature 1 */}
@@ -48,11 +54,20 @@ export default function Home() {
                                     <h1 className="text-4xl font-bold mb-4">
                                         Personalized Recipes
                                     </h1>
-                                    <p className="text-lg mb-8">
-                                        Receive tailored recipe recommendations that match your unique dietary needs and personal preferences. Whether you want to explore new cuisines, our system curates a selection of recipes just for you.
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Receive tailored recipe recommendations
+                                        that match your unique dietary needs and
+                                        personal preferences. Whether you want
+                                        to explore new cuisines, our system
+                                        curates a selection of recipes just for
+                                        you.
                                     </p>
-                                    <p className="text-lg mb-8">
-                                        Enjoy recipes with precise nutritional information, ingredient substitutions, and step-by-step instructions designed to make your cooking experience both enjoyable and health-conscious.
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Enjoy recipes with precise nutritional
+                                        information, ingredient substitutions,
+                                        and step-by-step instructions designed
+                                        to make your cooking experience both
+                                        enjoyable and health-conscious.
                                     </p>
                                     <a
                                         href="#"
@@ -83,11 +98,20 @@ export default function Home() {
                                     <h1 className="text-4xl font-bold mb-4">
                                         Recipes Nusantara Food
                                     </h1>
-                                    <p className="text-lg mb-8">
-                                        Explore the vibrant flavors of Nusantara cuisine with our curated selection of traditional recipes. Our collection features iconic dishes from Indonesia and its neighboring regions. Each recipe is accompanied by detailed instructions and cooking tips to help you recreate these beloved dishes at home.
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Explore the vibrant flavors of Nusantara
+                                        cuisine with our curated selection of
+                                        traditional recipes. Our collection
+                                        features iconic dishes from Indonesia
+                                        and its neighboring regions. Each recipe
+                                        is accompanied by detailed instructions
+                                        and cooking tips to help you recreate
+                                        these beloved dishes at home.
                                     </p>
-                                    <p className="text-lg mb-8">
-                                        Discover new favorites and experience the rich cultural tapestry through every delicious bit
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Discover new favorites and experience
+                                        the rich cultural tapestry through every
+                                        delicious bit
                                     </p>
                                     <a
                                         href="#"
@@ -96,7 +120,6 @@ export default function Home() {
                                         Get Started
                                     </a>
                                 </div>
-
                             </div>
 
                             {/* feature 3 */}
@@ -105,11 +128,17 @@ export default function Home() {
                                     <h1 className="text-4xl font-bold mb-4">
                                         Community Support
                                     </h1>
-                                    <p className="text-lg mb-8">
-                                        Connect with a vibrant community of health enthusiasts who share your interests and goals. Engage in discussions, exchange tips, and seek advice in a supportive environment.
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Connect with a vibrant community of
+                                        health enthusiasts who share your
+                                        interests and goals. Engage in
+                                        discussions, exchange tips, and seek
+                                        advice in a supportive environment.
                                     </p>
-                                    <p className="text-lg mb-8">
-                                        Join us and be part of a supportive community dedicated to achieving better health together.
+                                    <p className="text-lg mb-8 text-gray-500">
+                                        Join us and be part of a supportive
+                                        community dedicated to achieving better
+                                        health together.
                                     </p>
                                     <a
                                         href="#"
