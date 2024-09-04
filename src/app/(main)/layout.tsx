@@ -24,7 +24,9 @@ export default function RootLayout({
                     <SideBar />
 
                     {/* Main content */}
-                    <main className="flex-grow px-30">{children}</main>
+                    <main className="flex-grow px-30 h-screen overflow-scroll">
+                        {children}
+                    </main>
                 </div>
             </body>
         </html>

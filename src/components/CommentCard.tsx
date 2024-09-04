@@ -15,15 +15,17 @@ export default function CommentCard() {
                     </b>
                     <p className="text-xs sm:text-sm md:text-base">10 m</p>
                 </div>
-                <p className="text-xs sm:text-sm md:text-base break-words">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
-                </p>
+                <div>
+                    <p className="text-xs sm:text-sm md:text-base break-words w-full">
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                    </p>
+                </div>
             </div>
         </div>
     );

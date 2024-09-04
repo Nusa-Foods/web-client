@@ -1,3 +1,4 @@
+import CommentCard from "@/components/CommentCard";
 import RecipeCard from "@/components/RecipeCard";
 import RecipeCardDetail from "@/components/RecipeCardDetail";
 
@@ -16,7 +17,9 @@ export default function Discover() {
                             <RecipeCard />
                             <RecipeCard />
                         </div>
-                        <RecipeCardDetail />
+                        <div className=" invisible">
+                            <CommentCard />
+                        </div>
                     </div>
                 </main>
             </div>
