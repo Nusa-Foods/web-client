@@ -1,4 +1,5 @@
 import Link from "next/link";
+import mainLogo from "../../public/mainLogo.png"
 
 export default function NavBar() {
     return (
@@ -11,7 +12,7 @@ export default function NavBar() {
                             {/* Logo */}
                             <div className="flex items-center space-x-2">
                                 <img
-                                    src=""
+                                    src="/mainLogo.png"
                                     alt="Nusa Food Logo"
                                     className="w-12 h-12"
                                 />
