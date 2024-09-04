@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
+import Link from "next/link";
+import { useState } from "react";
 
 export default function SideBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,29 +17,87 @@ export default function SideBar() {
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        <svg
+                            className="h-6 w-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
                         </svg>
                     </button>
                 </div>
 
-                <div className="flex flex-col items-center justify-between h-16 pt-10">
-                    <div className="mb-10">
+                <div className="items-center justify-between h-16 pt-10 hidden md:flex flex-col ">
+                    <div className="mb-10 hidden md:block">
                         <Link href="/">
-                            <img className="h-8" src="" alt="Nusa Food Logo" />
+                            <div className="flex items-center space-x-2 justify-center">
+                                <img
+                                    src="/mainLogo.svg"
+                                    alt="Nusa Food Logo"
+                                    className="w-12 h-12"
+                                />
+                                <span className="text-2xl font-semibold text-[#1F2937]">
+                                    Nusa{" "}
+                                    <span className="text-[#3A2D18]">Food</span>
+                                </span>
+                            </div>
                         </Link>
                     </div>
-                    {/* Desktop and Tablet Menu */}
+
                     <div className="hidden md:flex md:flex-col md:w-64 md:space-y-4">
-                        <Link href="/" className="text-gray-900 hover:text-gray-700">Home</Link>
-                        <Link href="/discover" className="text-gray-900 hover:text-gray-700">Discover</Link>
-                        <Link href="/about" className="text-gray-900 hover:text-gray-700">About</Link>
-                        <Link href="/contact" className="text-gray-900 hover:text-gray-700">Contact</Link>
+                        <Link
+                            href="/"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            href="/discover"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Discover
+                        </Link>
+                        <Link
+                            href="/about"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Nusa Recipes
+                        </Link>
+                        <Link
+                            href="/about"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Your Personal Cheff
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Bookmarks
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Event
+                        </Link>
                     </div>
                 </div>
 
                 {/* Mobile menu */}
-                <div className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div
+                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
+                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
+                >
                     <div className="flex justify-end p-4">
                         <button
                             type="button"
@@ -47,16 +105,60 @@ export default function SideBar() {
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>
-                            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            <svg
+                                className="h-6 w-6"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
                             </svg>
                         </button>
                     </div>
                     <div className="flex flex-col p-4 space-y-2">
-                        <Link href="/" className="text-gray-900 hover:text-gray-700">Home</Link>
-                        <Link href="/discover" className="text-gray-900 hover:text-gray-700">Discover</Link>
-                        <Link href="/about" className="text-gray-900 hover:text-gray-700">About</Link>
-                        <Link href="/contact" className="text-gray-900 hover:text-gray-700">Contact</Link>
+                        <Link
+                            href="/"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            href="/discover"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Discover
+                        </Link>
+                        <Link
+                            href="/about"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Nusa Recipes
+                        </Link>
+                        <Link
+                            href="/about"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Your Personal Cheff
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Bookmarks
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            Event
+                        </Link>
                     </div>
                 </div>
             </div>

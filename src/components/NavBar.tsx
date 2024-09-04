@@ -23,9 +23,9 @@ export default function NavBar() {
                         <a href="#" className="nav-link">
                             Nusa Recipes
                         </a>
-                        <a href="#" className="nav-link">
+                        <Link href="/discover" className="nav-link">
                             Discover
-                        </a>
+                        </Link>
                         <a href="#" className="nav-link">
                             Your Personal Cheff
                         </a>
