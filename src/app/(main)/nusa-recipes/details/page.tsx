@@ -1,10 +1,8 @@
 import NusaRecipeCardDetail from "@/components/NusaRecipeCardDetail";
 
-
-
 export default function NusaDetailsPage() {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-[#F9FAFB]">
             <div>
                 {/* Banner */}
                 <div className="relative h-25 sm:h-32 md:h-48 lg:h-64 hidden md:block">
@@ -30,4 +28,3 @@ export default function NusaDetailsPage() {
         </div>
     );
 }
-

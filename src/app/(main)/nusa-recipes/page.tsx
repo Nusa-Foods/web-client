@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NusaPage() {
     return (
-        <div className="min-h-screen py-10">
+        <div className="min-h-screen py-5 bg-[#F9FAFB]">
             <div className="container mx-auto px-4">
                 <main className="flex flex-col items-center">
                     <div className="text-center mb-10 w-3/4">
@@ -12,7 +12,12 @@ export default function NusaPage() {
                         </h1>
 
                         <p>
-                            Each recipe is carefully curated to offer a true taste of Indonesia's culinary traditions, ensuring that you experience the full flavors and techniques. Whether you're a seasoned cook or a curious foodie, Nusa Recipes brings the heart of Nusantara to your kitchen.
+                            Each recipe is carefully curated to offer a true
+                            taste of Indonesia's culinary traditions, ensuring
+                            that you experience the full flavors and techniques.
+                            Whether you're a seasoned cook or a curious foodie,
+                            Nusa Recipes brings the heart of Nusantara to your
+                            kitchen.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">

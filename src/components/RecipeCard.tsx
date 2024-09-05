@@ -4,11 +4,7 @@ export default function RecipeCard() {
     return (
         <>
             <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[70%] xl:w-[50%] h-auto py-4 px-4">
-                <Link
-                    href="/discover/details"
-
-                >
-
+                <Link href="/discover/details">
                     <div className="flex items-center justify-center p-4">
                         <img
                             src="https://storage.googleapis.com/chef-gpt.appspot.com/recipes%2FcVoeu0HZhjZhpPAZpyWy%2FcVoeu0HZhjZhpPAZpyWy.jpg"
@@ -100,22 +96,20 @@ export default function RecipeCard() {
                     <div className="p-4">
                         <h1 className="text-4xl font-bold">Banana Muffins</h1>
                         <p className="text-gray-600">
-                            A delicious homemade banana muffin recipe perfect for
-                            breakfast or a snack.
+                            A delicious homemade banana muffin recipe perfect
+                            for breakfast or a snack.
                         </p>
                     </div>
                 </Link>
                 <div className="flex justify-center">
-                    <button
-                        className="bg-custom-brown-1 text-white font-medium w-1/2 py-2 px-4 rounded-md text-sm hover:bg-custom-brown-2 focus:outline-none focus:ring-2 focus:ring-custom-brown-2">
+                    <Link
+                        href="/bookmarks"
+                        className="bg-custom-brown-1 text-white font-medium w-1/2 py-2 px-4 rounded-md text-sm hover:bg-custom-brown-2 focus:outline-none focus:ring-2 focus:ring-custom-brown-2 text-center hover:cursor-pointer"
+                    >
                         Save Recipe
-                    </button>
+                    </Link>
                 </div>
-            </div >
-
-
-
+            </div>
         </>
-
     );
 }

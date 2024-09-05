@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function DiscoverDetailPage() {
     return (
-        <div className="min-h-flex flex-col md:flex-row justify-center">
+        <div className="min-h-flex flex-col md:flex-row justify-center bg-[#F9FAFB]">
             <div>
                 <main className="flex-grow p-6">
                     <div className="flex justify-between items-center content-center mb-6">

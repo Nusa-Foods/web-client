@@ -1,20 +1,31 @@
 export default function CreateRecipe() {
     return (
-        <div className="min-h-screen flex flex-col md:flex-col justify-center items-center px-4 md:px-30">
+        <div className="min-h-screen flex flex-col md:flex-col justify-center items-center px-4 md:px-30 bg-[#F9FAFB]">
             <div className="md:w-1/2 lg:pr-8">
-                <h1 className="text-2xl font-bold mb-4">Effortless Perfect Recipe from Your Personal Chef</h1>
+                <h1 className="text-2xl font-bold mb-4">
+                    Effortless Perfect Recipe from Your Personal Chef
+                </h1>
                 <p className="text-gray-700 mb-4">
                     Share Your Culinary Creations to Nusa-Mates
                 </p>
                 <p className="text-gray-700">
-                    Discover the joy of sharing your favorite recipes with a community of food enthusiasts. Our platform allows you to easily post and showcase your unique culinary creations. Whether it's a cherished family recipe or a new dish you've perfected, your contributions will inspire others and bring delightful new ideas to their kitchens. Join our vibrant community and let your recipes shine!
+                    Discover the joy of sharing your favorite recipes with a
+                    community of food enthusiasts. Our platform allows you to
+                    easily post and showcase your unique culinary creations.
+                    Whether it's a cherished family recipe or a new dish you've
+                    perfected, your contributions will inspire others and bring
+                    delightful new ideas to their kitchens. Join our vibrant
+                    community and let your recipes shine!
                 </p>
             </div>
 
             <div className="md:w-full lg:pr-8">
                 <form className="md:w-full">
                     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-                        <h1 className="text-xl font-bold mb-4"> Input your best recipe here</h1>
+                        <h1 className="text-xl font-bold mb-4">
+                            {" "}
+                            Input your best recipe here
+                        </h1>
                         {/* Title */}
                         <div className="mb-4">
                             <label
@@ -86,7 +97,6 @@ export default function CreateRecipe() {
                     </div>
                 </form>
             </div>
-
         </div>
     );
 }

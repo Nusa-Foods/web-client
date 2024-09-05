@@ -7,7 +7,7 @@ export default function SideBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-white shadow-md md:h-screen">
+        <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 {/* Mobile menu button */}
                 <div className="relative flex items-center justify-between h-16 md:hidden ">
@@ -66,24 +66,19 @@ export default function SideBar() {
                             Discover
                         </Link>
                         <Link
-
                             href="/nusa-recipes"
-
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Nusa Recipes
                         </Link>
                         <Link
-
                             href="/your-personal-chef"
-
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Your Personal Chef
                         </Link>
                         <Link
                             href="/bookmarks"
-
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Bookmarks
@@ -99,8 +94,9 @@ export default function SideBar() {
 
                 {/* Mobile menu */}
                 <div
-                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                        }`}
+                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
+                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
                 >
                     <div className="flex justify-end p-4">
                         <button
