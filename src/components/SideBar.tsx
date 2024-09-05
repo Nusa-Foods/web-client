@@ -40,9 +40,9 @@ export default function SideBar() {
                         <Link href="/">
                             <div className="flex items-center space-x-2 justify-center">
                                 <img
-                                    src="/mainLogo.svg"
+                                    src="/mainLogo.png"
                                     alt="Nusa Food Logo"
-                                    className="w-12 h-12"
+                                    className="w-16 h-16"
                                 />
                                 <span className="text-2xl font-semibold text-[#1F2937]">
                                     Nusa{" "}
@@ -66,19 +66,24 @@ export default function SideBar() {
                             Discover
                         </Link>
                         <Link
-                            href="/"
+
+                            href="/nusa-recipes"
+
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Nusa Recipes
                         </Link>
                         <Link
-                            href="/t"
+
+                            href="/your-personal-chef"
+
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Your Personal Cheff
+                            Your Personal Chef
                         </Link>
                         <Link
-                            href="/"
+                            href="/bookmarks"
+
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Bookmarks
@@ -87,16 +92,15 @@ export default function SideBar() {
                             href="/events"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Event
+                            Events
                         </Link>
                     </div>
                 </div>
 
                 {/* Mobile menu */}
                 <div
-                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
-                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
+                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                        }`}
                 >
                     <div className="flex justify-end p-4">
                         <button

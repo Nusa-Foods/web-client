@@ -1,7 +1,7 @@
 import RecipeCard from "@/components/RecipeCard";
 import Link from "next/link";
 
-export default function Discover() {
+export default function DiscoverDetailPage() {
     return (
         <div className="min-h-flex flex-col md:flex-row justify-center">
             <div>

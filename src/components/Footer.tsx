@@ -7,9 +7,9 @@ export default function Footer() {
                         <aside>
                             <div className="flex items-center space-x-2">
                                 <img
-                                    src="/mainLogo.svg"
+                                    src="/mainLogo.png"
                                     alt="Nusa Food Logo"
-                                    className="w-12 h-12"
+                                    className="w-16 h-16"
                                 />
                                 <span className="text-2xl font-semibold text-[#1F2937]">
                                     Nusa{" "}

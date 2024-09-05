@@ -9,9 +9,9 @@ export default function NavBar() {
                     {/* Logo */}
                     <div className="flex items-center space-x-2">
                         <img
-                            src="/mainLogo.svg"
+                            src="/mainLogo.png"
                             alt="Nusa Food Logo"
-                            className="w-12 h-12"
+                            className="w-14 h-14"
                         />
                         <span className="text-2xl font-semibold text-[#1F2937]">
                             Nusa <span className="text-[#3A2D18]">Food</span>
