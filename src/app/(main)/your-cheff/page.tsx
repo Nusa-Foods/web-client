@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ChangeEvent, FormEvent, KeyboardEvent, useState } from "react";
 
@@ -14,7 +14,11 @@ export default function aiPage() {
     };
 
     const removeIngredient = (ingredientToRemove: string) => {
-        setIngredients(ingredients.filter(ingredient => ingredient !== ingredientToRemove));
+        setIngredients(
+            ingredients.filter(
+                (ingredient) => ingredient !== ingredientToRemove
+            )
+        );
     };
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +26,7 @@ export default function aiPage() {
     };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+        e.preventDefault();
         // console.log(ingredients, 'ingredients>>>')
     };
 
@@ -32,7 +36,6 @@ export default function aiPage() {
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
                     Effortless Recipes from What You Have!
                 </h1>
-
 
                 <form onSubmit={handleSubmit}>
                     {/* Input 1: Ingredients */}
@@ -53,7 +56,9 @@ export default function aiPage() {
                                     <button
                                         type="button"
                                         className="ml-2 text-indigo-500 hover:text-indigo-700"
-                                        onClick={() => removeIngredient(ingredient)}
+                                        onClick={() =>
+                                            removeIngredient(ingredient)
+                                        }
                                     >
                                         &times;
                                     </button>
@@ -82,7 +87,9 @@ export default function aiPage() {
                             id="meal"
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
-                            <option disabled value="">Select your meal type</option>
+                            <option disabled value="">
+                                Select your meal type
+                            </option>
                             <option value="breakfast">Breakfast</option>
                             <option value="lunch">Lunch</option>
                             <option value="dinner">Dinner</option>
@@ -103,7 +110,9 @@ export default function aiPage() {
                             id="chef"
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
-                            <option disabled value="">Select your skill level</option>
+                            <option disabled value="">
+                                Select your skill level
+                            </option>
                             <option value="beginner">Beginner</option>
                             <option value="intermediate">Intermediate</option>
                             <option value="expert">Expert</option>
@@ -112,7 +121,7 @@ export default function aiPage() {
 
                     {/* Submit Button */}
                     <div className="text-center">
-                        <button className="bg-indigo-600 text-white font-medium py-2 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-auto">
+                        <button className="bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto">
                             Generate Recipe
                         </button>
                     </div>

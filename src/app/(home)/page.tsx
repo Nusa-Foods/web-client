@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import showToast from "@/utils/toast";
+import Link from "next/link";
 export default function Home() {
     return (
         <>
@@ -24,12 +25,12 @@ export default function Home() {
                             satisfied food enthusiasts and enjoy over 500,000
                             meals served!
                         </p>
-                        <a
-                            href="#"
-                            className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200"
+                        <Link
+                            href="/your-cheff"
+                            className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                         >
                             Get Started
-                        </a>
+                        </Link>
                     </div>
                     <div className="mx-auto px-6 text-center md:text-left w-full md:w-1/2">
                         <img
@@ -69,12 +70,12 @@ export default function Home() {
                                         to make your cooking experience both
                                         enjoyable and health-conscious.
                                     </p>
-                                    <a
-                                        href="#"
-                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200"
+                                    <Link
+                                        href="/your-cheff"
+                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                                     >
                                         Get Started
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="mx-auto px-6 text-center md:text-left w-full md:w-1/2">
                                     <img
@@ -113,12 +114,12 @@ export default function Home() {
                                         the rich cultural tapestry through every
                                         delicious bit
                                     </p>
-                                    <a
-                                        href="#"
-                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200"
+                                    <Link
+                                        href="/nusa-recipes"
+                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                                     >
                                         Get Started
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -140,12 +141,12 @@ export default function Home() {
                                         community dedicated to achieving better
                                         health together.
                                     </p>
-                                    <a
-                                        href="#"
-                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold hover:bg-gray-200"
+                                    <Link
+                                        href="/discover"
+                                        className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                                     >
                                         Get Started
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="mx-auto px-6 text-center md:text-left w-full md:w-1/2">
                                     <img

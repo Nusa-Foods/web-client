@@ -72,10 +72,10 @@ export default function SideBar() {
                             Nusa Recipes
                         </Link>
                         <Link
-                            href="/your-personal-chef"
+                            href="/your-cheff"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Your Personal Chef
+                            Your Personal Cheff
                         </Link>
                         <Link
                             href="/bookmarks"
@@ -142,7 +142,7 @@ export default function SideBar() {
                             Nusa Recipes
                         </Link>
                         <Link
-                            href="/about"
+                            href="/your-cheff"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Your Personal Cheff
