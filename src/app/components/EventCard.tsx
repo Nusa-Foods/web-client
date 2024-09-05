@@ -32,7 +32,7 @@ export default function EventCard() {
                     <b>Location:</b> Surabaya, Indonesia
                 </p>
                 <button className="bg-custom-brown-3 text-custom-brown-2 font-medium py-1 px-3 rounded-md text-xs hover:bg-custom-brown-1 hover:text-white focus:outline-none ">
-                    See Location
+                    See on Maps
                 </button>
             </div>
             <div className="flex justify-between">
