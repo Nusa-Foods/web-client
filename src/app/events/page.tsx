@@ -1,4 +1,4 @@
-import EventCard from "../components/page";
+import EventCard from "../components/EventCard";
 
 export default function EventPage() {
     return (

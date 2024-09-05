@@ -6,10 +6,23 @@ export default function EventCard() {
                 alt="Event Image"
                 className="w-full h-40 object-cover rounded-md mb-4"
             />
-            <h3 className="text-lg font-semibold mb-2">Event Title 3</h3>
+
+            <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Event Title 3</h3>
+                <span className="bg-indigo-100 p-2 text-indigo-800 text-sm font-medium rounded-full">
+                    <b>Quota:</b> 100 slots
+                </span>
+            </div>
             <p className="text-gray-600 mb-2 text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
             <p className="text-gray-600 mb-2 text-sm"><b>Date:</b> November 20, 2024</p>
-            <p className="text-gray-600 mb-4 text-sm"><b>Location:</b> Surabaya, Indonesia</p>
+
+            <div className="flex justify-between items-center mb-4">
+                <p className="text-gray-600 text-sm"><b>Location:</b> Surabaya, Indonesia</p>
+                <button className="bg-indigo-100 text-indigo-800 font-medium py-1 px-3 rounded-md text-xs hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    See Location
+                </button>
+            </div>
+
             <button className="bg-indigo-600 text-white font-medium py-2 px-4 rounded-md text-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 Join Event
             </button>
