@@ -66,7 +66,7 @@ export default function SideBar() {
                             Discover
                         </Link>
                         <Link
-                            href="/about"
+                            href="/nusa-recipes"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Nusa Recipes
