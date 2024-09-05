@@ -1,10 +1,15 @@
 "use client";
 
 import { ChangeEvent, FormEvent, KeyboardEvent, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-export default function aiPage() {
+export default function AiPage() {
     const [ingredients, setIngredients] = useState<string[]>([]);
     const [inputValue, setInputValue] = useState<string>("");
+    const [mealType, setMealType] = useState<string>("");
+    const [skillLevel, setSkillLevel] = useState<string>("");
+    const [recipe, setRecipe] = useState<any>(null); // Update this type based on your expected response
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && inputValue) {
@@ -25,9 +30,36 @@ export default function aiPage() {
         setInputValue(e.target.value);
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleMealChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setMealType(e.target.value);
+    };
+
+    const handleSkillChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setSkillLevel(e.target.value);
+    };
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // console.log(ingredients, 'ingredients>>>')
+
+        const response = await fetch("http://localhost:3000/ai/recipe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                ingredients: ingredients.join(", "),
+                mealType,
+                skillLevel,
+            }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            setRecipe(data.response);
+        } else {
+            // Handle error response here
+            console.error("Failed to fetch recipe");
+        }
     };
 
     return (
@@ -85,6 +117,8 @@ export default function aiPage() {
                         </label>
                         <select
                             id="meal"
+                            value={mealType}
+                            onChange={handleMealChange}
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
                             <option disabled value="">
@@ -108,6 +142,8 @@ export default function aiPage() {
                         </label>
                         <select
                             id="chef"
+                            value={skillLevel}
+                            onChange={handleSkillChange}
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         >
                             <option disabled value="">
@@ -126,6 +162,51 @@ export default function aiPage() {
                         </button>
                     </div>
                 </form>
+
+                {/* Display Recipe */}
+                {recipe && (
+                    <div className="mt-8">
+                        <h2 className="text-xl font-bold mb-4">
+                            {recipe.name}
+                        </h2>
+                        <img
+                            src={recipe.imgUrl}
+                            alt={recipe.name}
+                            className="w-full h-auto mb-4"
+                        />
+                        <div className="mb-4">
+                            <h3 className="text-lg font-semibold mb-2">
+                                Ingredients:
+                            </h3>
+                            <ul className="list-disc list-inside">
+                                {recipe.ingredients.map(
+                                    (
+                                        [quantity, ingredient]: [
+                                            string,
+                                            string
+                                        ],
+                                        index: number
+                                    ) => (
+                                        <li key={index}>
+                                            {quantity} {ingredient}
+                                        </li>
+                                    )
+                                )}
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-semibold mb-2">
+                                Guide:
+                            </h3>
+                            <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                                className="prose prose-lg"
+                            >
+                                {recipe.guide}
+                            </ReactMarkdown>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
