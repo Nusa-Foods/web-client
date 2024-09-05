@@ -8,6 +8,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 export default function DiscoverDetailPage() {
+    // console.log('Component Rendered');
+
     const [recipes, setRecipes] = useState<RecipeType[]>([])
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1);
@@ -16,8 +18,10 @@ export default function DiscoverDetailPage() {
     async function fetchRecipes() {
         try {
             setLoading(true)
+
             const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${page}`, {
-                cache: 'no-store'
+                cache: 'no-store',
+                credentials: 'include'
             });
             if (!res.ok) throw await res.json()
 
@@ -30,8 +34,6 @@ export default function DiscoverDetailPage() {
                 setRecipes((prev) => [...prev, ...data]);
                 setPage(page + 1);
             }
-
-
         } catch (error) {
             console.log(error)
         } finally {
@@ -40,6 +42,7 @@ export default function DiscoverDetailPage() {
     }
 
     useEffect(() => {
+        console.log('useEffect Triggered')
         fetchRecipes()
     }, [])
 
@@ -63,7 +66,7 @@ export default function DiscoverDetailPage() {
                         {loading &&
                             <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
                                 <div>
-                                    Loading 123
+                                    Loading ...
                                 </div>
                             </div>
                         }
@@ -75,9 +78,7 @@ export default function DiscoverDetailPage() {
                                 hasMore={hasMore}
                                 loader={<>
                                     <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                        <div>
-                                            Loading loader
-                                        </div>
+                                        Loading loader
                                     </div>
                                 </>}
                                 endMessage={

@@ -79,7 +79,7 @@ export default function RegisterPage() {
                     <Link href="/">
                         <div className="flex items-center space-x-2 justify-center">
                             <img
-                                src="/mainLogo.svg"
+                                src="/mainLogo.png"
                                 alt="Nusa Food Logo"
                                 className="w-12 h-12"
                             />
@@ -103,6 +103,7 @@ export default function RegisterPage() {
                             <input
                                 type="text"
                                 id="username"
+                                autoComplete="username"
                                 placeholder=""
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
                                 value={username}
@@ -119,6 +120,7 @@ export default function RegisterPage() {
                             <input
                                 type="email"
                                 id="email"
+                                autoComplete="email"
                                 placeholder="example@email.com"
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
                                 value={email}
@@ -136,6 +138,7 @@ export default function RegisterPage() {
                                 type="password"
                                 id="password"
                                 placeholder=""
+                                autoComplete="current-password"
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
