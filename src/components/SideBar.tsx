@@ -78,7 +78,7 @@ export default function SideBar() {
                             Your Personal Chef
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/bookmarks"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Bookmarks
