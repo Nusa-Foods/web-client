@@ -1,17 +1,20 @@
+import { RecipeType } from "@/type";
 import Link from "next/link";
 
-export default function RecipeCard() {
+export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
     return (
         <>
-            <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[70%] xl:w-[50%] h-auto py-4 px-4">
-                <Link href="/discover/details">
-                    <div className="flex items-center justify-center p-4">
+            <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%] h-auto py-4 px-4">
+
+                <Link href={`/discover/${recipe.slug}`}>
+                    <div className="flex items-center justify-center p-4 w-full h-[600px] overflow-hidden mb-4" >
                         <img
-                            src="https://storage.googleapis.com/chef-gpt.appspot.com/recipes%2FcVoeu0HZhjZhpPAZpyWy%2FcVoeu0HZhjZhpPAZpyWy.jpg"
-                            alt="Recipe 1"
-                            className="w-full h-auto rounded-lg"
+                            src={recipe.imgUrl}
+                            alt={recipe.title}
+                            className="rounded-lg object-cover "
                         />
                     </div>
+
                     <div className="pl-4 pr-4 flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                             <svg
@@ -29,7 +32,7 @@ export default function RecipeCard() {
                                 />
                             </svg>
                             <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                                0 like
+                                {recipe.likes.length}
                             </p>
                         </div>
 
@@ -49,7 +52,7 @@ export default function RecipeCard() {
                                 />
                             </svg>
                             <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                                0 comment
+                                {recipe.comments.length} comment
                             </p>
                         </div>
 
@@ -94,10 +97,9 @@ export default function RecipeCard() {
                         </div>
                     </div>
                     <div className="p-4">
-                        <h1 className="text-4xl font-bold">Banana Muffins</h1>
+                        <h1 className="text-4xl font-bold">{recipe.title}</h1>
                         <p className="text-gray-600">
-                            A delicious homemade banana muffin recipe perfect
-                            for breakfast or a snack.
+                            {recipe.description}
                         </p>
                     </div>
                 </Link>
