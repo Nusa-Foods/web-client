@@ -72,10 +72,10 @@ export default function SideBar() {
                             Nusa Recipes
                         </Link>
                         <Link
-                            href="/your-cheff"
+                            href="/your-chef"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Your Personal Cheff
+                            Your Personal Chef
                         </Link>
                         <Link
                             href="/bookmarks"
@@ -94,9 +94,8 @@ export default function SideBar() {
 
                 {/* Mobile menu */}
                 <div
-                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
-                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
+                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                        }`}
                 >
                     <div className="flex justify-end p-4">
                         <button
