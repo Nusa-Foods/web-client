@@ -1,6 +1,12 @@
 import RecipeCardDetail from "@/components/RecipeCardDetail";
+import { RecipeType } from "@/type";
 
-export default function Discover() {
+export default async function RecipeDetailPage({ params }: { params: { slug: string } }) {
+    console.log({ params }, 'params on product slug page>>>>')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe/${params.slug}`);
+    const recipe: RecipeType = await res.json()
+    console.log(recipe)
+
     return (
         <div className="min-h-screen flex flex-col md:flex-row">
             <div>
@@ -13,7 +19,7 @@ export default function Discover() {
                     />
                     <div className="absolute inset-0 flex items-center justify-left p-4">
                         <h2 className="text-8xl font-bold text-white">
-                            Banana Muffins
+                            {recipe.title}
                         </h2>
                     </div>
                 </div>
@@ -21,7 +27,7 @@ export default function Discover() {
                 {/* Main content */}
                 <main className="flex-grow p-6">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
-                        <RecipeCardDetail />
+                        <RecipeCardDetail recipeDetail={recipe} />
                     </div>
                 </main>
             </div>
