@@ -66,25 +66,25 @@ export default function SideBar() {
                             Discover
                         </Link>
                         <Link
-                            href="/about"
+                            href="/"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Nusa Recipes
                         </Link>
                         <Link
-                            href="/about"
+                            href="/t"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Your Personal Cheff
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Bookmarks
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/events"
                             className="text-gray-900 hover:text-gray-700"
                         >
                             Event
