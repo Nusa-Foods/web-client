@@ -1,6 +1,7 @@
+import { RecipeType } from "@/type";
 import Link from "next/link";
 
-export default function NusaRecipeCard() {
+export default function NusaRecipeCard({ recipe }: { recipe: RecipeType }) {
     return (
         <div className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto">
             <Link href="/nusa-recipes/details">

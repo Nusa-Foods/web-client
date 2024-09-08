@@ -11,9 +11,9 @@ export async function middleware(request: NextRequest) {
     const isProtectedRoute = protectedRoutes.includes(path)
     const isPublicRoute = publicRoutes.includes(path)
 
-    // console.log('masuk middleware')
+    console.log('masuk middleware')
     const auth = cookies().get("Authorization")
-    // console.log(auth, 'auth>>>')
+    console.log(auth, 'auth>>>')
 
     if (isProtectedRoute && !auth) {
         return NextResponse.redirect(new URL('/login', request.url))
@@ -52,5 +52,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/discover'],
+    matcher: ['/discover', '/nusa-recipes'],
 }
