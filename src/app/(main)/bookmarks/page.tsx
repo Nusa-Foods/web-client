@@ -1,6 +1,7 @@
 "use client";
 import NusaRecipeCard from "@/components/NusaRecipeCard";
 import { RecipeType } from "@/type";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Bookmarks() {
@@ -47,7 +48,15 @@ export default function Bookmarks() {
                         </h1>
                         <p>Keep track of your favorite recipes here.</p>
                     </div>
-
+                    {bookmarksData.length == 0 && (
+                        <p className="text-center w-full">
+                            You dont have any bookmarked recipe, explore our
+                            recipe on{" "}
+                            <Link href="/discover" className="text-blue-400">
+                                discover
+                            </Link>
+                        </p>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
                         {bookmarksData.map((el, index) => {
                             return (
