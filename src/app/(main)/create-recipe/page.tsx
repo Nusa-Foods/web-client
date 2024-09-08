@@ -31,6 +31,7 @@ export default function CreateRecipe() {
                         imgUrl,
                         bannerUrl,
                     }),
+                    credentials: "include",
                 }
             );
             const data = await response.json();
