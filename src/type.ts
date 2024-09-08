@@ -5,11 +5,16 @@ export interface RecipeType {
     imgUrl: string;
     bannerUrl: string;
     slug: string;
-    likes: string[];
+    likes: Like[];
     comments: string[];
     createdAt: Date;
     updatedAt: Date;
     authorId: AuthorId;
+}
+
+export interface Like {
+    userEmail: string;
+    createdAt: string;
 }
 
 export interface Id {
@@ -26,4 +31,16 @@ export interface GoogleLoginResponseType {
 
 export interface CredentialResponseType {
     credential: string;
+}
+
+// User
+export interface UserType {
+    _id?: string;
+    username?: string;
+    email?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    recipe?: string[];
+    event?: string[];
+    user_recipes?: RecipeType[];
 }

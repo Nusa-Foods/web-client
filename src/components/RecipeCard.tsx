@@ -1,5 +1,5 @@
 "use client";
-import { RecipeType } from "@/type";
+import { RecipeType, UserType } from "@/type";
 import Link from "next/link";
 import ButtonAddBookmarks from "./ButtonAddBookmarks";
 import ButtonLike from "./ButtonLike";
@@ -12,13 +12,10 @@ export default function RecipeCard({
     recipe: RecipeType;
     fetchRecipes: () => void | Promise<void>;
 }) {
-    const [user, setUser] = useState({});
-    console.log(String(recipe.authorId));
-    const getUser = async () => {
+    const [user, setUser] = useState<UserType>({});
+    const getUser = async (authorId: string) => {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${String(
-                recipe.authorId
-            )}`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${authorId}`,
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -30,10 +27,8 @@ export default function RecipeCard({
         setUser(data);
     };
     useEffect(() => {
-        getUser();
+        getUser(String(recipe.authorId));
     }, []);
-    console.log(user);
-    console.log(user.username);
     return (
         <>
             <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%] h-auto py-4 px-4">
