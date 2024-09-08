@@ -1,32 +1,31 @@
-"use client"
+"use client";
 
 import RecipeCard from "@/components/RecipeCard";
 import { RecipeType } from "@/type";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import InfiniteScroll from 'react-infinite-scroll-component';
-
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function DiscoverDetailPage() {
-    // console.log('Component Rendered');
-
-    const [recipes, setRecipes] = useState<RecipeType[]>([])
-    const [loading, setLoading] = useState(false)
+    const [recipes, setRecipes] = useState<RecipeType[]>([]);
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
     async function fetchRecipes() {
         try {
-            setLoading(true)
+            setLoading(true);
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${page}`, {
-                cache: 'no-store',
-                credentials: 'include'
-            });
-            if (!res.ok) throw await res.json()
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${page}`,
+                {
+                    cache: "no-store",
+                    credentials: "include",
+                }
+            );
+            if (!res.ok) throw await res.json();
 
-            const data: RecipeType[] = await res.json()
-            console.log(data, 'data>>>')
+            const data: RecipeType[] = await res.json();
 
             if (data.length === 0) {
                 setHasMore(false);
@@ -35,17 +34,15 @@ export default function DiscoverDetailPage() {
                 setPage(page + 1);
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
     useEffect(() => {
-        console.log('useEffect Triggered')
-        fetchRecipes()
-    }, [])
-
+        fetchRecipes();
+    }, []);
 
     return (
         <div className="min-h-flex flex-col md:flex-row justify-center bg-[#F9FAFB]">
@@ -63,38 +60,42 @@ export default function DiscoverDetailPage() {
                         </Link>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
-                        {loading &&
+                        {loading && (
                             <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                <div>
-                                    Loading ...
-                                </div>
+                                <div>Loading ...</div>
                             </div>
-                        }
+                        )}
 
-                        {!loading &&
+                        {!loading && (
                             <InfiniteScroll
                                 dataLength={recipes.length}
                                 next={fetchRecipes}
                                 hasMore={hasMore}
-                                loader={<>
-                                    <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                        Loading loader
-                                    </div>
-                                </>}
+                                loader={
+                                    <>
+                                        <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                            Loading loader
+                                        </div>
+                                    </>
+                                }
                                 endMessage={
-                                    <p style={{ textAlign: 'center' }}>
+                                    <p style={{ textAlign: "center" }}>
                                         <b>End of page</b>
                                     </p>
                                 }
                             >
                                 <div className="grid grid-cols-1 gap-6 justify-items-center">
                                     {recipes.map((el, index) => {
-                                        return <RecipeCard key={index} recipe={el} />
+                                        return (
+                                            <RecipeCard
+                                                key={index}
+                                                recipe={el}
+                                            />
+                                        );
                                     })}
                                 </div>
                             </InfiniteScroll>
-                        }
-
+                        )}
                     </div>
                 </main>
             </div>
