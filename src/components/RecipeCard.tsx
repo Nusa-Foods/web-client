@@ -1,13 +1,13 @@
 import { RecipeType } from "@/type";
 import Link from "next/link";
+import ButtonAddBookmarks from "./ButtonAddBookmarks";
 
 export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
     return (
         <>
             <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%] h-auto py-4 px-4">
-
                 <Link href={`/discover/${recipe.slug}`}>
-                    <div className="flex items-center justify-center p-4 w-full h-[600px] overflow-hidden mb-4" >
+                    <div className="flex items-center justify-center p-4 w-full h-[600px] overflow-hidden mb-4">
                         <img
                             src={recipe.imgUrl}
                             alt={recipe.title}
@@ -57,7 +57,6 @@ export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
                                 </p>
                             </div>
                         </div>
-
                         <div className="flex justify-center">
                             <div className="flex items-center space-x-2">
                                 <svg
@@ -79,8 +78,8 @@ export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
                                 </p>
                             </div>
                         </div>
-
                         <div className="flex justify-end gap-4">
+                            {/* share */}
                             <div className="flex items-center space-x-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -97,20 +96,16 @@ export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
                                     />
                                 </svg>
                             </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#603F26" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                                </svg>
-                            </div>
-
+                            {/* bookmarks */}
+                            <ButtonAddBookmarks slug={recipe.slug} />
                         </div>
                     </div>
 
                     <div className="p-4">
-                        <h1 className="text-4xl font-bold capitalize">{recipe.title}</h1>
-                        <p className="text-gray-600">
-                            {recipe.description}
-                        </p>
+                        <h1 className="text-4xl font-bold capitalize">
+                            {recipe.title}
+                        </h1>
+                        <p className="text-gray-600">{recipe.description}</p>
                     </div>
                 </Link>
             </div>

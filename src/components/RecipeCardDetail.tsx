@@ -1,7 +1,12 @@
 import { RecipeType } from "@/type";
 import CommentCard from "./CommentCard";
+import ButtonAddBookmarks from "./ButtonAddBookmarks";
 
-export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: RecipeType }) {
+export default function RecipeCardDetail({
+    recipeDetail,
+}: {
+    recipeDetail: RecipeType;
+}) {
     return (
         <div className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] !h-auto py-4 px-4">
             <div className="flex items-center justify-center p-4 w-full mb-4 h-[40%] sm:h-[50%] md:h-[50%] lg:h-[50%] xl:h-[50%] overflow-hidden">
@@ -95,19 +100,18 @@ export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: Recip
                         </svg>
                     </div>
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#603F26" className="size-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                        </svg>
+                        <div className="flex items-center space-x-2">
+                            <ButtonAddBookmarks slug={recipeDetail.slug} />
+                        </div>
                     </div>
-
                 </div>
             </div>
 
             <div className="p-4">
-                <h1 className="text-4xl font-bold capitalize">{recipeDetail.title}</h1>
-                <p className="text-gray-600">
-                    {recipeDetail.description}
-                </p>
+                <h1 className="text-4xl font-bold capitalize">
+                    {recipeDetail.title}
+                </h1>
+                <p className="text-gray-600">{recipeDetail.description}</p>
             </div>
 
             <div className="flex-col">
@@ -117,7 +121,6 @@ export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: Recip
                 {/* {recipeDetail.comments.map((el) => {
                     return <CommentCard />
                 })} */}
-
             </div>
         </div>
     );
