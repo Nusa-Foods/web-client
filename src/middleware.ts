@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyTokenJose } from "./helpers/jwt";
 
 // Nanti dilengkapi di bagian protected
-const protectedRoutes = ["/discover"];
-const publicRoutes = ["/login", "/signup", "/"];
+const protectedRoutes = ['/discover', '/nusa-recipes']
+const publicRoutes = ['/login', '/signup', '/']
 
 export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
@@ -35,10 +35,11 @@ export async function middleware(request: NextRequest) {
                 { status: 401 }
             );
 
-        const decodeToken = await verifyTokenJose<{
-            email: string;
-            _id: string;
-        }>(token);
+    if (isProtectedRoute) {
+        if (!auth) return Response.json({ msg: "Authentication Failed" }, { status: 401 })
+        const [Bearer, token] = auth.value.split(' ')
+        if (Bearer !== "Bearer") return Response.json({ msg: "Authentication Failed" }, { status: 401 })
+        if (!token) return Response.json({ msg: "Authentication Failed" }, { status: 401 })
 
         const requestHeaders = new Headers(request.headers);
 
@@ -61,10 +62,11 @@ export async function middleware(request: NextRequest) {
             "Authorization, Content-Type"
         );
 
-        return response;
+
+        return response
     }
 }
 
 export const config = {
-    matcher: ["/discover"],
-};
+    matcher: ['/discover', '/nusa-recipes'],
+}
