@@ -3,12 +3,12 @@ import CommentCard from "./CommentCard";
 
 export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: RecipeType }) {
     return (
-        <div className="flex-1 flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[70%] xl:w-[50%] h-auto py-4 px-4">
-            <div className="flex items-center justify-center p-4">
+        <div className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] !h-auto py-4 px-4">
+            <div className="flex items-center justify-center p-4 w-full mb-4 h-[40%] sm:h-[50%] md:h-[50%] lg:h-[50%] xl:h-[50%] overflow-hidden">
                 <img
-                    src="https://storage.googleapis.com/chef-gpt.appspot.com/recipes%2FcVoeu0HZhjZhpPAZpyWy%2FcVoeu0HZhjZhpPAZpyWy.jpg"
-                    alt="Recipe 1"
-                    className="w-full h-auto rounded-lg"
+                    src={recipeDetail.imgUrl}
+                    alt={recipeDetail.title}
+                    className="rounded-lg object-cover w-full overflow-hidden"
                 />
             </div>
             <div className="pl-4 pr-4 flex items-center justify-between">
@@ -28,7 +28,7 @@ export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: Recip
                         />
                     </svg>
                     <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                        {recipeDetail.likes.length} like
+                        {/* {recipeDetail.likes.length} like */}
                     </p>
                 </div>
 
@@ -48,7 +48,7 @@ export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: Recip
                         />
                     </svg>
                     <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                        {recipeDetail.comments.length}comment
+                        {/* {recipeDetail.comments.length}comment */}
                     </p>
                 </div>
 
@@ -103,9 +103,9 @@ export default function RecipeCardDetail({ recipeDetail }: { recipeDetail: Recip
                 <CommentCard />
 
                 {/* Pakai yang di bawah, kirim datanya ke comment card */}
-                {recipeDetail.comments.map((el) => {
+                {/* {recipeDetail.comments.map((el) => {
                     return <CommentCard />
-                })}
+                })} */}
 
             </div>
         </div>
