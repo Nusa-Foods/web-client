@@ -9,6 +9,15 @@ export interface RecipeType {
     comments: string[];
     createdAt: Date;
     updatedAt: Date;
+    authorId: AuthorId;
+}
+
+export interface Id {
+    $oid: string;
+}
+
+export interface AuthorId {
+    $oid: string;
 }
 
 export interface GoogleLoginResponseType {
