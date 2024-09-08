@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import showToast from "@/utils/toast";
 import { useRouter } from "next/navigation";
@@ -18,15 +18,22 @@ export default function CreateRecipe() {
         setIsLoading(true);
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ title, description, imgUrl, bannerUrl }),
-            });
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        title,
+                        description,
+                        imgUrl,
+                        bannerUrl,
+                    }),
+                }
+            );
             const data = await response.json();
-            console.log(data, 'post recipe>>>');
 
             if (response.ok) {
                 showToast({
@@ -57,14 +64,22 @@ export default function CreateRecipe() {
                     Share Your Culinary Creations with Nusa-Mates
                 </p>
                 <p className="text-gray-700">
-                    Discover the joy of sharing your favorite recipes with a community of food enthusiasts. Our platform allows you to easily post and showcase your unique culinary creations. Whether it's a cherished family recipe or a new dish you've perfected, your contributions will inspire others and bring delightful new ideas to their kitchens. Join our vibrant community and let your recipes shine!
+                    Discover the joy of sharing your favorite recipes with a
+                    community of food enthusiasts. Our platform allows you to
+                    easily post and showcase your unique culinary creations.
+                    Whether it's a cherished family recipe or a new dish you've
+                    perfected, your contributions will inspire others and bring
+                    delightful new ideas to their kitchens. Join our vibrant
+                    community and let your recipes shine!
                 </p>
             </div>
 
             <div className="w-full md:w-full lg:w-full xl:w-1/2 lg:pr-8">
                 <form onSubmit={handleSubmit} className="w-full min-w-3/4">
                     <div className="w-full p-6 bg-white shadow-md rounded-lg mt-10">
-                        <h2 className="text-xl font-bold mb-4">Input Your Best Recipe Here</h2>
+                        <h2 className="text-xl font-bold mb-4">
+                            Input Your Best Recipe Here
+                        </h2>
                         {/* Title */}
                         <div className="mb-4">
                             <label
@@ -145,6 +160,5 @@ export default function CreateRecipe() {
                 </form>
             </div>
         </div>
-
     );
 }

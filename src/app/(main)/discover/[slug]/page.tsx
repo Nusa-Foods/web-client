@@ -1,11 +1,15 @@
 import RecipeCardDetail from "@/components/RecipeCardDetail";
 import { RecipeType } from "@/type";
 
-export default async function RecipeDetailPage({ params }: { params: { slug: string } }) {
-    console.log({ params }, 'params on product slug page>>>>')
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe/${params.slug}`);
-    const recipe: RecipeType = await res.json()
-    console.log(recipe)
+export default async function RecipeDetailPage({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/recipe/${params.slug}`
+    );
+    const recipe: RecipeType = await res.json();
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row">

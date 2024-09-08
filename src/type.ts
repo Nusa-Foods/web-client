@@ -10,3 +10,11 @@ export interface RecipeType {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface GoogleLoginResponseType {
+    accessToken: string;
+}
+
+export interface CredentialResponseType {
+    credential: string;
+}
