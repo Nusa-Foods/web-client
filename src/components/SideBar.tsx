@@ -54,48 +54,78 @@ export default function SideBar() {
 
                     <div className="hidden md:flex md:flex-col md:w-64 md:space-y-4">
                         <Link
-                            href="/"
-                            className="text-gray-900 hover:text-gray-700"
-                        >
-                            Home
-                        </Link>
-                        <Link
                             href="/discover"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Discover
+                            <div className="flex gap-1">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/compass.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Discover
+                            </div>
                         </Link>
                         <Link
                             href="/nusa-recipes"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Nusa Recipes
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.nicepng.com/png/full/71-718556_wonderful-indonesia-logo-logo-pesona-indonesia-png.png"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Nusa Recipes
+                            </div>
                         </Link>
                         <Link
                             href="/your-chef"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Your Personal Chef
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/cook_default.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Your Personal Chef
+                            </div>
                         </Link>
                         <Link
                             href="/bookmarks"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Bookmarks
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/bookmark_tabs.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Bookmarks
+                            </div>
                         </Link>
                         <Link
                             href="/events"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Events
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/calendar.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Events
+                            </div>
                         </Link>
                     </div>
                 </div>
 
                 {/* Mobile menu */}
                 <div
-                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                        }`}
+                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
+                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
                 >
                     <div className="flex justify-end p-4">
                         <button

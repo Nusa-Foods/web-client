@@ -49,9 +49,16 @@ export default function DiscoverDetailPage() {
             <div>
                 <main className="flex-grow p-6">
                     <div className="flex justify-between items-center content-center mb-6">
-                        <h1 className="text-3xl font-bold">
-                            Discover Amazing Recipes
-                        </h1>
+                        <div className="flex gap-2">
+                            <img
+                                src="https://www.chefgpt.xyz/assets/icons/compass.webp"
+                                alt="Nusa Food Discover"
+                                className="w-8 h-8"
+                            />
+                            <h1 className="text-3xl font-bold">
+                                Discover Amazing Recipes
+                            </h1>
+                        </div>
                         <Link
                             href="/create-recipe"
                             className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
