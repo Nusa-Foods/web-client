@@ -12,17 +12,27 @@ export default function DiscoverDetailPage() {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
-    async function fetchRecipes() {
+    // Fetch recipes function
+    async function fetchRecipes(reset: boolean = false) {
         try {
             setLoading(true);
 
+            if (reset) {
+                setRecipes([]);
+                setPage(1);
+                setHasMore(true);
+            }
+
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${page}`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${
+                    reset ? 1 : page
+                }`,
                 {
                     cache: "no-store",
                     credentials: "include",
                 }
             );
+
             if (!res.ok) throw await res.json();
 
             const data: RecipeType[] = await res.json();
@@ -30,8 +40,8 @@ export default function DiscoverDetailPage() {
             if (data.length === 0) {
                 setHasMore(false);
             } else {
-                setRecipes((prev) => [...prev, ...data]);
-                setPage(page + 1);
+                setRecipes((prev) => (reset ? [...data] : [...prev, ...data]));
+                setPage((prev) => prev + 1);
             }
         } catch (error) {
             console.log(error);
@@ -40,9 +50,15 @@ export default function DiscoverDetailPage() {
         }
     }
 
+    // Trigger the first fetch on component mount
     useEffect(() => {
         fetchRecipes();
     }, []);
+
+    // Button click handler to refresh the recipes
+    const refreshRecipes = () => {
+        fetchRecipes(true); // `true` to reset the recipes and fetch the latest
+    };
 
     return (
         <div className="min-h-flex flex-col md:flex-row justify-center bg-[#F9FAFB]">
@@ -66,6 +82,8 @@ export default function DiscoverDetailPage() {
                             Post Recipe
                         </Link>
                     </div>
+
+                    {/* Recipe Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
                         {loading && (
                             <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
@@ -81,7 +99,7 @@ export default function DiscoverDetailPage() {
                                 loader={
                                     <>
                                         <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                            Loading loader
+                                            Loading ...
                                         </div>
                                     </>
                                 }
@@ -97,6 +115,7 @@ export default function DiscoverDetailPage() {
                                             <RecipeCard
                                                 key={index}
                                                 recipe={el}
+                                                fetchRecipes={refreshRecipes}
                                             />
                                         );
                                     })}

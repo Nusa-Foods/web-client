@@ -1,8 +1,39 @@
+"use client";
 import { RecipeType } from "@/type";
 import Link from "next/link";
 import ButtonAddBookmarks from "./ButtonAddBookmarks";
+import ButtonLike from "./ButtonLike";
+import { useEffect, useState } from "react";
 
-export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
+export default function RecipeCard({
+    recipe,
+    fetchRecipes,
+}: {
+    recipe: RecipeType;
+    fetchRecipes: () => void | Promise<void>;
+}) {
+    const [user, setUser] = useState({});
+    console.log(String(recipe.authorId));
+    const getUser = async () => {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${String(
+                recipe.authorId
+            )}`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const data = await response.json();
+        setUser(data);
+    };
+    useEffect(() => {
+        getUser();
+    }, []);
+    console.log(user);
+    console.log(user.username);
     return (
         <>
             <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%] h-auto py-4 px-4">
@@ -18,20 +49,10 @@ export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
                     <div className="grid grid-cols-3 p-4">
                         <div className="flex justify-start gap-4">
                             <div className="flex items-center space-x-2">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="#603F26"
-                                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                                    />
-                                </svg>
+                                <ButtonLike
+                                    slug={recipe.slug}
+                                    fetchRecipes={fetchRecipes}
+                                />
                                 <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
                                     {recipe.likes.length}
                                 </p>
@@ -74,7 +95,7 @@ export default function RecipeCard({ recipe }: { recipe: RecipeType }) {
                                     />
                                 </svg>
                                 <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                                    name
+                                    {user.username ? user.username : user.email}
                                 </p>
                             </div>
                         </div>
