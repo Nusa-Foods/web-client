@@ -39,9 +39,16 @@ export default function EventPage() {
                 setHasMore(false);
                 console.log(data.length, '>>>')
             } else {
-                console.log(data.length, '>>> ke 2')
+                console.log(data.length, 'data.length')
                 setEvents((prev) => (reset ? [...data] : [...prev, ...data]));
-                setPage((prev) => prev + 1);
+
+                console.log(page, 'page before >>>')
+                setPage((prevPage) => {
+                    const newPage = prevPage + 1;
+                    console.log(newPage, 'page after update >>>');
+                    return newPage;
+                });
+                console.log(page, 'page >>>')
             }
         } catch (error) {
             console.log(error);
@@ -55,6 +62,15 @@ export default function EventPage() {
         console.log("use effect triggered");
         fetchEvents();
     }, []);
+
+    const handleJoinSuccess = (updatedEvent: EventType) => {
+        setEvents((prevEvents) =>
+            prevEvents.map((event) =>
+                event.slug === updatedEvent.slug ? updatedEvent : event
+            )
+        );
+    };
+
 
     return (
         <section className="bg-[#F9FAFB] p-5">
@@ -86,7 +102,7 @@ export default function EventPage() {
                     >
                         <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                             {events.map((el, index) => (
-                                <EventCard key={index} event={el} />
+                                <EventCard key={index} eventDetail={el} onJoinSuccess={handleJoinSuccess} />
                             ))}
                         </div>
                     </InfiniteScroll>
