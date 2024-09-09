@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { RecipeType } from "@/type";
 import { MouseEvent, useRef, useState } from "react";
@@ -19,15 +19,15 @@ export default function RecipeCardDetail({
     fetchRecipes,
 }: {
     recipeDetail: RecipeType;
-    fetchRecipes: () => void | Promise<void>;
+    fetchRecipes?: () => void | Promise<void>;
 }) {
-    const [text, setComment] = useState('');
+    const [text, setComment] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleComment = async (event: MouseEvent<SVGSVGElement>) => {
         event.preventDefault();
         try {
-            console.log(text, "commment >>>")
+            console.log(text, "commment >>>");
             const response = await fetch(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/recipe/${recipeDetail.slug}/comments`,
                 {
@@ -48,26 +48,23 @@ export default function RecipeCardDetail({
                     type: "success",
                 });
                 setComment("");
-                revalidate()
-
+                revalidate();
             } else {
-                showToast({ message: data.message || "Gagal menambahkan komentar" });
+                showToast({
+                    message: data.message || "Gagal menambahkan komentar",
+                });
             }
-
-
         } catch (err) {
             console.error("Error comment:", err);
         }
     };
 
     const handleButtonCommentClick = () => {
-        console.log("disni>>> clicl")
+        console.log("disni>>> clicl");
         if (inputRef.current) {
             inputRef.current.focus();
         }
     };
-
-
 
     return (
         <div className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] !h-auto py-4 px-4">
@@ -92,7 +89,9 @@ export default function RecipeCardDetail({
                     </div>
 
                     <div className="flex items-center space-x-2">
-                        <ButtonCommentStatic onClick={handleButtonCommentClick} />
+                        <ButtonCommentStatic
+                            onClick={handleButtonCommentClick}
+                        />
                         <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
                             {recipeDetail.comments.length}
                         </p>
@@ -130,7 +129,6 @@ export default function RecipeCardDetail({
                             <ButtonAddBookmarks slug={recipeDetail.slug} />
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -144,7 +142,7 @@ export default function RecipeCardDetail({
 
                 <div className="flex-col">
                     {recipeDetail.comments.map((el) => {
-                        return <CommentCard comment={el} key={el._id} />
+                        return <CommentCard comment={el} key={el._id} />;
                     })}
                 </div>
 
@@ -161,7 +159,8 @@ export default function RecipeCardDetail({
                         ref={inputRef}
                         className="block w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     />
-                    <svg xmlns="http://www.w3.org/2000/svg"
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
@@ -169,11 +168,14 @@ export default function RecipeCardDetail({
                         className="size-8"
                         onClick={handleComment}
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                        />
                     </svg>
                 </div>
             </div>
-
         </div>
     );
 }
