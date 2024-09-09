@@ -44,7 +44,7 @@ export default function LoginPage() {
                     type: "success",
                 });
                 cookies.set("Authorization", "Bearer " + data.accessToken);
-                router.push("/");
+                router.push("/discover");
             } else {
                 setError(
                     data.msg === "Invalid Email/Password"
@@ -86,7 +86,7 @@ export default function LoginPage() {
                     type: "success",
                 });
                 cookies.set("Authorization", "Bearer " + data.accessToken);
-                router.push("/");
+                router.push("/discover");
             } else {
                 showToast({ message: "Login failed" });
             }
