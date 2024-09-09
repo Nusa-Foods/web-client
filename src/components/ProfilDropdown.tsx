@@ -5,6 +5,7 @@ import { useCookies } from "next-client-cookies";
 import { verifyTokenJose } from "@/helpers/jwt";
 import { logout } from "@/actions";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 export default function ProfilDropdown() {
     const [open, setOpen] = useState<boolean>(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -78,7 +79,7 @@ export default function ProfilDropdown() {
                     <div className="flex justify-center items-center space-x-3 cursor-pointer">
                         <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-900">
                             <img
-                                src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                                src={user?.imgUrl ? user.imgUrl : "/cheff.svg"}
                                 alt=""
                                 className="w-full h-full object-cover"
                             />
@@ -96,8 +97,8 @@ export default function ProfilDropdown() {
                                     </div>
                                 </li>
                                 <li className="font-medium">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        href={`/profile/${user?._id}`}
                                         className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                                     >
                                         <div className="mr-3">
@@ -117,7 +118,7 @@ export default function ProfilDropdown() {
                                             </svg>
                                         </div>
                                         Account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="font-medium">
                                     <a

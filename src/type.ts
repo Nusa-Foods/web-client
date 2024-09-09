@@ -42,16 +42,17 @@ export interface CredentialResponseType {
 
 // User
 export interface UserType {
+    imgUrl?: string;
     _id?: string;
     username?: string;
     email?: string;
+    bio?: string;
     createdAt?: string;
     updatedAt?: string;
-    recipe?: string[];
+    recipe?: any[];
     event?: string[];
     user_recipes?: RecipeType[];
 }
-
 
 //event
 export interface EventType {
@@ -62,8 +63,8 @@ export interface EventType {
     imageUrl: string;
     createdAt: string;
     updatedAt: string;
-    attendance: registerEventUser[],
-    quota: number
+    attendance: registerEventUser[];
+    quota: number;
 }
 
 export interface registerEventUser {
