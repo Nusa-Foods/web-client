@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyTokenJose } from "./helpers/jwt";
 
 // Nanti dilengkapi di bagian protected
-const protectedRoutes = ["/discover", "/nusa-recipes"];
+const protectedRoutes = ["/discover", "/nusa-recipes", "/events"];
 const publicRoutes = ["/login", "/signup", "/"];
 
 export async function middleware(request: NextRequest) {
@@ -71,5 +71,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/discover", "/nusa-recipes"],
+    matcher: ["/discover", "/nusa-recipes", "/events"],
 };

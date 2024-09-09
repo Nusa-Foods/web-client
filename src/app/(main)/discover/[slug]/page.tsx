@@ -26,24 +26,24 @@ export default async function RecipeDetailPage({ params }: { params: { slug: str
     // console.log(recipe, 'page detail >>>')
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row">
+        <div className="min-h-screen flex flex-col md:flex-row  bg-[#F9FAFB]">
             <div>
                 {/* Banner */}
-                <div className="relative h-25 sm:h-32 md:h-48 lg:h-64 hidden md:block">
+                <div className="relative h-25 sm:h-32 md:h-48 lg:h-64 hidden md:block ">
                     <img
                         src={recipe.bannerUrl}
                         alt={recipe.title}
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-left p-4">
-                        <h2 className="text-8xl font-bold text-white">
+                        <h2 className="text-8xl font-bold text-white capitalize">
                             {recipe.title}
                         </h2>
                     </div>
                 </div>
 
                 {/* Main content */}
-                <main className="flex-grow p-6">
+                <main className="mt-10">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
                         <RecipeCardDetail recipeDetail={recipe} />
                     </div>
