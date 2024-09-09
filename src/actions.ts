@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export default async function revalidate() {
-    revalidatePath("/");
+    revalidatePath('/', 'layout')
 }
 
 export async function logout() {
