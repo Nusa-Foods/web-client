@@ -1,5 +1,6 @@
 "use client";
 
+import ProfilDropdown from "@/components/ProfilDropdown";
 import RecipeCard from "@/components/RecipeCard";
 import { RecipeType } from "@/type";
 import Link from "next/link";
@@ -75,12 +76,15 @@ export default function DiscoverDetailPage() {
                                 Discover Amazing Recipes
                             </h1>
                         </div>
-                        <Link
-                            href="/create-recipe"
-                            className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
-                        >
-                            Post Recipe
-                        </Link>
+                        <div className="flex">
+                            <Link
+                                href="/create-recipe"
+                                className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
+                            >
+                                Post Recipe
+                            </Link>
+                            <ProfilDropdown />
+                        </div>
                     </div>
 
                     {/* Recipe Grid */}
