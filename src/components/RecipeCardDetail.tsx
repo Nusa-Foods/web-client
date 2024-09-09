@@ -84,7 +84,7 @@ export default function RecipeCardDetail({
                             fetchRecipes={fetchRecipes}
                         />
                         <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                            {recipeDetail.likes.length}
+                            {recipeDetail.likes ? recipeDetail.likes.length : 0}
                         </p>
                     </div>
 
@@ -93,7 +93,9 @@ export default function RecipeCardDetail({
                             onClick={handleButtonCommentClick}
                         />
                         <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                            {recipeDetail.comments.length}
+                            {recipeDetail.comments
+                                ? recipeDetail.comments.length
+                                : 0}
                         </p>
                     </div>
                 </div>
@@ -141,9 +143,10 @@ export default function RecipeCardDetail({
                 </div>
 
                 <div className="flex-col">
-                    {recipeDetail.comments.map((el) => {
-                        return <CommentCard comment={el} key={el._id} />;
-                    })}
+                    {recipeDetail.comments &&
+                        recipeDetail.comments.map((el) => {
+                            return <CommentCard comment={el} key={el._id} />;
+                        })}
                 </div>
 
                 {/* //write comment */}

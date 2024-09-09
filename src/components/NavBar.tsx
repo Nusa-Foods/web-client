@@ -20,15 +20,15 @@ export default function NavBar() {
 
                     {/* Navigation Links */}
                     <div className="space-x-6 hidden md:flex text-gray-500">
-                        <a href="/nusa-recipes" className="nav-link">
+                        <Link href="/nusa-recipes" className="nav-link">
                             Nusa Recipes
-                        </a>
+                        </Link>
                         <Link href="/discover" className="nav-link">
                             Discover
                         </Link>
-                        <a href="/your-chef" className="nav-link">
+                        <Link href="/your-chef" className="nav-link">
                             Your Personal Chef
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
