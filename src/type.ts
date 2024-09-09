@@ -6,7 +6,7 @@ export interface RecipeType {
     bannerUrl: string;
     slug: string;
     likes: Like[];
-    comments: string[];
+    comments: Comment[];
     createdAt: Date;
     updatedAt: Date;
     authorId: AuthorId;
@@ -15,6 +15,13 @@ export interface RecipeType {
 export interface Like {
     userEmail: string;
     createdAt: string;
+}
+
+export interface Comment {
+    _id: string;
+    username: string;
+    text: string;
+    createdAt: Date;
 }
 
 export interface Id {
