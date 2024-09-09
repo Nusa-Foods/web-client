@@ -1,10 +1,13 @@
 "use client";
+import { useState, useEffect, MouseEvent } from "react";
 import { RecipeType, UserType } from "@/type";
 import Link from "next/link";
 import ButtonAddBookmarks from "./ButtonAddBookmarks";
 import ButtonLike from "./ButtonLike";
 import { useEffect, useState } from "react";
 import ButtonComment from "./ButtonComment";
+import ButtonShare from "./ButtonShare";
+
 
 export default function RecipeCard({
     recipe,
@@ -14,6 +17,7 @@ export default function RecipeCard({
     fetchRecipes: () => void | Promise<void>;
 }) {
     const [user, setUser] = useState<UserType>({});
+
     const getUser = async (authorId: string) => {
         const response = await fetch(
             `${process.env.NEXT_PUBLIC_BASE_URL}/user/${authorId}`,
@@ -27,9 +31,11 @@ export default function RecipeCard({
         const data = await response.json();
         setUser(data);
     };
+
     useEffect(() => {
         getUser(String(recipe.authorId));
     }, []);
+
     return (
         <>
             <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%] h-auto py-4 px-4">
@@ -38,7 +44,7 @@ export default function RecipeCard({
                         <img
                             src={recipe.imgUrl}
                             alt={recipe.title}
-                            className="rounded-lg object-cover "
+                            className="rounded-lg object-cover"
                         />
                     </div>
 
@@ -65,6 +71,7 @@ export default function RecipeCard({
                                 </p>
                             </div>
                         </div>
+
                         <div className="flex justify-center">
                             <div className="flex items-center space-x-2">
                                 <svg
@@ -86,25 +93,11 @@ export default function RecipeCard({
                                 </p>
                             </div>
                         </div>
+
                         <div className="flex justify-end gap-4">
-                            {/* share */}
-                            <div className="flex items-center space-x-2">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="#603F26"
-                                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
-                                    />
-                                </svg>
-                            </div>
-                            {/* bookmarks */}
+                            {/* Share button */}
+                            <ButtonShare recipe={recipe} />
+                            {/* Bookmarks */}
                             <ButtonAddBookmarks slug={recipe.slug} />
                         </div>
                     </div>

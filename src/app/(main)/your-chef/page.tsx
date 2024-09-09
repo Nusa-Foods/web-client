@@ -108,7 +108,7 @@ export default function AiPage() {
                     </div>
 
                     {/* Input 2: Meal Type */}
-                    <div className="mb-6">
+                    {/* <div className="mb-6">
                         <label
                             htmlFor="meal"
                             className="block text-lg font-medium text-gray-700 mb-2"
@@ -130,10 +130,10 @@ export default function AiPage() {
                             <option value="snack">Snack</option>
                             <option value="dessert">Dessert</option>
                         </select>
-                    </div>
+                    </div> */}
 
                     {/* Input 3: Cooking Skill */}
-                    <div className="mb-6">
+                    {/* <div className="mb-6">
                         <label
                             htmlFor="chef"
                             className="block text-lg font-medium text-gray-700 mb-2"
@@ -153,7 +153,7 @@ export default function AiPage() {
                             <option value="intermediate">Intermediate</option>
                             <option value="expert">Expert</option>
                         </select>
-                    </div>
+                    </div> */}
 
                     {/* Submit Button */}
                     <div className="text-center">
@@ -167,11 +167,11 @@ export default function AiPage() {
                 {recipe && (
                     <div className="mt-8">
                         <h2 className="text-xl font-bold mb-4">
-                            {recipe.name}
+                            {recipe.title}
                         </h2>
                         <img
                             src={recipe.imgUrl}
-                            alt={recipe.name}
+                            alt={recipe.title}
                             className="w-full h-auto mb-4"
                         />
                         <div className="mb-4">
@@ -179,19 +179,41 @@ export default function AiPage() {
                                 Ingredients:
                             </h3>
                             <ul className="list-disc list-inside">
-                                {recipe.ingredients.map(
-                                    (
-                                        [quantity, ingredient]: [
-                                            string,
-                                            string
-                                        ],
-                                        index: number
-                                    ) => (
-                                        <li key={index}>
-                                            {quantity} {ingredient}
-                                        </li>
-                                    )
-                                )}
+                                {recipe.ingredients &&
+                                    recipe.ingredients.map(
+                                        (
+                                            [quantity, ingredient]: [
+                                                string,
+                                                string
+                                            ],
+                                            index: number
+                                        ) => (
+                                            <li key={index}>
+                                                {quantity} {ingredient}
+                                            </li>
+                                        )
+                                    )}
+                            </ul>
+                        </div>
+                        <div className="mb-4">
+                            <h3 className="text-lg font-semibold mb-2">
+                                Nutrients:
+                            </h3>
+                            <ul className="list-disc list-inside">
+                                {recipe.nutrients &&
+                                    recipe.nutrients.map(
+                                        (
+                                            [quantity, nutrient]: [
+                                                string,
+                                                string
+                                            ],
+                                            index: number
+                                        ) => (
+                                            <li key={index}>
+                                                {quantity} {nutrient}
+                                            </li>
+                                        )
+                                    )}
                             </ul>
                         </div>
                         <div>
