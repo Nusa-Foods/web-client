@@ -44,3 +44,23 @@ export interface UserType {
     event?: string[];
     user_recipes?: RecipeType[];
 }
+
+
+//event
+export interface EventType {
+    _id: string;
+    title: string;
+    slug: string;
+    description: string;
+    imageUrl: string;
+    createdAt: string;
+    updatedAt: string;
+    attendance: registerEventUser[],
+    quota: number
+}
+
+export interface registerEventUser {
+    name: string;
+    email: string;
+    registeredAt: string;
+}

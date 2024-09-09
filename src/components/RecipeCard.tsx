@@ -53,6 +53,7 @@ export default function RecipeCard({
                                 </p>
                             </div>
 
+                            {/* comments */}
                             <div className="flex items-center space-x-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +125,7 @@ export default function RecipeCard({
                         <p className="text-gray-600">{recipe.description}</p>
                     </div>
                 </Link>
+
             </div>
         </>
     );

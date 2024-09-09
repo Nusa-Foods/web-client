@@ -107,21 +107,41 @@ export default function RecipeCardDetail({
                 </div>
             </div>
 
-            <div className="p-4">
-                <h1 className="text-4xl font-bold capitalize">
-                    {recipeDetail.title}
-                </h1>
-                <p className="text-gray-600">{recipeDetail.description}</p>
-            </div>
+            <div>
+                <div className="p-4">
+                    <h1 className="text-4xl font-bold capitalize">
+                        {recipeDetail.title}
+                    </h1>
+                    <p className="text-gray-600">{recipeDetail.description}</p>
+                </div>
 
-            <div className="flex-col">
-                <CommentCard />
+                <div className="flex-col">
+                    <CommentCard />
+                    <CommentCard />
 
-                {/* Pakai yang di bawah, kirim datanya ke comment card */}
-                {/* {recipeDetail.comments.map((el) => {
+
+                    {/* Pakai yang di bawah, kirim datanya ke comment card */}
+                    {/* {recipeDetail.comments.map((el) => {
                     return <CommentCard />
                 })} */}
+                </div>
+
+                {/* //write comment */}
+                <div className="flex gap-3 mt-5 justify-end">
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="add comment ..."
+                        required
+                        className="block w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-custom-brown-1 sm:text-sm sm:leading-6"
+                    />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#603F26" className="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                    </svg>
+                </div>
             </div>
+
         </div>
     );
 }
