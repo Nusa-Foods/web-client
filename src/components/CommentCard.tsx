@@ -18,7 +18,7 @@ export default function CommentCard({ comment }: { comment: Comment }) {
         <div className="flex items-center p-2 gap-2 flex-col sm:flex-row">
             <div className="w-16 h-16 flex-shrink-0 hidden md:block">
                 <img
-                    src="https://storage.googleapis.com/chef-gpt.appspot.com/recipes%2FcVoeu0HZhjZhpPAZpyWy%2FcVoeu0HZhjZhpPAZpyWy.jpg"
+                    src={comment.imageUrl ? comment.imageUrl : `https://ui-avatars.com/api/?name=${comment.username}&background=random`}
                     alt="Recipe 1"
                     className="w-full h-full rounded-full object-cover"
                 />

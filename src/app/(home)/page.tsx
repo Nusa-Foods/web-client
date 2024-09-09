@@ -8,16 +8,17 @@ export default function Home() {
             <div className="flex flex-col items-center">
                 {/* Hero Section */}
                 <section className="text-black  px-10 w-full flex flex-col md:flex-row items-center">
-                    <div className="mx-auto px-20 text-center md:text-left w-full md:w-1/2 mb-8 md:mb-0">
+                    <div className="mx-auto px-4 sm:px-6 md:px-10 lg:px-20 text-center md:text-left w-full md:w-1/2 mb-8 md:mb-0">
                         <p className="text-4sm font-bold mb-4">
                             Discover NusaFoods 🌟
                         </p>
-                        <h1 className="text-7xl font-bold mb-4">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                             Say Goodbye to
                         </h1>
-                        <h1 className="text-8xl font-bold text-custom-brown-1 mb-4">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-custom-brown-1 mb-4 sm:text-center md:text-left">
                             Mealtime Stress!
                         </h1>
+
                         <p className="text-lg mb-8 text-gray-500">
                             Elevate your dining experience with personalized
                             meal suggestions, easy-to-follow recipes, and a

@@ -1,9 +1,9 @@
 "use client"
 
-import { RecipeType } from "@/type";
+import { RecipeType, UserType } from "@/type";
 import CommentCard from "./CommentCard";
 import ButtonAddBookmarks from "./ButtonAddBookmarks";
-import { MouseEvent, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import ButtonComment from "./ButtonComment";
 import ButtonLike from "./ButtonLike";
 import showToast from "@/utils/toast";
@@ -20,6 +20,26 @@ export default function RecipeCardDetail({
     recipeDetail: RecipeType;
     fetchRecipes: () => void | Promise<void>;
 }) {
+    const [user, setUser] = useState<UserType>({});
+    const getUser = async (authorId: string) => {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${authorId}`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const data = await response.json();
+        setUser(data);
+    };
+
+    useEffect(() => {
+        getUser(String(recipeDetail.authorId));
+    }, []);
+
+
     const [text, setComment] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -115,7 +135,7 @@ export default function RecipeCardDetail({
                             />
                         </svg>
                         <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                            name ini belum aad
+                            {user.username ? user.username : user.email}
                         </p>
                     </div>
                 </div>

@@ -1,9 +1,10 @@
 export default function Footer() {
     return (
         <>
-            <div className="bg-base-200 text-base-content border-t-2 mt-auto p-20">
-                <div className="flex justify-between p-10">
-                    <div>
+            <div className="w-full bg-base-200 text-base-content border-t-2 mt-auto p-10 md:p-8 lg:p-12 xl:p-20">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+
+                    <div className="flex-1 mb-6 md:mb-0">
                         <aside>
                             <div className="flex items-center space-x-2">
                                 <img
@@ -16,39 +17,35 @@ export default function Footer() {
                                     <span className="text-[#3A2D18]">Food</span>
                                 </span>
                             </div>
-                            <p className="text-gray-500">
-                                Your Cook Inspiration
-                            </p>
+                            <p className="text-gray-500 mt-2">Your Cook Inspiration</p>
                         </aside>
                     </div>
-                    <div className="flex justify-between w-1/4">
-                        <nav className="flex flex-col text-gray-500">
-                            <b className="footer-title text-gray-700">
-                                Services
-                            </b>
-                            <a className="link link-hover">Branding</a>
-                            <a className="link link-hover">Design</a>
-                            <a className="link link-hover">Marketing</a>
-                            <a className="link link-hover">Advertisement</a>
-                        </nav>
-                        <nav className="flex flex-col text-gray-500">
-                            <b className="footer-title text-gray-700">
-                                Company
-                            </b>
-                            <a className="link link-hover">About us</a>
-                            <a className="link link-hover">Contact</a>
-                            <a className="link link-hover">Jobs</a>
-                            <a className="link link-hover">Press kit</a>
-                        </nav>
-                        <nav className="flex flex-col text-gray-500">
-                            <b className="footer-title text-gray-700">Legal</b>
-                            <a className="link link-hover">Terms of use</a>
-                            <a className="link link-hover">Privacy policy</a>
-                            <a className="link link-hover">Cookie policy</a>
-                        </nav>
+
+
+                    <div className="flex-1">
+                        <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6 lg:space-x-10 xl:space-x-10">
+                            <nav className="flex flex-col text-gray-500">
+                                <b className="footer-title text-gray-700 text-lg mb-2">Services</b>
+                                <a className="link link-hover mb-1">Branding</a>
+                                <a className="link link-hover mb-1">Marketing</a>
+                                <a className="link link-hover mb-1">Advertisement</a>
+                            </nav>
+                            <nav className="flex flex-col text-gray-500">
+                                <b className="footer-title text-gray-700 text-lg mb-2">Company</b>
+                                <a className="link link-hover mb-1">About us</a>
+                                <a className="link link-hover mb-1">Contact</a>
+                            </nav>
+                            <nav className="flex flex-col text-gray-500">
+                                <b className="footer-title text-gray-700 text-lg mb-2">Legal</b>
+                                <a className="link link-hover mb-1">Terms of use</a>
+                                <a className="link link-hover mb-1">Privacy policy</a>
+                                <a className="link link-hover mb-1">Cookie policy</a>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </>
     );
 }

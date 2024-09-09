@@ -22,6 +22,7 @@ export interface Comment {
     username: string;
     text: string;
     createdAt: Date;
+    imageUrl: string
 }
 
 export interface Id {
