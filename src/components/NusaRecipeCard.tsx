@@ -12,7 +12,7 @@ export default function NusaRecipeCard({
     getBookmarks: () => void | Promise<void>;
 }) {
     const handleRemoveBookmarks = async (
-        event: MouseEvent<HTMLDivElement>,
+        event: MouseEvent<SVGSVGElement>,
         slug: string
     ) => {
         event.preventDefault();
@@ -48,9 +48,9 @@ export default function NusaRecipeCard({
         }
     };
     return (
-        <div className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto">
-            <div className="flex flex-col h-full justify-between">
-                <Link href="/nusa-recipes/details">
+        <div className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto w-full h-auto flex flex-col">
+            <div className="flex flex-col h-full">
+                <Link href="/nusa-recipes/details" className="flex-grow">
                     <img
                         src={recipe.imgUrl}
                         alt="Recipe 1"
@@ -58,26 +58,36 @@ export default function NusaRecipeCard({
                     />
 
                     <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-lg font-semibold">
+                        <h3 className="text-lg font-semibold truncate capitalize">
                             {recipe.title}
                         </h3>
                     </div>
 
-                    {/* description */}
-                    <p className="text-gray-600 mb-2 text-sm">
+                    {/* Description */}
+                    <p className="text-gray-600 mb-2 text-sm truncate">
                         {recipe.description}
                     </p>
                 </Link>
 
-                <div
-                    onClick={(event) =>
-                        handleRemoveBookmarks(event, recipe.slug)
-                    }
-                    className="text-center hover:cursor-pointer bg-custom-brown-1 text-white font-medium py-2 px-4 rounded-md text-sm hover:bg-custom-brown-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                >
-                    Remove from Bookmarks
+                <div className="flex justify-end mt-2">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="#603F26"
+                        className="size-6 cursor-pointer"
+                        onClick={(event) => handleRemoveBookmarks(event, recipe.slug)}
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                        />
+                    </svg>
                 </div>
             </div>
         </div>
+
     );
 }
