@@ -179,19 +179,41 @@ export default function AiPage() {
                                 Ingredients:
                             </h3>
                             <ul className="list-disc list-inside">
-                                {recipe.ingredients.map(
-                                    (
-                                        [quantity, ingredient]: [
-                                            string,
-                                            string
-                                        ],
-                                        index: number
-                                    ) => (
-                                        <li key={index}>
-                                            {quantity} {ingredient}
-                                        </li>
-                                    )
-                                )}
+                                {recipe.ingredients &&
+                                    recipe.ingredients.map(
+                                        (
+                                            [quantity, ingredient]: [
+                                                string,
+                                                string
+                                            ],
+                                            index: number
+                                        ) => (
+                                            <li key={index}>
+                                                {quantity} {ingredient}
+                                            </li>
+                                        )
+                                    )}
+                            </ul>
+                        </div>
+                        <div className="mb-4">
+                            <h3 className="text-lg font-semibold mb-2">
+                                Nutrients:
+                            </h3>
+                            <ul className="list-disc list-inside">
+                                {recipe.nutrients &&
+                                    recipe.nutrients.map(
+                                        (
+                                            [quantity, nutrient]: [
+                                                string,
+                                                string
+                                            ],
+                                            index: number
+                                        ) => (
+                                            <li key={index}>
+                                                {quantity} {nutrient}
+                                            </li>
+                                        )
+                                    )}
                             </ul>
                         </div>
                         <div>

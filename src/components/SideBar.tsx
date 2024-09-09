@@ -80,6 +80,19 @@ export default function SideBar() {
                             </div>
                         </Link>
                         <Link
+                            href="/random-recipes"
+                            className="text-gray-900 hover:text-gray-700"
+                        >
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://atlas-content-cdn.pixelsquid.com/stock-images/dice-B5mdRR0-600.jpg"
+                                    alt="Nusa Food Random"
+                                    className="w-6 h-6"
+                                />
+                                Random Recipes
+                            </div>
+                        </Link>
+                        <Link
                             href="/your-chef"
                             className="text-gray-900 hover:text-gray-700"
                         >
