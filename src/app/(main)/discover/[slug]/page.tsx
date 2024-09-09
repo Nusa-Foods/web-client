@@ -26,10 +26,10 @@ export default async function RecipeDetailPage({ params }: { params: { slug: str
     // console.log(recipe, 'page detail >>>')
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row">
+        <div className="min-h-screen flex flex-col md:flex-row  bg-[#F9FAFB]">
             <div>
                 {/* Banner */}
-                <div className="relative h-25 sm:h-32 md:h-48 lg:h-64 hidden md:block">
+                <div className="relative h-25 sm:h-32 md:h-48 lg:h-64 hidden md:block ">
                     <img
                         src={recipe.bannerUrl}
                         alt={recipe.title}
@@ -43,7 +43,7 @@ export default async function RecipeDetailPage({ params }: { params: { slug: str
                 </div>
 
                 {/* Main content */}
-                <main className="">
+                <main className="mt-10">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
                         <RecipeCardDetail recipeDetail={recipe} />
                     </div>
