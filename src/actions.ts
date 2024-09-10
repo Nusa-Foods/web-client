@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
+
 export default async function revalidate() {
     revalidatePath('/', 'layout')
 }
@@ -15,3 +16,4 @@ export async function logout() {
         expires: new Date(),
     });
 }
+

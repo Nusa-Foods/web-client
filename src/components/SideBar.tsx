@@ -1,10 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SideBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isMobileMenuOpen]);
 
     return (
         <nav className="bg-white shadow-md">
@@ -136,9 +148,8 @@ export default function SideBar() {
 
                 {/* Mobile menu */}
                 <div
-                    className={`fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${
-                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
+                    className={`pl-10 fixed inset-0 bg-white shadow-lg z-40 transform transition-transform duration-300 md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                        }`}
                 >
                     <div className="flex justify-end p-4">
                         <button
@@ -169,37 +180,79 @@ export default function SideBar() {
                             href="/"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Home
+                            <div className="flex gap-1">
+                                <img
+                                    src="https://tse1.mm.bing.net/th?id=OIP.mqpwvmwMOXiJTKbzZfajqgHaHa&pid=Api&P=0&h=180"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Home
+                            </div>
                         </Link>
                         <Link
                             href="/discover"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Discover
+                            <div className="flex gap-1">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/compass.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Discover
+                            </div>
                         </Link>
                         <Link
-                            href="/about"
+                            href="/nusa-recipes"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Nusa Recipes
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.nicepng.com/png/full/71-718556_wonderful-indonesia-logo-logo-pesona-indonesia-png.png"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Nusa Recipes
+                            </div>
                         </Link>
                         <Link
-                            href="/your-cheff"
+                            href="/your-chef"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Your Personal Cheff
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/cook_default.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Your Personal Chef
+                            </div>
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/bookmarks"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Bookmarks
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/bookmark_tabs.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Bookmarks
+                            </div>
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/events"
                             className="text-gray-900 hover:text-gray-700"
                         >
-                            Event
+                            <div className="flex gap-2">
+                                <img
+                                    src="https://www.chefgpt.xyz/assets/icons/calendar.webp"
+                                    alt="Nusa Food Discover"
+                                    className="w-5 h-5"
+                                />
+                                Events
+                            </div>
                         </Link>
                     </div>
                 </div>

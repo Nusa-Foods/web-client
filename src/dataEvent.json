@@ -1,0 +1,232 @@
+[
+    {
+        "title": "Workshop Kesehatan Jantung",
+        "slug": "workshop-kesehatan-jantung",
+        "description": "Pelajari cara menjaga kesehatan jantung melalui diet sehat dan olahraga. Dipandu oleh ahli gizi dan dokter spesialis jantung.",
+        "imageUrl": "https://asset-2.tstatic.net/tribunnews/foto/bank/images/kemenkes_20160928_085255.jpg",
+        "location": "Hotel Grand Tjokro, Jakarta, Indonesia",
+        "googlemaps": "Jalan Daan Mogot No.63 Tj. Duren Utara Kec. Grogol petamburan, Daerah Khusus Ibukota Jakarta 11470",
+        "dateEvent": "Sabtu, 30 September 2024",
+        "quota": 150
+    },
+    {
+        "title": "Kelas Memasak Makanan Sehat",
+        "slug": "kelas-memasak-makanan-sehat",
+        "description": "Belajar memasak makanan sehat dengan bahan-bahan alami dan bergizi. Cocok untuk semua usia.",
+        "imageUrl": "https://marketplace.canva.com/EAFbZO4Q678/1/0/1600w/canva-hijau-putih-simpel-ajakan-makan-sehat-poster-a6NZOCJ-uQc.jpg",
+        "location": "The Luxton Hotel Bandung, Bandung, Indonesia",
+        "googlemaps": "18 Jalan Ir. H. Juanda Kec. Bandung Wetan, Jawa Barat 40115",
+        "dateEvent": "Selasa, 10 Oktober 2024",
+        "quota": 100
+    },
+    {
+        "title": "Seminar Nutrisi untuk Atlet",
+        "slug": "seminar-nutrisi-untuk-atlet",
+        "description": "Seminar tentang pentingnya nutrisi dalam mendukung performa atlet. Dihadiri oleh ahli gizi olahraga dan pelatih.",
+        "imageUrl": "https://www.shutterstock.com/image-vector/national-nutrition-week-banner-background-260nw-2497415627.jpg",
+        "location": "Jakarta Convention Center, Jakarta, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Jumat, 20 Oktober 2024",
+        "quota": 200
+    },
+    {
+        "title": "Pelatihan Kesehatan Mental",
+        "slug": "pelatihan-kesehatan-mental",
+        "description": "Pelatihan untuk memahami dan mengelola kesehatan mental, dengan fokus pada stres dan kecemasan.",
+        "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/010/433/369/small/mental-health-word-concepts-pink-banner-psychologist-support-infographics-with-icons-on-color-background-isolated-typography-illustration-with-text-vector.jpg",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Kamis, 5 November 2024",
+        "quota": 50
+    },
+    {
+        "title": "Pameran Resep Tradisional",
+        "slug": "pameran-resep-tradisional",
+        "description": "Pameran berbagai resep tradisional dari seluruh Indonesia, dengan demo memasak dan sampling.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaq6jYqR_NhggDfQ_IjTdCoIFDKlHSKdtErqNmCUqtUwG5YIenBqaoVaZd26YBmx-QYdQ&usqp=CAU",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Sabtu, 15 November 2024",
+        "quota": 50
+    },
+    {
+        "title": "Webinar Tentang Diet Sehat",
+        "slug": "webinar-tentang-diet-sehat",
+        "description": "Webinar tentang cara menyusun diet sehat dan seimbang untuk berbagai kebutuhan kesehatan.",
+        "imageUrl": "https://media.slidesgo.com/storage/21314175/food-and-nutrition-workshop1652961820.jpg",
+        "location": "The Trans Resort Bali, Bali, Indonesia",
+        "googlemaps": "Jalan Sunset Road Seminyak, Bali 80361",
+        "dateEvent": "Rabu, 25 November 2024",
+        "quota": 100
+    },
+    {
+        "title": "Workshop Memasak Vegan",
+        "slug": "workshop-memasak-vegan",
+        "description": "Workshop memasak khusus untuk resep vegan dengan bahan-bahan organik dan teknik memasak yang ramah lingkungan.",
+        "imageUrl": "https://i.pinimg.com/736x/a3/fb/51/a3fb51dd26a65514f26e817838bdfdb5.jpg",
+        "location": "The Trans Resort Bali, Bali, Indonesia",
+        "googlemaps": "Jalan Sunset Road Seminyak, Bali 80361",
+        "dateEvent": "Sabtu, 10 Desember 2024",
+        "quota": 70
+    },
+    {
+        "title": "Diskusi Kesehatan Kulit",
+        "slug": "diskusi-kesehatan-kulit",
+        "description": "Diskusi dengan dokter kulit dan ahli kecantikan tentang cara merawat dan menjaga kesehatan kulit.",
+        "imageUrl": "https://img.freepik.com/free-psd/beauty-care-banner-design-template_23-2149189166.jpg",
+        "location": "Universitas Brawijaya, Malang, Indonesia",
+        "googlemaps": "Universitas Brawijaya 10-11 Jalan Veteran Kec. Lowokwaru, Jawa Timur 65145",
+        "dateEvent": "Senin, 15 Desember 2024",
+        "quota": 120
+    },
+    {
+        "title": "Festival Masakan Nusantara",
+        "slug": "festival-masakan-nusantara",
+        "description": "Festival masakan yang menampilkan berbagai hidangan khas Nusantara dengan demo memasak dan kompetisi.",
+        "imageUrl": "https://neosohojakarta.com/wp-content/uploads/2022/11/KULINER-NUSANTARA-LEGENDARIS-1024x1024.jpeg",
+        "location": "The Trans Resort Bali, Bali, Indonesia",
+        "googlemaps": "Jalan Sunset Road Seminyak, Bali 80361",
+        "dateEvent": "Sabtu, 23 Desember 2024",
+        "quota": 100
+    },
+    {
+        "title": "Kelas Memasak untuk Anak",
+        "slug": "kelas-memasak-untuk-anak",
+        "description": "Kelas memasak yang dirancang khusus untuk anak-anak, dengan resep mudah dan menyenangkan.",
+        "imageUrl": "https://cdn.shopify.com/s/files/1/0064/6106/3223/files/Kitchen-1_480x480.jpg?v=1628218674",
+        "location": "Jakarta Convention Center, Jakarta, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Minggu, 7 Januari 2025",
+        "quota": 80
+    },
+    {
+        "title": "Pelatihan Yoga dan Kesehatan",
+        "slug": "pelatihan-yoga-dan-kesehatan",
+        "description": "Pelatihan yang menggabungkan yoga dengan tips kesehatan untuk menjaga keseimbangan tubuh dan pikiran.",
+        "imageUrl": "https://marketplace.canva.com/EAFlmhwJ5Ak/1/0/1600w/canva-green-illustrative-yoga-day-instagram-post-Rf4IWncjHPg.jpg",
+        "location": "Jakarta Convention Center, Jakarta, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Kamis, 15 Januari 2025",
+        "quota": 30
+    },
+    {
+        "title": "Festival Resep Makanan Pedas",
+        "slug": "festival-resep-makanan-pedas",
+        "description": "Festival yang menampilkan berbagai resep makanan pedas dari seluruh Nusantara, dengan kompetisi dan demo memasak.",
+        "imageUrl": "https://as1.ftcdn.net/v2/jpg/01/44/95/24/1000_F_144952472_KYim9jc0bfQ6AD7YWoXT65D6OwJqPWEZ.jpg",
+        "location": "Jakarta Convention Center, Jakarta, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Sabtu, 25 Januari 2025",
+        "quota": 40
+    },
+    {
+        "title": "Workshop Masak Makanan Berprotein Tinggi",
+        "slug": "workshop-masak-makanan-berprotein-tinggi",
+        "description": "Workshop tentang cara memasak makanan yang kaya protein untuk mendukung gaya hidup sehat dan aktif.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgReWdCMcCZnTt8e5Rw5XqPT6r--ww68s3jSSTXtq6KW9OPi_UUnPvV4TGREbZQFV1e1Q&usqp=CAU",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Rabu, 5 Februari 2025",
+        "quota": 50
+    },
+    {
+        "title": "Webinar Tentang Kesehatan Pencernaan",
+        "slug": "webinar-tentang-kesehatan-pencernaan",
+        "description": "Webinar yang membahas cara menjaga kesehatan pencernaan dan tips diet yang mendukung sistem pencernaan.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEsaB9UEVOnmlEm0P2dSJ7P_upzurVSiusA&s",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Senin, 10 Februari 2025",
+        "quota": 50
+    },
+    {
+        "title": "Pelatihan Memasak Makanan Sehat untuk Keluarga",
+        "slug": "pelatihan-memasak-makanan-sehat-untuk-keluarga",
+        "description": "Pelatihan memasak yang fokus pada resep sehat untuk seluruh anggota keluarga.",
+        "imageUrl": "https://i.pinimg.com/736x/f7/99/4b/f7994b16017bb4e8f9dd98fe62ce8487.jpg",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Sabtu, 15 Februari 2025",
+        "quota": 20
+    },
+    {
+        "title": "Kelas Memasak Hidangan Penutup Sehat",
+        "slug": "kelas-memasak-hidangan-penutup-sehat",
+        "description": "Kelas memasak yang mengajarkan cara membuat hidangan penutup yang sehat dan rendah gula.",
+        "imageUrl": "https://cdn.tatlerasia.com/indonesiatatlerdining/images/i/20200730-8ffac827f9333c9602635_resized_773x510.jpg",
+        "location": "Jakarta, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Selasa, 25 Februari 2025",
+        "quota": 30
+    },
+    {
+        "title": "Diskusi Kesehatan dan Nutrisi",
+        "slug": "diskusi-kesehatan-dan-nutrisi",
+        "description": "Diskusi mengenai pentingnya nutrisi dalam menjaga kesehatan dan bagaimana memilih makanan yang tepat.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbOBnbU8vYfjMBod84MVIo4cjEjzHlwv3pCA&s",
+        "location": "Pakuwon Tower, Surabaya, Indonesia",
+        "googlemaps": "Pakuwon Tower no 21-31 Jalan Embong Malang Kec. Tegalsari, Jawa Timur 60261",
+        "dateEvent": "Jumat, 7 Maret 2025",
+        "quota": 80
+    },
+    {
+        "title": "Festival Kuliner Vegan",
+        "slug": "festival-kuliner-vegan",
+        "description": "Festival kuliner yang menampilkan berbagai resep vegan dengan demo memasak dan sampling.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZBcPj7pxStiftxJZU90wDbRUwgLJBkQk1ag&s",
+        "location": "Bandung, Indonesia",
+        "googlemaps": "1 Jalan Gatot Subroto Kecamatan Tanah Abang, Daerah Khusus Ibukota Jakarta 10270",
+        "dateEvent": "Minggu, 16 Maret 2025",
+        "quota": 200
+    },
+    {
+        "title": "Kelas Memasak Makanan Penyehat",
+        "slug": "kelas-memasak-makanan-penyehat",
+        "description": "Kelas memasak yang berfokus pada makanan penyehat dengan bahan-bahan alami dan teknik memasak sehat.",
+        "imageUrl": "https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg",
+        "location": "Hotel Grand Tjokro, Jakarta, Indonesia",
+        "googlemaps": "Jalan Daan Mogot No.63 Tj. Duren Utara Kec. Grogol petamburan, Daerah Khusus Ibukota Jakarta 11470",
+        "dateEvent": "Kamis, 25 Maret 2025",
+        "quota": 50
+    },
+    {
+        "title": "Webinar tentang Manajemen Stres",
+        "slug": "webinar-tentang-manajemen-stres",
+        "description": "Webinar yang membahas teknik-teknik manajemen stres untuk meningkatkan kesehatan mental.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxV34oA-k5RvYBCjT3oOMoRoyncWp9uke8XA&s",
+        "location": "Hotel Grand Tjokro, Jakarta, Indonesia",
+        "googlemaps": "Jalan Daan Mogot No.63 Tj. Duren Utara Kec. Grogol petamburan, Daerah Khusus Ibukota Jakarta 11470",
+        "dateEvent": "Sabtu, 5 April 2025",
+        "quota": 80
+    },
+    {
+        "title": "Pelatihan Kesehatan Keluarga",
+        "slug": "pelatihan-kesehatan-keluarga",
+        "description": "Pelatihan untuk keluarga tentang cara menjaga kesehatan bersama dengan tips diet dan olahraga.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqa4oQA5bRVs-no8F9dflg4BZ4qS-EPMPkeg&s",
+        "location": "Hotel Grand Tjokro, Jakarta, Indonesia",
+        "googlemaps": "Jalan Daan Mogot No.63 Tj. Duren Utara Kec. Grogol petamburan, Daerah Khusus Ibukota Jakarta 11470",
+        "dateEvent": "Rabu, 15 April 2025",
+        "quota": 80
+    },
+    {
+        "title": "Kelas Memasak Hidangan Diet Rendah Karbohidrat",
+        "slug": "kelas-memasak-hidangan-diet-rendah-karbohidrat",
+        "description": "Kelas memasak yang mengajarkan cara membuat hidangan diet rendah karbohidrat dengan bahan-bahan yang sehat.",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnOiyQcYpQ0mYcJD3joDYjlJz1pNZQqT6UR6KTg3KVRPczVbQ3tiCPN9AqY-ztfLhnhL8&usqp=CAU",
+        "location": "Hotel Grand Tjokro, Jakarta, Indonesia",
+        "googlemaps": "Jalan Daan Mogot No.63 Tj. Duren Utara Kec. Grogol petamburan, Daerah Khusus Ibukota Jakarta 11470",
+        "dateEvent": "Jumat, 25 April 2025",
+        "quota": 30
+    },
+    {
+        "title": "Festival Makanan Kesehatan",
+        "slug": "festival-makanan-kesehatan",
+        "description": "Festival yang menampilkan berbagai pilihan makanan sehat dari berbagai daerah, dengan demo memasak dan seminar.",
+        "imageUrl": "https://ap.vokasi.undip.ac.id/wp-content/uploads/2023/05/WhatsApp-Image-2023-04-03-at-13.48.01.jpeg",
+        "location": "The Luxton Hotel Bandung, Bandung, Indonesia",
+        "googlemaps": "18 Jalan Ir. H. Juanda Kec. Bandung Wetan, Jawa Barat 40115",
+        "dateEvent": "Sabtu, 10 Mei 2025",
+        "quota": 150
+    }
+]

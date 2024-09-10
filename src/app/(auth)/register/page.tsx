@@ -3,6 +3,14 @@ import showToast from "@/utils/toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {
+    GoogleLogin,
+    useGoogleOneTapLogin,
+    CredentialResponse,
+} from "@react-oauth/google";
+import { GoogleLoginResponseType } from "@/type";
+import { useCookies } from "next-client-cookies";
+
 
 export default function RegisterPage() {
     const [email, setEmail] = useState("");
@@ -11,6 +19,7 @@ export default function RegisterPage() {
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const cookies = useCookies();
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -72,10 +81,55 @@ export default function RegisterPage() {
             setIsLoading(false);
         }
     };
+
+    const handleCredentialResponse = async (
+        credentialResponse: CredentialResponse
+    ) => {
+        setIsLoading(true);
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/user/googleLogin`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        googleToken: credentialResponse.credential,
+                    }),
+                }
+            );
+
+            if (response.ok) {
+                const data: GoogleLoginResponseType = await response.json();
+                showToast({
+                    message: "Selamat datang!",
+                    type: "success",
+                });
+                cookies.set("Authorization", "Bearer " + data.accessToken);
+                router.push("/");
+            } else {
+                showToast({ message: "Login failed" });
+            }
+        } catch (err) {
+            console.error("Error during Google login:", err);
+            setError("An error occurred while logging in.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useGoogleOneTapLogin({
+        onSuccess: handleCredentialResponse,
+        onError: () => {
+            showToast({ message: "Login failed" });
+        },
+    });
+
     return (
         <>
             <div className="min-h-screen flex items-center justify-center bg-[#F9FAFB]">
-                <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+                <div className="flex flex-col bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
                     <Link href="/">
                         <div className="flex items-center space-x-2 justify-center">
                             <img
@@ -90,8 +144,25 @@ export default function RegisterPage() {
                         </div>
                     </Link>
                     <h2 className="text-md my-5 text-center mb-6">
-                        Create your account
+                        Create an account
                     </h2>
+
+                    {/* Google Login */}
+                    <div className="flex justify-center items-center w-full flex-1 mb-6">
+                        <GoogleLogin
+                            size="large"
+                            theme="outline"
+                            onSuccess={handleCredentialResponse}
+                            onError={() => {
+                                showToast({ message: "Login failed" });
+                            }}
+                        />
+                    </div>
+
+                    <h2 className="text-md  text-gray-500 mb-4 text-center">
+                        or continue with email
+                    </h2>
+
                     <form action="#" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label
@@ -143,6 +214,9 @@ export default function RegisterPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <label className="text-sm text-gray-500">
+                                Please ensure to enter at least 6 characters
+                            </label>
                         </div>
 
                         <button

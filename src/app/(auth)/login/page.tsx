@@ -125,16 +125,20 @@ export default function LoginPage() {
                 </h2>
 
                 {/* Google Login */}
-                <div className="flex justify-center items-center w-full mb-6">
+                <div className="flex justify-center items-center w-full flex-1 mb-6">
                     <GoogleLogin
                         size="large"
-                        theme="filled_black"
+                        theme="outline"
                         onSuccess={handleCredentialResponse}
                         onError={() => {
                             showToast({ message: "Login failed" });
                         }}
                     />
                 </div>
+
+                <h2 className="text-md  text-gray-500 mb-4 text-center">
+                    or continue with email
+                </h2>
 
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
@@ -189,9 +193,6 @@ export default function LoginPage() {
                         Sign Up
                     </Link>
                 </p>
-                <button onClick={() => showToast({ message: "hehe" })}>
-                    Hehe
-                </button>
             </div>
         </div>
     );
