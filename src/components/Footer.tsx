@@ -24,21 +24,21 @@ export default function Footer() {
                     <div className="flex-1">
                         <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6 lg:space-x-10 xl:space-x-10">
                             <nav className="flex flex-col text-gray-500">
-                                <b className="footer-title text-gray-700 text-lg mb-2">Services</b>
-                                <a className="link link-hover mb-1">Branding</a>
-                                <a className="link link-hover mb-1">Marketing</a>
-                                <a className="link link-hover mb-1">Advertisement</a>
+                                <p className="footer-title text-gray-700 text-lg mb-2">Services</p>
+                                <p className="link link-hover mb-1">Branding</p>
+                                <p className="link link-hover mb-1">Marketing</p>
+                                <p className="link link-hover mb-1">Advertisement</p>
                             </nav>
                             <nav className="flex flex-col text-gray-500">
-                                <b className="footer-title text-gray-700 text-lg mb-2">Company</b>
-                                <a className="link link-hover mb-1">About us</a>
-                                <a className="link link-hover mb-1">Contact</a>
+                                <p className="footer-title text-gray-700 text-lg mb-2">Company</p>
+                                <p className="link link-hover mb-1">About us</p>
+                                <p className="link link-hover mb-1">Contact</p>
                             </nav>
                             <nav className="flex flex-col text-gray-500">
-                                <b className="footer-title text-gray-700 text-lg mb-2">Legal</b>
-                                <a className="link link-hover mb-1">Terms of use</a>
-                                <a className="link link-hover mb-1">Privacy policy</a>
-                                <a className="link link-hover mb-1">Cookie policy</a>
+                                <p className="footer-title text-gray-700 text-lg mb-2">Legal</p>
+                                <p className="link link-hover mb-1">Terms of use</p>
+                                <p className="link link-hover mb-1">Privacy policy</p>
+                                <p className="link link-hover mb-1">Cookie policy</p>
                             </nav>
                         </div>
 

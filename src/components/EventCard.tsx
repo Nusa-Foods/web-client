@@ -136,7 +136,7 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
                 {user ? (
                     status ? (
                         <button
-                            className="bg-custom-brown-3 text-custom-brown-1 font-medium px-4 py-2 rounded-md"
+                            className="bg-red-500 text-white font-medium px-4 py-2 rounded-md"
                             onClick={handleCancelEvent}
                         >
                             Cancel Join
