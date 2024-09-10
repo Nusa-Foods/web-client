@@ -1,5 +1,6 @@
 "use client";
 
+import ProfilDropdown from "@/components/ProfilDropdown";
 import { ChangeEvent, FormEvent, KeyboardEvent, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -63,52 +64,68 @@ export default function AiPage() {
     };
 
     return (
-        <div className="min-h-screen py-10 bg-[#F9FAFB]">
-            <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
-                    Effortless Recipes from What You Have!
-                </h1>
-
-                <form onSubmit={handleSubmit}>
-                    {/* Input 1: Ingredients */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="ingredients"
-                            className="block text-lg font-medium text-gray-700 mb-2"
-                        >
-                            What ingredients do you have?
-                        </label>
-                        <div className="w-full px-4 py-2 border rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
-                            {ingredients.map((ingredient, index) => (
-                                <span
-                                    key={index}
-                                    className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2"
-                                >
-                                    {ingredient}
-                                    <button
-                                        type="button"
-                                        className="ml-2 text-indigo-500 hover:text-indigo-700"
-                                        onClick={() =>
-                                            removeIngredient(ingredient)
-                                        }
-                                    >
-                                        &times;
-                                    </button>
-                                </span>
-                            ))}
-                            <input
-                                type="text"
-                                value={inputValue}
-                                onChange={handleInputChange}
-                                onKeyDown={handleKeyDown}
-                                placeholder="Type an ingredient and press enter"
-                                className="w-full p-2 outline-none border-none focus:outline-none focus:border-none"
+        <div className="min-h-screen py-5 bg-[#F9FAFB]">
+            <div className="container mx-auto px-4">
+                <main className="flex flex-col">
+                    <div className="flex mb-6 justify-between">
+                        <div className="flex flex-row items-center gap-4">
+                            <img
+                                src="https://www.chefgpt.xyz/assets/icons/cook_default.webp"
+                                alt="Nusa Food Discover"
+                                className="w-5 h-5"
                             />
+                            <h1 className="text-3xl font-bold">
+                                Your Personal Recipe
+                            </h1>
                         </div>
+                        <ProfilDropdown />
                     </div>
 
-                    {/* Input 2: Meal Type */}
-                    {/* <div className="mb-6">
+                    <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
+                            Effortless Recipes from What You Have!
+                        </h1>
+
+                        <form onSubmit={handleSubmit}>
+                            {/* Input 1: Ingredients */}
+                            <div className="mb-6">
+                                <label
+                                    htmlFor="ingredients"
+                                    className="block text-lg font-medium text-gray-700 mb-2"
+                                >
+                                    What ingredients do you have?
+                                </label>
+                                <div className="w-full px-4 py-2 border rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
+                                    {ingredients.map((ingredient, index) => (
+                                        <span
+                                            key={index}
+                                            className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2"
+                                        >
+                                            {ingredient}
+                                            <button
+                                                type="button"
+                                                className="ml-2 text-indigo-500 hover:text-indigo-700"
+                                                onClick={() =>
+                                                    removeIngredient(ingredient)
+                                                }
+                                            >
+                                                &times;
+                                            </button>
+                                        </span>
+                                    ))}
+                                    <input
+                                        type="text"
+                                        value={inputValue}
+                                        onChange={handleInputChange}
+                                        onKeyDown={handleKeyDown}
+                                        placeholder="Type an ingredient and press enter"
+                                        className="w-full p-2 outline-none border-none focus:outline-none focus:border-none"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Input 2: Meal Type */}
+                            {/* <div className="mb-6">
                         <label
                             htmlFor="meal"
                             className="block text-lg font-medium text-gray-700 mb-2"
@@ -132,8 +149,8 @@ export default function AiPage() {
                         </select>
                     </div> */}
 
-                    {/* Input 3: Cooking Skill */}
-                    {/* <div className="mb-6">
+                            {/* Input 3: Cooking Skill */}
+                            {/* <div className="mb-6">
                         <label
                             htmlFor="chef"
                             className="block text-lg font-medium text-gray-700 mb-2"
@@ -155,80 +172,83 @@ export default function AiPage() {
                         </select>
                     </div> */}
 
-                    {/* Submit Button */}
-                    <div className="text-center">
-                        <button className="bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto">
-                            Generate Recipe
-                        </button>
-                    </div>
-                </form>
+                            {/* Submit Button */}
+                            <div className="text-center">
+                                <button className="bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto">
+                                    Generate Recipe
+                                </button>
+                            </div>
+                        </form>
 
-                {/* Display Recipe */}
-                {recipe && (
-                    <div className="mt-8">
-                        <h2 className="text-xl font-bold mb-4">
-                            {recipe.title}
-                        </h2>
-                        <img
-                            src={recipe.imgUrl}
-                            alt={recipe.title}
-                            className="w-full h-auto mb-4"
-                        />
-                        <div className="mb-4">
-                            <h3 className="text-lg font-semibold mb-2">
-                                Ingredients:
-                            </h3>
-                            <ul className="list-disc list-inside">
-                                {recipe.ingredients &&
-                                    recipe.ingredients.map(
-                                        (
-                                            [quantity, ingredient]: [
-                                                string,
-                                                string
-                                            ],
-                                            index: number
-                                        ) => (
-                                            <li key={index}>
-                                                {quantity} {ingredient}
-                                            </li>
-                                        )
-                                    )}
-                            </ul>
-                        </div>
-                        <div className="mb-4">
-                            <h3 className="text-lg font-semibold mb-2">
-                                Nutrients:
-                            </h3>
-                            <ul className="list-disc list-inside">
-                                {recipe.nutrients &&
-                                    recipe.nutrients.map(
-                                        (
-                                            [quantity, nutrient]: [
-                                                string,
-                                                string
-                                            ],
-                                            index: number
-                                        ) => (
-                                            <li key={index}>
-                                                {quantity} {nutrient}
-                                            </li>
-                                        )
-                                    )}
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-2">
-                                Guide:
-                            </h3>
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                className="prose prose-lg"
-                            >
-                                {recipe.guide}
-                            </ReactMarkdown>
-                        </div>
+                        {/* Display Recipe */}
+                        {recipe && (
+                            <div className="mt-8">
+                                <h2 className="text-xl font-bold mb-4">
+                                    {recipe.title}
+                                </h2>
+                                <img
+                                    src={recipe.imgUrl}
+                                    alt={recipe.title}
+                                    className="w-full h-auto mb-4"
+                                />
+                                <div className="mb-4">
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Ingredients:
+                                    </h3>
+                                    <ul className="list-disc list-inside">
+                                        {recipe.ingredients &&
+                                            recipe.ingredients.map(
+                                                (
+                                                    [quantity, ingredient]: [
+                                                        string,
+                                                        string
+                                                    ],
+                                                    index: number
+                                                ) => (
+                                                    <li key={index}>
+                                                        {quantity} {ingredient}
+                                                    </li>
+                                                )
+                                            )}
+                                    </ul>
+                                </div>
+                                <div className="mb-4">
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Nutrients:
+                                    </h3>
+                                    <ul className="list-disc list-inside">
+                                        {recipe.nutrients &&
+                                            recipe.nutrients.map(
+                                                (
+                                                    [quantity, nutrient]: [
+                                                        string,
+                                                        string
+                                                    ],
+                                                    index: number
+                                                ) => (
+                                                    <li key={index}>
+                                                        {quantity} {nutrient}
+                                                    </li>
+                                                )
+                                            )}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Guide:
+                                    </h3>
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        className="prose prose-lg"
+                                    >
+                                        {recipe.guide}
+                                    </ReactMarkdown>
+                                </div>
+                            </div>
+                        )}
                     </div>
-                )}
+
+                </main>
             </div>
         </div>
     );

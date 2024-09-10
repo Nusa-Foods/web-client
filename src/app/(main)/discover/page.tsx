@@ -26,8 +26,7 @@ export default function DiscoverDetailPage() {
             }
 
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${
-                    reset ? 1 : page
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${reset ? 1 : page
                 }`,
                 {
                     cache: "no-store",
@@ -74,18 +73,18 @@ export default function DiscoverDetailPage() {
     };
 
     return (
-        <div className="min-h-flex flex-col md:flex-row justify-center bg-[#F9FAFB]">
-            <div>
-                <main className="flex-grow p-6">
-                    <div className="flex justify-between items-center content-center mb-6">
-                        <div className="flex gap-2">
+        <div className="min-h-screen py-5 bg-[#F9FAFB]">
+            <div className="container mx-auto px-4">
+                <main className="flex flex-col">
+                    <div className="flex mb-6 justify-between">
+                        <div className="flex flex-row items-center gap-4">
                             <img
                                 src="https://www.chefgpt.xyz/assets/icons/compass.webp"
                                 alt="Nusa Food Discover"
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Discover Amazing Recipes
+                                Discover
                             </h1>
                         </div>
                         <div className="flex">
@@ -98,6 +97,7 @@ export default function DiscoverDetailPage() {
                             <ProfilDropdown />
                         </div>
                     </div>
+
 
                     {/* Recipe Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
