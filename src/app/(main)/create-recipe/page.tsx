@@ -83,6 +83,10 @@ export default function CreateRecipe() {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         setIsLoading(true);
+        if (!content)
+            return showToast({
+                message: "Isi semua kolom yang diperlukan terlebih dahulu.",
+            });
 
         try {
             const response = await fetch(

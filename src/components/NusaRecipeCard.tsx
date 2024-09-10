@@ -50,7 +50,7 @@ export default function NusaRecipeCard({
     return (
         <div className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto w-full h-auto flex flex-col">
             <div className="flex flex-col h-full">
-                <Link href="/nusa-recipes/details" className="flex-grow">
+                <Link href={`/discover/${recipe.slug}`} className="flex-grow">
                     <img
                         src={recipe.imgUrl}
                         alt="Recipe 1"
