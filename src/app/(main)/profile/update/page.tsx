@@ -1,4 +1,60 @@
+import { verifyTokenJose } from "@/helpers/jwt";
+import { UserType } from "@/type";
+import { useCookies } from "next-client-cookies";
+import { useEffect, useState } from "react";
+
 export default function UpdateProfilePage() {
+    const cookies = useCookies();
+    const [user, setUser] = useState<UserType | null>(null);
+    const [currentUserId, setCurrentUserId] = useState<string>("");
+
+    const getCurrentUserId = async () => {
+        const token = cookies.get("Authorization")?.split(" ")[1];
+        if (token) {
+            const userInfo = await verifyTokenJose(token);
+            setCurrentUserId(userInfo);
+        }
+    };
+
+    const getUser = async (id: string) => {
+        if (!id) return;
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/user/${id}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (response.ok) {
+                const data = await response.json();
+                setUser(data);
+            } else {
+                console.error("Failed to fetch user data");
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            await getCurrentUserId();
+        };
+
+        fetchUserData();
+    }, []);
+
+    useEffect(() => {
+        if (currentUserId) {
+            getUser(currentUserId);
+        }
+    }, [currentUserId]);
+
+    console.log("ini user", user);
+
     return (
         <>
             <div className="min-h-screen flex items-center justify-center">
