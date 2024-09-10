@@ -38,7 +38,7 @@ export default function RecipeCard({
                         <img
                             src={recipe.imgUrl}
                             alt={recipe.title}
-                            className="rounded-lg object-cover "
+                            className="rounded-lg object-cover w-full"
                         />
                     </div>
 

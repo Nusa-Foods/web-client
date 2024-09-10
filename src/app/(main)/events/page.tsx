@@ -1,7 +1,11 @@
 "use client";
 
 import EventCard from "@/components/EventCard";
-import { EventType } from "@/type";
+import { decode, verifyTokenJose } from "@/helpers/jwt";
+
+import { EventType, UserType } from "@/type";
+import { jwtDecode } from "jwt-decode";
+import { useCookies } from "next-client-cookies";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -11,8 +15,28 @@ export default function EventPage() {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
-    // Fetch events function
-    async function fetchEvents(reset: boolean = false) {
+    const [userId, setUserId] = useState<string | null>(null);
+    const [userEmail, setUserEmail] = useState<string | null>(null);
+    const cookies = useCookies()
+
+
+    const auth = cookies.get("Authorization") as string
+
+    const fetchUserData = () => {
+        if (auth) {
+            try {
+                const token = auth.split(' ')[1];
+                const decodedToken: any = jwtDecode(token);
+                setUserId(decodedToken._id);
+                setUserEmail(decodedToken.email);
+                console.log(userId, userEmail, '>>>>')
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
+        }
+    };
+
+    const fetchEvents = async (reset: boolean = false) => {
         try {
             setLoading(true);
 
@@ -25,43 +49,36 @@ export default function EventPage() {
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_BASE_URL}/event?page=${reset ? 1 : page}`,
                 {
-                    cache: "no-store",
-                    credentials: "include",
+                    cache: 'no-store',
+                    credentials: 'include',
                 }
             );
 
             if (!res.ok) throw await res.json();
 
             const data: EventType[] = await res.json();
-            console.log(data, "data events>>>");
+            console.log(data, 'data events>>>');
 
             if (data.length === 0) {
                 setHasMore(false);
-                console.log(data.length, '>>>')
             } else {
-                console.log(data.length, 'data.length')
                 setEvents((prev) => (reset ? [...data] : [...prev, ...data]));
-
-                console.log(page, 'page before >>>')
-                setPage((prevPage) => {
-                    const newPage = prevPage + 1;
-                    console.log(newPage, 'page after update >>>');
-                    return newPage;
-                });
-                console.log(page, 'page >>>')
+                setPage((prevPage) => prevPage + 1);
             }
         } catch (error) {
-            console.log(error);
+            console.error('Error fetching events:', error);
         } finally {
             setLoading(false);
         }
-    }
+    };
 
-    // Trigger the first fetch on component mount
+
+
     useEffect(() => {
-        console.log("use effect triggered");
+        fetchUserData();
         fetchEvents();
     }, []);
+
 
     const handleJoinSuccess = (updatedEvent: EventType) => {
         setEvents((prevEvents) =>
@@ -70,6 +87,7 @@ export default function EventPage() {
             )
         );
     };
+
 
 
     return (
@@ -100,7 +118,7 @@ export default function EventPage() {
                             )
                         }
                     >
-                        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                             {events.map((el, index) => (
                                 <EventCard key={index} eventDetail={el} onJoinSuccess={handleJoinSuccess} />
                             ))}

@@ -4,7 +4,7 @@ import revalidate from "@/actions";
 import { EventType } from "@/type";
 import showToast from "@/utils/toast";
 import Link from "next/link";
-import { MouseEvent } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 type EventCardProps = {
     eventDetail: EventType;
@@ -12,6 +12,10 @@ type EventCardProps = {
 };
 
 export default function EventCard({ eventDetail, onJoinSuccess }: EventCardProps) {
+    const [status, setStatus] = useState(false)
+
+
+
     const handleJoinEvent = async (
         event: MouseEvent<HTMLButtonElement>,
     ) => {
@@ -38,6 +42,7 @@ export default function EventCard({ eventDetail, onJoinSuccess }: EventCardProps
 
                 const updatedEvent = { ...eventDetail, quota: eventDetail.quota - 1 };
                 onJoinSuccess(updatedEvent);
+                setStatus(true)
 
             } else {
                 showToast({
@@ -47,6 +52,45 @@ export default function EventCard({ eventDetail, onJoinSuccess }: EventCardProps
             }
         } catch (err) {
             console.error("Error during join event:", err);
+        }
+    };
+
+    const handleCancelEvent = async (
+        event: MouseEvent<HTMLButtonElement>,
+    ) => {
+        event.preventDefault();
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/event/${eventDetail.slug}/cancel`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    credentials: "include",
+                }
+            );
+            const data = await response.json();
+
+            if (response.ok) {
+                showToast({
+                    message: "Success Cancel Join Event",
+                    type: "success",
+                });
+                revalidate();
+
+                const updatedEvent = { ...eventDetail, quota: eventDetail.quota + 1 };
+                onJoinSuccess(updatedEvent);
+                setStatus(false)
+
+            } else {
+                showToast({
+                    message: data.message,
+                    type: "error",
+                });
+            }
+        } catch (err) {
+            console.error("Error during cancel join event:", err);
         }
     };
 
@@ -82,11 +126,19 @@ export default function EventCard({ eventDetail, onJoinSuccess }: EventCardProps
                 <span className=" p-2 bg-custom-brown-3 text-custom-brown-2 text-sm font-medium rounded-full">
                     <b>Quota:</b> {eventDetail.quota ? eventDetail.quota : 0} {eventDetail.quota > 1 ? "slots" : "slot"}
                 </span>
-                <button
-                    onClick={handleJoinEvent}
-                    className="bg-custom-brown-2 text-white font-medium py-2 px-4 rounded-md text-sm hover:bg-custom-brown-1 focus:outline-none">
-                    Join Event
-                </button>
+                {!status ?
+                    <button
+                        onClick={handleJoinEvent}
+                        className="bg-custom-brown-2 text-white font-medium py-2 px-4 rounded-md text-sm hover:bg-custom-brown-1 focus:outline-none">
+                        Join Event
+                    </button>
+                    :
+                    <button
+                        onClick={handleCancelEvent}
+                        className="bg-custom-brown-2 text-white font-medium py-2 px-4 rounded-md text-sm hover:bg-custom-brown-1 focus:outline-none">
+                        Cancel Join
+                    </button>
+                }
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+"use server"
 import RecipeCardDetail from "@/components/RecipeCardDetail";
 import { RecipeType } from "@/type";
 import { cookies } from "next/headers";

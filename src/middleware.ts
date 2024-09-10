@@ -42,7 +42,7 @@ export async function middleware(request: NextRequest) {
             email: string;
             _id: string;
         }>(token);
-        // console.log(decodeToken, 'decodedtoken >>>')
+        console.log(decodeToken, 'decodedtoken middleware >>>')
 
         const requestHeaders = new Headers(request.headers);
 
@@ -52,8 +52,10 @@ export async function middleware(request: NextRequest) {
             },
         });
 
-        // response.headers.set('x-id', decodeToken._id)
-        // response.headers.set('x-email', decodeToken.email)
+        // const response = NextResponse.next();
+
+        response.headers.set('x-id', decodeToken._id)
+        response.headers.set('x-email', decodeToken.email)
 
         response.headers.set(
             "Access-Control-Allow-Origin",
@@ -64,8 +66,10 @@ export async function middleware(request: NextRequest) {
             "Access-Control-Allow-Headers",
             "Authorization, Content-Type"
         );
+        response.headers.set("Access-Control-Expose-Headers", "x-id, x-email");
 
-        // console.log(response, 'response>>>')
+        // console.log(response, 'response middleware>>>>>')
+
         return response;
     }
 }
