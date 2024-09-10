@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyTokenJose } from "./helpers/jwt";
 
 // Nanti dilengkapi di bagian protected
-const protectedRoutes = ["/discover", "/nusa-recipes", "/events"];
+const protectedRoutes = ["/discover", "/nusa-recipes", "/events", "/profile"];
 const publicRoutes = ["/login", "/signup", "/"];
 
 export async function middleware(request: NextRequest) {
@@ -54,8 +54,8 @@ export async function middleware(request: NextRequest) {
 
         // const response = NextResponse.next();
 
-        response.headers.set('x-id', decodeToken._id)
-        response.headers.set('x-email', decodeToken.email)
+        // response.headers.set('x-id', decodeToken._id)
+        // response.headers.set('x-email', decodeToken.email)
 
         response.headers.set(
             "Access-Control-Allow-Origin",
@@ -75,5 +75,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/discover", "/nusa-recipes", "/events"],
+    matcher: ["/discover", "/nusa-recipes", "/events", "/profile"],
 };
