@@ -39,7 +39,7 @@ function ChatComponent() {
                     _id: "default",
                     username: "Support Bot",
                     email: "support@default.com",
-                    imgUrl: "/cheff.svg",
+                    imageUrl: "/cheff.svg",
                     welcomeMessage: "Hi! How can I assist you today?",
                     role: "customer service",
                 });
@@ -70,7 +70,7 @@ function ChatComponent() {
                 id: currentUser._id as string,
                 name: currentUser.username as string,
                 email: currentUser.email,
-                photoUrl: currentUser.imgUrl as string,
+                photoUrl: currentUser.imageUrl as string,
                 welcomeMessage: "Hello! How can I assist you?",
                 role: "user",
             });
@@ -79,7 +79,7 @@ function ChatComponent() {
                 id: chatPartner._id as string,
                 name: chatPartner.username as string,
                 email: chatPartner.email,
-                photoUrl: chatPartner.imgUrl as string,
+                photoUrl: chatPartner.imageUrl as string,
                 welcomeMessage: "Hello! How can i help you?",
                 role: "user",
             });
