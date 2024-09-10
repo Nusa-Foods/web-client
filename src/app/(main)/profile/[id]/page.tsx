@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCookies } from "next-client-cookies";
 import { verifyTokenJose } from "@/helpers/jwt";
-import ChatComponent from "@/components/talksjs";
 import ButtonChat from "@/components/ButtonChat";
 
 export default function ProfilePage({ params }: { params: { id: string } }) {

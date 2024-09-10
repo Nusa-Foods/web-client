@@ -10,6 +10,7 @@ export interface RecipeType {
     createdAt: Date;
     updatedAt: Date;
     authorId: AuthorId;
+    guide: string;
 }
 
 export interface Like {
@@ -52,6 +53,8 @@ export interface UserType {
     recipe?: any[];
     event?: string[];
     user_recipes?: RecipeType[];
+    welcomeMessage?: string;
+    role?: string;
 }
 
 //event
@@ -71,4 +74,10 @@ export interface registerEventUser {
     name: string;
     email: string;
     registeredAt: string;
+}
+
+declare global {
+    interface Window {
+        cloudinary: any;
+    }
 }

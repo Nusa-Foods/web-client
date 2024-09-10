@@ -1,4 +1,5 @@
 import { ToastContainer } from "react-toastify";
+import { CookiesProvider } from "next-client-cookies/server";
 import "react-toastify/dist/ReactToastify.css";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -16,8 +17,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <ToastContainer />
-                <main className="">{children}</main>
+                <CookiesProvider>
+                    <ToastContainer />
+                    <main className="">{children}</main>
+                </CookiesProvider>
             </body>
         </html>
     );

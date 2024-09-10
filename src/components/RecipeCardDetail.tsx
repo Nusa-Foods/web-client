@@ -13,6 +13,7 @@ import ButtonComment from "./ButtonComment";
 import ButtonLike from "./ButtonLike";
 import ButtonCommentStatic from "./ButtonCommentStatic";
 import ButtonShare from "./ButtonShare";
+import Editor from "./Editor";
 
 export default function RecipeCardDetail({
     recipeDetail,
@@ -140,6 +141,14 @@ export default function RecipeCardDetail({
                         {recipeDetail.title}
                     </h1>
                     <p className="text-gray-600">{recipeDetail.description}</p>
+                    {recipeDetail.guide && (
+                        <Editor
+                            onChange={() => {}}
+                            initialContent={recipeDetail.guide}
+                            editable={false}
+                            // onGetContent={handleEditorChange} // Pass callback
+                        />
+                    )}
                 </div>
 
                 <div className="flex-col">
