@@ -110,7 +110,7 @@ export default function ProfilDropdown() {
                                                 <svg
                                                     className="w-6 h-6"
                                                     fill="none"
-                                                    stroke="currentColor"
+                                                    stroke="#603F26"
                                                     viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                 >
@@ -134,7 +134,7 @@ export default function ProfilDropdown() {
                                                 <svg
                                                     className="w-6 h-6"
                                                     fill="none"
-                                                    stroke="currentColor"
+                                                    stroke="#603F26"
                                                     viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                 >
@@ -158,15 +158,14 @@ export default function ProfilDropdown() {
                                     <hr className="" />
                                     <li className="font-medium">
                                         <div onClick={handleLogout}>
-                                            <a
-                                                href="#"
+                                            <p
                                                 className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                                             >
                                                 <div className="mr-3 text-red-600">
                                                     <svg
                                                         className="w-6 h-6"
                                                         fill="none"
-                                                        stroke="currentColor"
+                                                        stroke="#C7253E"
                                                         viewBox="0 0 24 24"
                                                         xmlns="http://www.w3.org/2000/svg"
                                                     >
@@ -179,7 +178,7 @@ export default function ProfilDropdown() {
                                                     </svg>
                                                 </div>
                                                 Logout
-                                            </a>
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>

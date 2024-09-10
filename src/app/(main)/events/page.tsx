@@ -1,6 +1,7 @@
 "use client";
 
 import EventCard from "@/components/EventCard";
+import ProfilDropdown from "@/components/ProfilDropdown";
 import { verifyTokenJose } from "@/helpers/jwt";
 import { EventType, UserType } from "@/type";
 import { useCookies } from "next-client-cookies";
@@ -118,46 +119,67 @@ export default function EventPage() {
     };
 
     return (
-        <section className="bg-[#F9FAFB] p-5">
-            <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
-            <div className="">
-                {loading && events.length === 0 ? (
-                    <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                        <div>Loading ...</div>
-                    </div>
-                ) : (
-                    <InfiniteScroll
-                        dataLength={events.length}
-                        next={() => fetchEvents()}
-                        hasMore={hasMore}
-                        loader={
-                            hasMore && (
-                                <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                    Loading more events...
-                                </div>
-                            )
-                        }
-                        endMessage={
-                            !hasMore && (
-                                <p style={{ textAlign: "center" }}>
-                                    <b>No more events</b>
-                                </p>
-                            )
-                        }
-                    >
-                        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                            {events.map((el, index) => (
-                                <EventCard
-                                    key={index}
-                                    eventDetail={el}
-                                    onJoinSuccess={handleJoinSuccess}
-                                    user={user}
-                                />
-                            ))}
+        <div className="min-h-screen py-5 bg-[#F9FAFB]">
+            <div className="container mx-auto px-4">
+                <main className="flex flex-col">
+                    <div className="flex mb-6 justify-between">
+                        <div className="flex flex-row items-center gap-4">
+                            <img
+                                src="https://www.chefgpt.xyz/assets/icons/calendar.webp"
+                                alt="Nusa Food Discover"
+                                className="w-8 h-8"
+                            />
+                            <h1 className="text-3xl font-bold">
+                                Events
+                            </h1>
                         </div>
-                    </InfiniteScroll>
-                )}
+                        <ProfilDropdown />
+                    </div>
+
+                    <section className="bg-[#F9FAFB] p-5">
+                        <h2 className="flex justify-center text-3xl font-bold mb-8">Upcoming Events</h2>
+                        <div className="">
+                            {loading && events.length === 0 ? (
+                                <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                    <div>Loading ...</div>
+                                </div>
+                            ) : (
+                                <InfiniteScroll
+                                    dataLength={events.length}
+                                    next={() => fetchEvents()}
+                                    hasMore={hasMore}
+                                    loader={
+                                        hasMore && (
+                                            <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                                Loading more events...
+                                            </div>
+                                        )
+                                    }
+                                    endMessage={
+                                        !hasMore && (
+                                            <p style={{ textAlign: "center" }}>
+                                                <b>No more events</b>
+                                            </p>
+                                        )
+                                    }
+                                >
+                                    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                                        {events.map((el, index) => (
+                                            <EventCard
+                                                key={index}
+                                                eventDetail={el}
+                                                onJoinSuccess={handleJoinSuccess}
+                                                user={user}
+                                            />
+                                        ))}
+                                    </div>
+                                </InfiniteScroll>
+                            )}
+                        </div>
+                    </section>
+                </main>
             </div>
-        </section>
+        </div>
+
     );
 }

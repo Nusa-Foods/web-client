@@ -1,5 +1,6 @@
 "use client";
 import NusaRecipeCard from "@/components/NusaRecipeCard";
+import ProfilDropdown from "@/components/ProfilDropdown";
 import { RecipeType } from "@/type";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -39,34 +40,52 @@ export default function Bookmarks() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#F9FAFB] p-5">
+        <div className="min-h-screen py-5 bg-[#F9FAFB]">
             <div className="container mx-auto px-4">
-                <main className="flex flex-col items-center">
-                    <div className="text-center mb-10 w-3/4">
-                        <h1 className="text-3xl font-bold mb-4">
-                            Your Recipes Bookmark
-                        </h1>
-                        <p>Keep track of your favorite recipes here.</p>
+                <main className="flex flex-col">
+                    <div className="flex mb-6 justify-between">
+                        <div className="flex flex-row items-center gap-4">
+                            <img
+                                src="https://www.chefgpt.xyz/assets/icons/bookmark_tabs.webp"
+                                alt="Nusa Food Discover"
+                                className="w-8 h-8"
+                            />
+                            <h1 className="text-3xl font-bold">
+                                Bookmarks
+                            </h1>
+                        </div>
+                        <ProfilDropdown />
                     </div>
-                    {bookmarksData.length == 0 && (
-                        <p className="text-center w-full">
-                            You dont have any bookmarked recipe, explore our
-                            recipe on{" "}
-                            <Link href="/discover" className="text-blue-400">
-                                discover
-                            </Link>
-                        </p>
-                    )}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-10">
-                        {bookmarksData.map((el, index) => {
-                            return (
-                                <NusaRecipeCard
-                                    recipe={el}
-                                    key={index}
-                                    getBookmarks={getBookmarks}
-                                />
-                            );
-                        })}
+
+                    <div className="container mx-auto px-4">
+                        <main className="flex flex-col items-center">
+                            <div className="text-center mb-10 w-3/4">
+                                <h1 className="text-3xl font-bold mb-4">
+                                    Your Recipes Bookmark
+                                </h1>
+                                <p>Keep track of your favorite recipes here.</p>
+                            </div>
+                            {bookmarksData.length == 0 && (
+                                <p className="text-center w-full">
+                                    You dont have any bookmarked recipe, explore our
+                                    recipe on{" "}
+                                    <Link href="/discover" className="text-blue-400">
+                                        discover
+                                    </Link>
+                                </p>
+                            )}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-10">
+                                {bookmarksData.map((el, index) => {
+                                    return (
+                                        <NusaRecipeCard
+                                            recipe={el}
+                                            key={index}
+                                            getBookmarks={getBookmarks}
+                                        />
+                                    );
+                                })}
+                            </div>
+                        </main>
                     </div>
                 </main>
             </div>

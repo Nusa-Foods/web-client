@@ -1,6 +1,7 @@
 "use client";
 
 import NusaRecipeCard from "@/components/NusaRecipeCard";
+import ProfilDropdown from "@/components/ProfilDropdown";
 import { RecipeType } from "@/type";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -71,21 +72,33 @@ export default function NusaPage() {
     return (
         <div className="min-h-screen py-5 bg-[#F9FAFB]">
             <div className="container mx-auto px-4">
-                <main className="flex flex-col items-center">
-                    <div className="text-center mb-10 w-3/4">
-                        <h1 className="text-3xl font-bold mb-4">
-                            Curated Flavors of Nusantara Recipes
-                        </h1>
-
+                <main className="flex flex-col">
+                    <div className="flex mb-6 justify-between">
+                        <div className="flex flex-row items-center gap-4">
+                            <img
+                                src="https://www.nicepng.com/png/full/71-718556_wonderful-indonesia-logo-logo-pesona-indonesia-png.png"
+                                alt="Nusa Food Discover"
+                                className="w-8 h-8"
+                            />
+                            <h1 className="text-3xl font-bold">
+                                Curated Flavors of Nusantara Recipes
+                            </h1>
+                        </div>
+                        <ProfilDropdown />
+                    </div>
+                    <div className="pl-10">
                         <p>
                             Each recipe is carefully curated to offer a true
                             taste of Indonesia's culinary traditions, ensuring
                             that you experience the full flavors and techniques.
+                        </p>
+                        <p>
                             Whether you're a seasoned cook or a curious foodie,
                             Nusa Recipes brings the heart of Nusantara to your
                             kitchen.
                         </p>
                     </div>
+
                     <div className="">
                         {loading && (
                             <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
