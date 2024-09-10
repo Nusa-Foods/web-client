@@ -71,18 +71,17 @@ export default function ProfilDropdown() {
                 >
                     <div
                         onClick={() => setOpen(!open)}
-                        className={`flex justify-end border-b-4 border-transparent py-3 ${
-                            open
-                                ? "border-indigo-700 transform transition duration-300"
-                                : ""
-                        }`}
+                        className={`flex justify-end border-b-4 border-transparent py-3 ${open
+                            ? "border-indigo-700 transform transition duration-300"
+                            : ""
+                            }`}
                     >
                         <div className="flex justify-center items-center space-x-3 cursor-pointer">
                             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-900">
                                 <img
                                     src={
-                                        user?.imgUrl
-                                            ? user.imgUrl
+                                        user?.imageUrl
+                                            ? user.imageUrl
                                             : "/cheff.svg"
                                     }
                                     alt=""

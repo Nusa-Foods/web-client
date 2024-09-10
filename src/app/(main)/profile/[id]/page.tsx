@@ -56,8 +56,8 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
                             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden">
                                 <img
                                     src={
-                                        user?.imgUrl
-                                            ? user.imgUrl
+                                        user?.imageUrl
+                                            ? user.imageUrl
                                             : "/cheff.svg"
                                     }
                                     alt="Profile Picture"

@@ -44,7 +44,7 @@ export interface CredentialResponseType {
 
 // User
 export interface UserType {
-    imgUrl?: string;
+    imageUrl?: string;
     _id?: string;
     username?: string;
     email?: string;
