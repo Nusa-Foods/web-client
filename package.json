@@ -20,11 +20,23 @@
 
   "dependencies": {
 
+    "@app-masters/react-cloudinary-uploader": "^0.1.42",
+
+    "@blocknote/core": "^0.15.7",
+
+    "@blocknote/mantine": "^0.15.7",
+
+    "@blocknote/react": "^0.15.7",
+
     "@react-oauth/google": "^0.12.1",
 
     "@talkjs/react": "^0.1.9",
 
     "bcryptjs": "^2.4.3",
+
+    "cloudinary": "^2.4.0",
+
+    "framer-motion": "^11.5.4",
 
     "jose": "^5.8.0",
 
@@ -35,6 +47,8 @@
     "next-client-cookies": "^1.1.1",
 
     "react": "^18",
+
+    "react-cloudinary-uploader": "^1.1.2",
 
     "react-dom": "^18",
 
