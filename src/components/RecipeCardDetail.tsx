@@ -1,7 +1,7 @@
 "use client";
 
-import { RecipeType } from "@/type";
-import { MouseEvent, useRef, useState } from "react";
+import { RecipeType, UserType } from "@/type";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import revalidate from "@/actions";
 import showToast from "@/utils/toast";
 import CommentCard from "./CommentCard";
@@ -20,6 +20,28 @@ export default function RecipeCardDetail({
 }) {
     const [text, setComment] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const [user, setUser] = useState<UserType>({});
+
+    const getUser = async (authorId: string) => {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${authorId}`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const data = await response.json();
+        setUser(data);
+        console.log(user, 'user<<<')
+    };
+
+    useEffect(() => {
+        getUser(String(recipeDetail.authorId));
+    }, []);
+
 
     const handleComment = async (event: MouseEvent<SVGSVGElement>) => {
         event.preventDefault();
@@ -57,7 +79,7 @@ export default function RecipeCardDetail({
     };
 
     const handleButtonCommentClick = () => {
-        console.log("disni>>> clicl");
+        // console.log("disni>>> clicl");
         if (inputRef.current) {
             inputRef.current.focus();
         }
@@ -114,7 +136,7 @@ export default function RecipeCardDetail({
                             />
                         </svg>
                         <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
-                            name ini belum aad
+                            {user.username ? user.username : user.email}
                         </p>
                     </div>
                 </div>
@@ -139,10 +161,10 @@ export default function RecipeCardDetail({
                     <p className="text-gray-600">{recipeDetail.description}</p>
                     {recipeDetail.guide && (
                         <Editor
-                            onChange={() => {}}
+                            onChange={() => { }}
                             initialContent={recipeDetail.guide}
                             editable={false}
-                            // onGetContent={handleEditorChange} // Pass callback
+                        // onGetContent={handleEditorChange} // Pass callback
                         />
                     )}
                 </div>
