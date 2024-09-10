@@ -71,28 +71,27 @@ export default function ProfilDropdown() {
                 >
                     <div
                         onClick={() => setOpen(!open)}
-                        className={`flex justify-end border-b-4 border-transparent py-3 ${
-                            open
-                                ? "border-indigo-700 transform transition duration-300"
-                                : ""
-                        }`}
+                        className={`flex justify-end border-b-4 border-transparent py-3 ${open
+                            ? "border-indigo-700 transform transition duration-300"
+                            : ""
+                            }`}
                     >
                         <div className="flex justify-center items-center space-x-3 cursor-pointer">
-                            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-900">
+                            <div className="w-10 h-10 rounded-full overflow-hidden">
                                 <img
                                     src={
                                         user?.imageUrl
                                             ? user.imageUrl
-                                            : "/cheff.svg"
+                                            : 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>'
                                     }
-                                    alt=""
+                                    alt="Profile"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                         </div>
 
                         {open && (
-                            <div className="absolute w-60 px-5 py-3 bg-white rounded-lg shadow border mt-[55px]">
+                            <div className="absolute w-60 px-5 py-3 bg-white rounded-lg shadow border mt-[55px] z-50">
                                 <ul className="space-y-3">
                                     <li className="font-medium">
                                         <div className="font-semibold text-gray-900 text-lg">
@@ -187,5 +186,6 @@ export default function ProfilDropdown() {
                     </div>
                 </div>
             </div>
+
         );
 }

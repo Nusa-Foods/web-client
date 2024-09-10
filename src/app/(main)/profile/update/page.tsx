@@ -130,7 +130,7 @@ export default function UpdateProfilePage() {
                                 src={
                                     user?.imageUrl
                                         ? user.imageUrl
-                                        : "/cheff.svg"
+                                        : "/blank-profpic.png"
                                 }
                                 alt="Profile Picture" className="object-cover w-full h-full" />
                         </div>

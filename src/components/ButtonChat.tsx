@@ -14,10 +14,10 @@ export default function ButtonChat({ userId }: { userId: string }) {
 
     return (
         <div
-            className="text-center p-2 bg-custom-brown-3 hover:bg-custom-brown-1 text-custom-brown-1 hover:text-custom-brown-3 rounded-md hover:cursor-pointer"
+            className="text-center p-1 bg-custom-brown-1 hover:bg-custom-brown-3 text-custom-brown-3 hover:text-custom-brown- rounded-md hover:cursor-pointer"
             onClick={handleClick}
         >
-            Chat me
+            Chat with me
         </div>
     );
 }

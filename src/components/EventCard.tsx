@@ -101,9 +101,7 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
     };
 
     return (
-        <div
-            className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto flex flex-col justify-between"
-        >
+        <div className="bg-white p-6 rounded-md shadow-md max-w-sm mx-auto w-full h-auto flex flex-col">
             <img
                 src={eventDetail.imageUrl}
                 alt={eventDetail.title}
