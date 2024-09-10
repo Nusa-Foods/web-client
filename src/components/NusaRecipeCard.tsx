@@ -77,7 +77,9 @@ export default function NusaRecipeCard({
                         strokeWidth={1.5}
                         stroke="#603F26"
                         className="size-6 cursor-pointer"
-                        onClick={(event) => handleRemoveBookmarks(event, recipe.slug)}
+                        onClick={(event) =>
+                            handleRemoveBookmarks(event, recipe.slug)
+                        }
                     >
                         <path
                             strokeLinecap="round"
@@ -88,6 +90,5 @@ export default function NusaRecipeCard({
                 </div>
             </div>
         </div>
-
     );
 }
