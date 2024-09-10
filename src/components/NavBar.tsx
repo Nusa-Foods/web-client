@@ -64,8 +64,19 @@ export default function NavBar() {
                             </Link>
                         </div>
 
-                    </div>
+                    {/* Navigation Links */}
+                    <div className="space-x-6 hidden md:flex text-gray-500">
+                        <Link href="/nusa-recipes" className="nav-link">
+                            Nusa Recipes
+                        </Link>
+                        <Link href="/discover" className="nav-link">
+                            Discover
+                        </Link>
+                        <Link href="/your-chef" className="nav-link">
+                            Your Personal Chef
+                        </Link>
 
+                    </div>
 
                     {
                         !auth &&

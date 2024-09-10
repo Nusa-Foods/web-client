@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import NusaRecipeCard from "@/components/NusaRecipeCard";
 import { RecipeType } from "@/type";
@@ -7,23 +7,48 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function NusaPage() {
-    const [recipes, setRecipes] = useState<RecipeType[]>([])
-    const [loading, setLoading] = useState(false)
+    const [recipes, setRecipes] = useState<RecipeType[]>([]);
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-
+    const [bookmarksData, setBookmarksData] = useState<RecipeType[]>([]);
+    const getBookmarks = async () => {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/bookmarks`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    credentials: "include",
+                }
+            );
+            const data = await response.json();
+            console.log(data[0].bookmarkedRecipes);
+            if (response.ok) {
+                setBookmarksData(data[0].bookmarkedRecipes);
+            } else {
+                console.log(data.message);
+            }
+        } catch (err) {
+            console.error("Error during fetching bookmarks:", err);
+        }
+    };
     async function fetchRecipes() {
         try {
-            setLoading(true)
+            setLoading(true);
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/recipe/nusafood?page=${page}`, {
-                cache: 'no-store',
-                credentials: 'include'
-            });
-            if (!res.ok) throw await res.json()
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe/nusafood?page=${page}`,
+                {
+                    cache: "no-store",
+                    credentials: "include",
+                }
+            );
+            if (!res.ok) throw await res.json();
 
-            const data: RecipeType[] = await res.json()
-            console.log(data, 'data>>>')
+            const data: RecipeType[] = await res.json();
+            console.log(data, "data>>>");
 
             if (data.length === 0) {
                 setHasMore(false);
@@ -32,17 +57,16 @@ export default function NusaPage() {
                 setPage(page + 1);
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
     useEffect(() => {
-        console.log('useEffect Triggered')
-        fetchRecipes()
-    }, [])
-
+        console.log("useEffect Triggered");
+        fetchRecipes();
+    }, []);
 
     return (
         <div className="min-h-screen py-5 bg-[#F9FAFB]">
@@ -63,24 +87,24 @@ export default function NusaPage() {
                         </p>
                     </div>
                     <div className="">
-                        {loading &&
+                        {loading && (
                             <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                <div>
-                                    Loading ...
-                                </div>
+                                <div>Loading ...</div>
                             </div>
-                        }
+                        )}
 
-                        {!loading &&
+                        {!loading && (
                             <InfiniteScroll
                                 dataLength={recipes.length}
                                 next={fetchRecipes}
                                 hasMore={hasMore}
-                                loader={<>
-                                    <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                        Loading loader
-                                    </div>
-                                </>}
+                                loader={
+                                    <>
+                                        <div className="flex justify-center items-center h-screen font-bold text-lg">
+                                            Loading loader
+                                        </div>
+                                    </>
+                                }
                                 endMessage={
                                     <div className="flex justify-center items-center h-screen font-bold text-lg">
                                         <b>End of page</b>
@@ -90,13 +114,18 @@ export default function NusaPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
                                     <div className="grid grid-cols-1 gap-6 justify-items-center">
                                         {recipes.map((el, index) => {
-                                            return < NusaRecipeCard key={index} recipe={el} />
+                                            return (
+                                                <NusaRecipeCard
+                                                    key={index}
+                                                    recipe={el}
+                                                    getBookmarks={getBookmarks}
+                                                />
+                                            );
                                         })}
                                     </div>
                                 </div>
                             </InfiniteScroll>
-                        }
-
+                        )}
                     </div>
                 </main>
             </div>

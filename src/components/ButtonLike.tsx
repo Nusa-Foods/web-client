@@ -8,7 +8,7 @@ export default function ButtonLike({
     fetchRecipes,
 }: {
     slug: string;
-    fetchRecipes: () => void | Promise<void>;
+    fetchRecipes?: () => void | Promise<void>;
 }) {
     const handleLike = async (
         event: MouseEvent<HTMLDivElement>,
@@ -32,7 +32,7 @@ export default function ButtonLike({
                     message: "You like the recipe",
                     type: "success",
                 });
-                fetchRecipes();
+                if (fetchRecipes) fetchRecipes();
             } else {
                 showToast({
                     message: data.message,

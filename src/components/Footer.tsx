@@ -21,7 +21,6 @@ export default function Footer() {
                         </aside>
                     </div>
 
-
                     <div className="flex-1">
                         <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6 lg:space-x-10 xl:space-x-10">
                             <nav className="flex flex-col text-gray-500">
@@ -42,10 +41,10 @@ export default function Footer() {
                                 <a className="link link-hover mb-1">Cookie policy</a>
                             </nav>
                         </div>
+
                     </div>
                 </div>
             </div>
-
         </>
     );
 }

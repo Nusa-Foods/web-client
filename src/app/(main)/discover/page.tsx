@@ -1,5 +1,6 @@
 "use client";
 
+import ProfilDropdown from "@/components/ProfilDropdown";
 import RecipeCard from "@/components/RecipeCard";
 import { RecipeType } from "@/type";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export default function DiscoverDetailPage() {
 
     // Fetch recipes function
     async function fetchRecipes(reset: boolean = false) {
-        console.log('masuk di fetch')
+        console.log("masuk di fetch");
         try {
             setLoading(true);
 
@@ -25,7 +26,8 @@ export default function DiscoverDetailPage() {
             }
 
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${reset ? 1 : page
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe?page=${
+                    reset ? 1 : page
                 }`,
                 {
                     cache: "no-store",
@@ -38,19 +40,19 @@ export default function DiscoverDetailPage() {
             const data: RecipeType[] = await res.json();
 
             if (data.length === 0) {
-                console.log(data.length, 'data.length')
+                console.log(data.length, "data.length");
                 setHasMore(false);
             } else {
-                console.log(data.length, 'data.length')
+                console.log(data.length, "data.length");
                 setRecipes((prev) => (reset ? [...data] : [...prev, ...data]));
 
-                console.log(page, 'page before >>>')
+                console.log(page, "page before >>>");
                 setPage((prevPage) => {
                     const newPage = prevPage + 1;
-                    console.log(newPage, 'page after update >>>');
+                    console.log(newPage, "page after update >>>");
                     return newPage;
                 });
-                console.log(page, 'page >>>')
+                console.log(page, "page >>>");
             }
         } catch (error) {
             console.log(error);
@@ -61,13 +63,13 @@ export default function DiscoverDetailPage() {
 
     // Trigger the first fetch on component mount
     useEffect(() => {
-        console.log('fetch triggered')
+        console.log("fetch triggered");
         fetchRecipes();
     }, []);
 
     // Button click handler to refresh the recipes
     const refreshRecipes = () => {
-        console.log('trigger')
+        console.log("trigger");
         fetchRecipes(true); // `true` to reset the recipes and fetch the latest
     };
 
@@ -86,12 +88,15 @@ export default function DiscoverDetailPage() {
                                 Discover Amazing Recipes
                             </h1>
                         </div>
-                        <Link
-                            href="/create-recipe"
-                            className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
-                        >
-                            Post Recipe
-                        </Link>
+                        <div className="flex">
+                            <Link
+                                href="/create-recipe"
+                                className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
+                            >
+                                Post Recipe
+                            </Link>
+                            <ProfilDropdown />
+                        </div>
                     </div>
 
                     {/* Recipe Grid */}
