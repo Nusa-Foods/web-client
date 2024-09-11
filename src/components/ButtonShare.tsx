@@ -41,7 +41,7 @@ export default function ButtonShare({ recipe }: { recipe: RecipeType }) {
                     <div className="bg-white p-4 rounded-lg w-3/4 md:w-1/2 lg:w-1/3">
                         <div className="flex justify-between mb-4">
                             <h2 className="text-xl font-bold">
-                                Share this recipe
+                                Share resep
                             </h2>
                             <button
                                 className="text-red-600 font-bold text-lg"

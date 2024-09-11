@@ -26,7 +26,7 @@ export default function ButtonAddBookmarks({ slug }: { slug: string }) {
             const data = await response.json();
             if (response.ok) {
                 showToast({
-                    message: "Success add to bookmarks",
+                    message: "Berhasil Menambahkan ke Resep Saya",
                     type: "success",
                 });
             } else {

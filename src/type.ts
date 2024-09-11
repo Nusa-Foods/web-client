@@ -69,6 +69,9 @@ export interface EventType {
     updatedAt: string;
     attendance: registerEventUser[];
     quota: number;
+    date: string;
+    location: string;
+    locUrl: string
 }
 
 export interface registerEventUser {

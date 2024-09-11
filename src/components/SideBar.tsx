@@ -75,7 +75,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Discover
+                                Jelajahi Resep
                             </div>
                         </Link>
                         <Link
@@ -88,7 +88,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Nusa Recipes
+                                Nusa Resep
                             </div>
                         </Link>
                         <Link
@@ -101,7 +101,7 @@ export default function SideBar() {
                                     alt="Nusa Food Random"
                                     className="w-6 h-6"
                                 />
-                                Random Recipes
+                                Random Resep
                             </div>
                         </Link>
                         <Link
@@ -114,7 +114,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Your Personal Chef
+                                Koki Personalmu
                             </div>
                         </Link>
                         <Link
@@ -127,7 +127,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Bookmarks
+                                Resep Saya
                             </div>
                         </Link>
                         <Link
@@ -140,7 +140,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Events
+                                Event
                             </div>
                         </Link>
                     </div>
@@ -157,7 +157,7 @@ export default function SideBar() {
                             className="text-gray-500 hover:text-gray-600"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <span className="sr-only">Close menu</span>
+                            <span className="sr-only">Tutup menu</span>
                             <svg
                                 className="h-6 w-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Home
+                                Beranda
                             </div>
                         </Link>
                         <Link
@@ -199,7 +199,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Discover
+                                Jelajahi Resep
                             </div>
                         </Link>
                         <Link
@@ -212,7 +212,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Nusa Recipes
+                                Nusa Resep
                             </div>
                         </Link>
                         <Link
@@ -225,7 +225,7 @@ export default function SideBar() {
                                     alt="Nusa Food Random"
                                     className="w-6 h-6"
                                 />
-                                Random Recipes
+                                Random Resep
                             </div>
                         </Link>
                         <Link
@@ -238,7 +238,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Your Personal Chef
+                                Koki Personalmu
                             </div>
                         </Link>
                         <Link
@@ -251,7 +251,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Bookmarks
+                                Resep Saya
                             </div>
                         </Link>
                         <Link
@@ -264,7 +264,7 @@ export default function SideBar() {
                                     alt="Nusa Food Discover"
                                     className="w-5 h-5"
                                 />
-                                Events
+                                Event
                             </div>
                         </Link>
                     </div>

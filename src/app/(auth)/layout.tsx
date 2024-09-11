@@ -5,8 +5,8 @@ import "../globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const metadata: Metadata = {
-    title: "Say Goodbye to MealStress | Nusa Food",
-    description: "Say Goodbye to MealStress by Discover NusaFoods",
+    title: "Selamat Tinggal Stres Memasak!  | NusaFood",
+    description: "Tulis, Simpan, Bagikan dan Dapatkan Resep-Resep Menarik dengan Komunitas Memasak Seluruh Dunia di NusaFoods",
 };
 
 export default function RootLayout({

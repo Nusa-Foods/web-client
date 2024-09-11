@@ -121,7 +121,7 @@ export default function ProfilDropdown() {
                                                     />
                                                 </svg>
                                             </div>
-                                            Account
+                                            Akun
                                         </Link>
                                     </li>
                                     <li className="font-medium">
@@ -151,7 +151,7 @@ export default function ProfilDropdown() {
                                                     />
                                                 </svg>
                                             </div>
-                                            Setting
+                                            Pengaturan
                                         </Link>
                                     </li>
                                     <hr className="" />
@@ -176,7 +176,7 @@ export default function ProfilDropdown() {
                                                         />
                                                     </svg>
                                                 </div>
-                                                Logout
+                                                Keluar
                                             </p>
                                         </div>
                                     </li>

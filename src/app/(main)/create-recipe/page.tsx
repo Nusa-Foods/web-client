@@ -67,7 +67,7 @@ export default function CreateRecipe() {
                     if (!error && result && result.event === "success") {
                         setUrl(result.info.secure_url);
                         showToast({
-                            message: "Image uploaded successfully!",
+                            message: "Berhasil Upload Gambar!",
                             type: "success",
                         });
                     }
@@ -85,7 +85,7 @@ export default function CreateRecipe() {
         setIsLoading(true);
         if (!content)
             return showToast({
-                message: "Isi semua kolom yang diperlukan terlebih dahulu.",
+                message: "Isi Semua Kolom yang Diperlukan Terlebih Dahulu.",
             });
 
         try {
@@ -110,7 +110,7 @@ export default function CreateRecipe() {
 
             if (response.ok) {
                 showToast({
-                    message: "Success post your recipe",
+                    message: "Berhasil Menuliskan Resepmu!",
                     type: "success",
                 });
                 router.push("/discover");
@@ -132,7 +132,7 @@ export default function CreateRecipe() {
             {/* Static Title */}
             <div className="md:w-full lg:w-full xl:w-1/2 mb-10">
                 <h1 className="text-3xl font-bold mb-4 text-center">
-                    Create Your Recipe
+                    Buat Resep Menarikmu di sini
                 </h1>
             </div>
 
@@ -149,14 +149,14 @@ export default function CreateRecipe() {
                             className="w-full p-6 bg-white shadow-md rounded-lg"
                         >
                             <h2 className="text-xl font-bold mb-4">
-                                Step 1: Title and Description
+                                Step 1: Judul dan Deskripsi Resep
                             </h2>
                             <div className="mb-4">
                                 <label
                                     htmlFor="title"
                                     className="block text-sm font-medium text-gray-700 mb-1"
                                 >
-                                    Title
+                                    Judul Resep
                                 </label>
                                 <motion.input
                                     whileFocus={{ scale: 1.02 }}
@@ -174,7 +174,7 @@ export default function CreateRecipe() {
                                     htmlFor="description"
                                     className="block text-sm font-medium text-gray-700 mb-1"
                                 >
-                                    Description
+                                    Dekripsi Resep
                                 </label>
                                 <motion.input
                                     whileFocus={{ scale: 1.02 }}
@@ -195,7 +195,7 @@ export default function CreateRecipe() {
                                     onClick={nextStep}
                                     className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                                 >
-                                    Next
+                                    Lanjut
                                 </button>
                             </div>
                         </motion.div>
@@ -211,7 +211,7 @@ export default function CreateRecipe() {
                             className="w-full p-6 bg-white shadow-md rounded-lg"
                         >
                             <h2 className="text-xl font-bold mb-4">
-                                Step 2: Image & Banner URLs
+                                Step 2: Unggah Foto Resepmu dan Foto Banner Resepmu
                             </h2>
 
                             <div className="flex flex-col justify-center items-center xl:flex-row xl:gap-10">
@@ -223,7 +223,7 @@ export default function CreateRecipe() {
                                         htmlFor="imgUrl"
                                         className="block text-sm font-medium text-gray-700 mb-1"
                                     >
-                                        Image URL
+                                        Foto Resep
                                     </label>
 
                                     <button
@@ -233,7 +233,7 @@ export default function CreateRecipe() {
                                         }
                                         className="px-4 py-2 mt-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                                     >
-                                        Upload Image
+                                        Unggah Foto
                                     </button>
                                 </div>
 
@@ -245,7 +245,7 @@ export default function CreateRecipe() {
                                         htmlFor="bannerUrl"
                                         className="block text-sm font-medium text-gray-700 mb-1"
                                     >
-                                        Banner URL
+                                        Foto Banner
                                     </label>
 
                                     <button
@@ -255,7 +255,7 @@ export default function CreateRecipe() {
                                         }
                                         className="px-4 py-2 mt-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                                     >
-                                        Upload Banner
+                                        Unggah Foto Banner
                                     </button>
                                 </div>
                             </div>
@@ -266,14 +266,14 @@ export default function CreateRecipe() {
                                     onClick={prevStep}
                                     className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                                 >
-                                    Previous
+                                    Kembali
                                 </button>
                                 <button
                                     type="button"
                                     onClick={nextStep}
                                     className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
                                 >
-                                    Next
+                                    Lanjut
                                 </button>
                             </div>
                         </motion.div>
@@ -289,10 +289,10 @@ export default function CreateRecipe() {
                             className="w-full p-6 bg-white shadow-md rounded-lg"
                         >
                             <h2 className="text-xl font-bold mb-4">
-                                Step 3: Submit Recipe
+                                Step 3: Tuliskan Bahan dan Cara Memasak Resepmu
                             </h2>
                             <Editor
-                                onChange={() => {}}
+                                onChange={() => { }}
                                 initialContent={undefined}
                                 editable={true}
                                 onGetContent={handleEditorChange} // Pass callback
@@ -318,7 +318,7 @@ export default function CreateRecipe() {
                                     onClick={handleSubmit}
                                     className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
                                 >
-                                    Submit
+                                    Terbitkan
                                 </button>
                             </div>
                         </motion.div>

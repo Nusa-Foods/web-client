@@ -17,7 +17,7 @@ export default function ButtonChat({ userId }: { userId: string }) {
             className="text-center p-1 bg-custom-brown-1 hover:bg-custom-brown-3 text-custom-brown-3 hover:text-custom-brown- rounded-md hover:cursor-pointer"
             onClick={handleClick}
         >
-            Chat with me
+            Ngobrol Bareng
         </div>
     );
 }

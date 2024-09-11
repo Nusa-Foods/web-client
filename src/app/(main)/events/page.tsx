@@ -131,7 +131,7 @@ export default function EventPage() {
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Events
+                                Event
                             </h1>
                         </div>
                         <ProfilDropdown />
@@ -175,7 +175,7 @@ export default function EventPage() {
                             <div className="container mx-auto px-4">
                                 <main className="flex flex-col items-center">
                                     <div className="text-center mb-10 w-full">
-                                        <h2 className="flex justify-center text-3xl font-bold mb-8">Upcoming Events</h2>
+                                        <h2 className="flex justify-center text-3xl font-bold mb-8">Event-Event Mendatang</h2>
                                         <p>Ikuti event-event menarik untuk memperdalaman wawasanmu mengenai resep-resep sehat, menarik dan ktivitas event lainnya!</p>
                                     </div>
                                     {loading && events.length === 0 ? (
@@ -190,14 +190,14 @@ export default function EventPage() {
                                             loader={
                                                 hasMore && (
                                                     <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                                        Loading more events...
+                                                        Loading event lainnya...
                                                     </div>
                                                 )
                                             }
                                             endMessage={
                                                 !hasMore && (
                                                     <p style={{ textAlign: "center" }}>
-                                                        <b>No more events</b>
+                                                        <b>Tidak ada event</b>
                                                     </p>
                                                 )
                                             }

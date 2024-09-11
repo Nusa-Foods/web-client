@@ -85,7 +85,7 @@ export default function DiscoverDetailPage() {
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Discover
+                                Jelajahi Resep
                             </h1>
                         </div>
                         <div className="flex">
@@ -93,7 +93,7 @@ export default function DiscoverDetailPage() {
                                 href="/create-recipe"
                                 className="border border-custom-brown-1 text-custom-brown-1 px-2 py-1 rounded-md"
                             >
-                                Post Recipe
+                                Tulis Resep
                             </Link>
                             <ProfilDropdown />
                         </div>
@@ -108,13 +108,13 @@ export default function DiscoverDetailPage() {
                         />
                         <div className="absolute inset-0  flex flex-col justify-center items-center pl-8">
                             <p className="text-lg  sm:text-sm  md:text-2xl lg:text-2xl font-bold capitalize" >
-                                Craving Something Delicious?
+                                Lagi Pengin Makan Enak?
                             </p>
                             <p className="text-lg  sm:text-sm  md:text-2xl lg:text-2xl font-bold capitalize">
-                                Discover It Here!
+                                Cari di sini aja!
                             </p>
                             <p className="text-sm  sm:text-base md:text-lg lg:text-xl text-black">
-                                Explore countless recipes tailored to your taste. Quick, easy, and right at your fingertips!
+                                Jelajahi berbagai resep yang sesuai dengan selera kamu. Cepat, mudah, dan siap diakses kapan saja!
                             </p>
                         </div>
                     </div>
@@ -142,7 +142,7 @@ export default function DiscoverDetailPage() {
                             }
                             endMessage={
                                 <p className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                    <b>End of page</b>
+                                    <b>Akhir dari halaman</b>
                                 </p>
                             }
                         >
