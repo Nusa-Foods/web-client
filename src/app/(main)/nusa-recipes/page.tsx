@@ -1,5 +1,6 @@
 "use client";
 
+import BookmarksCard from "@/components/BookmarksCard";
 import NusaRecipeCard from "@/components/NusaRecipeCard";
 import ProfilDropdown from "@/components/ProfilDropdown";
 import { RecipeType } from "@/type";
@@ -40,7 +41,8 @@ export default function NusaPage() {
             setLoading(true);
 
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe/nusafood?page=${page}`,
+                `${process.env.NEXT_PUBLIC_BASE_URL}/nusa`,
+
                 {
                     cache: "no-store",
                     credentials: "include",
@@ -96,71 +98,65 @@ export default function NusaPage() {
                             className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                         <div className="absolute inset-0  flex flex-col justify-center items-center pl-8">
-                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                            <p
+                                className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
                                 style={{
-                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
-                                }}>
+                                    textShadow:
+                                        "2px 2px 4px rgba(0, 0, 0, 0.6)",
+                                }}
+                            >
                                 Kangen Masakan Nusantara ?
                             </p>
-                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                            <p
+                                className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
                                 style={{
-                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
-                                }}>
+                                    textShadow:
+                                        "2px 2px 4px rgba(0, 0, 0, 0.6)",
+                                }}
+                            >
                                 Nusa Resep-in aja!
                             </p>
-                            <p className=" w-2/3 text-sm text-white text-center sm:text-base md:text-sm lg:text-xl text-black"
+                            <p
+                                className=" w-2/3 text-sm text-white text-center sm:text-base md:text-sm lg:text-xl text-black"
                                 style={{
-                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
-                                }}>
-
-                                Setiap resep disiapkan dengan cermat untuk memberikan rasa asli dari tradisi kuliner Indonesia, memastikan Anda merasakan seluruh cita rasa dan teknik memasak yang otentik.
+                                    textShadow:
+                                        "2px 2px 4px rgba(0, 0, 0, 0.6)",
+                                }}
+                            >
+                                Setiap resep disiapkan dengan cermat untuk
+                                memberikan rasa asli dari tradisi kuliner
+                                Indonesia, memastikan Anda merasakan seluruh
+                                cita rasa dan teknik memasak yang otentik.
                             </p>
                         </div>
                     </div>
 
-                    <div className="container mx-auto px-4">
+                    <div className="container mx-auto px-4 mt-10">
                         <main className="flex flex-col">
-
-                            <div className="">
-                                {loading && (
-                                    <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                        <div>Loading ...</div>
+                            <div className="container mx-auto px-4">
+                                <main className="flex flex-col items-center">
+                                    <div className="text-center mb-10 w-full">
+                                        <h1 className="text-3xl font-bold mb-4">
+                                            Resep Pilihan Nusantara untuk Anda
+                                        </h1>
+                                        <p>
+                                            Telusuri resep nusantara yang telah
+                                            kami validasi
+                                        </p>
                                     </div>
-                                )}
 
-                                {!loading && (
-                                    <InfiniteScroll
-                                        dataLength={recipes.length}
-                                        next={fetchRecipes}
-                                        hasMore={hasMore}
-                                        loader={
-                                            <>
-                                                <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                                    Loading ...
-                                                </div>
-                                            </>
-                                        }
-                                        endMessage={
-                                            <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                                <b>Akhir dari halaman</b>
-                                            </div>
-                                        }
-                                    >
-                                        <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
-                                            <div className="grid grid-cols-1 gap-6 justify-items-center">
-                                                {recipes.map((el, index) => {
-                                                    return (
-                                                        <NusaRecipeCard
-                                                            key={index}
-                                                            recipe={el}
-                                                            getBookmarks={getBookmarks}
-                                                        />
-                                                    );
-                                                })}
-                                            </div>
-                                        </div>
-                                    </InfiniteScroll>
-                                )}
+                                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-10">
+                                        {recipes.map((el, index) => {
+                                            return (
+                                                <BookmarksCard
+                                                    recipe={el}
+                                                    key={index}
+                                                    getBookmarks={getBookmarks}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                </main>
                             </div>
                         </main>
                     </div>

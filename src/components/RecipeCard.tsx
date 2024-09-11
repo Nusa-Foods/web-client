@@ -35,18 +35,19 @@ export default function RecipeCard({
     }, []);
 
     return (
-        <>
-            <div className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] py-4 px-4">
-                <div className="flex items-center justify-center pr-4 pl-4 mt-6 w-full mb-4 h-[60%] sm:h-[60%] md:h-[70%] lg:h-[70%] xl:h-[70%] overflow-hidden rounded">
-                    <Link href={`/discover/${recipe.slug}`}>
-                        <img
-                            src={recipe.imgUrl}
-                            alt={recipe.title}
-                            className="rounded-lg object-cover w-full h-full overflow-hidden  transition-transform duration-300 ease-in-out transform hover:scale-110"
-                        />
-                    </Link>
-                </div>
+        <Link
+            href={`/discover/${recipe.slug}`}
+            className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] py-4 px-4"
+        >
+            <div className="flex items-center justify-center pr-4 pl-4 mt-6 w-full mb-4 h-[60%] sm:h-[60%] md:h-[70%] lg:h-[70%] xl:h-[70%] overflow-hidden rounded">
+                <img
+                    src={recipe.imgUrl}
+                    alt={recipe.title}
+                    className="rounded-lg object-cover w-full h-full overflow-hidden  transition-transform duration-300 ease-in-out transform hover:scale-110"
+                />
+            </div>
 
+            {recipe.likes && (
                 <div className="grid grid-cols-3 p-4">
                     <div className="flex justify-start gap-4">
                         <div className="flex items-center space-x-2">
@@ -116,15 +117,14 @@ export default function RecipeCard({
                         <ButtonAddBookmarks slug={recipe.slug} />
                     </div>
                 </div>
+            )}
 
-                <div className="p-4">
-                    <h1 className="text-4xl font-bold capitalize">
-                        {recipe.title}
-                    </h1>
-                    <p className="text-gray-600">{recipe.description}</p>
-                </div>
-
-            </div >
-        </>
+            <div className="p-4">
+                <h1 className="text-4xl font-bold capitalize">
+                    {recipe.title}
+                </h1>
+                <p className="text-gray-600">{recipe.description}</p>
+            </div>
+        </Link>
     );
 }

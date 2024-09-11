@@ -11,6 +11,7 @@ export interface RecipeType {
     updatedAt: Date;
     authorId: AuthorId;
     guide: string;
+    ingredients?: [[string, string]];
 }
 
 export interface Like {
@@ -23,7 +24,7 @@ export interface Comment {
     username: string;
     text: string;
     createdAt: Date;
-    imageUrl: string
+    imageUrl: string;
 }
 
 export interface Id {
@@ -71,7 +72,7 @@ export interface EventType {
     quota: number;
     date: string;
     location: string;
-    locUrl: string
+    locUrl: string;
 }
 
 export interface registerEventUser {

@@ -193,7 +193,7 @@ export default function CreateRecipe() {
                                 <button
                                     type="button"
                                     onClick={nextStep}
-                                    className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                                    className="px-6 py-2 bg-custom-brown-3 text-custom-brown-1 rounded-lg hover:bg-custom-brown-1 hover:text-custom-brown-3"
                                 >
                                     Lanjut
                                 </button>
@@ -211,7 +211,8 @@ export default function CreateRecipe() {
                             className="w-full p-6 bg-white shadow-md rounded-lg"
                         >
                             <h2 className="text-xl font-bold mb-4">
-                                Step 2: Unggah Foto Resepmu dan Foto Banner Resepmu
+                                Step 2: Unggah Foto Resepmu dan Foto Banner
+                                Resepmu
                             </h2>
 
                             <div className="flex flex-col justify-center items-center xl:flex-row xl:gap-10">
@@ -271,7 +272,7 @@ export default function CreateRecipe() {
                                 <button
                                     type="button"
                                     onClick={nextStep}
-                                    className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                                    className="px-6 py-2 bg-custom-brown-3 text-custom-brown-1 rounded-lg hover:bg-custom-brown-1 hover:text-custom-brown-3"
                                 >
                                     Lanjut
                                 </button>
@@ -292,7 +293,7 @@ export default function CreateRecipe() {
                                 Step 3: Tuliskan Bahan dan Cara Memasak Resepmu
                             </h2>
                             <Editor
-                                onChange={() => { }}
+                                onChange={() => {}}
                                 initialContent={undefined}
                                 editable={true}
                                 onGetContent={handleEditorChange} // Pass callback
@@ -316,7 +317,7 @@ export default function CreateRecipe() {
                                 <button
                                     type="submit"
                                     onClick={handleSubmit}
-                                    className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                                    className="px-6 py-2 bg-custom-brown-3 text-custom-brown-1 hover:text-custom-brown-3 rounded-lg hover:bg-custom-brown-1"
                                 >
                                     Terbitkan
                                 </button>
