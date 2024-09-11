@@ -8,12 +8,13 @@ import remarkGfm from "remark-gfm";
 export default function AiPage() {
     const [ingredients, setIngredients] = useState<string[]>([]);
     const [inputValue, setInputValue] = useState<string>("");
-    const [mealType, setMealType] = useState<string>("");
-    const [skillLevel, setSkillLevel] = useState<string>("");
-    const [recipe, setRecipe] = useState<any>(null); // Update this type based on your expected response
+    const [recipe, setRecipe] = useState<any>(null);
+
+
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && inputValue) {
+            e.preventDefault(); // Prevent form submission
             setIngredients([...ingredients, inputValue]);
             setInputValue("");
         }
@@ -25,21 +26,16 @@ export default function AiPage() {
                 (ingredient) => ingredient !== ingredientToRemove
             )
         );
+        console.log(ingredients, 'ingeedients>>')
     };
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
     };
 
-    const handleMealChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setMealType(e.target.value);
-    };
-
-    const handleSkillChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setSkillLevel(e.target.value);
-    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        console.log('triggereddd>>>')
         e.preventDefault();
 
         const response = await fetch("http://localhost:3000/ai/recipe", {
@@ -49,8 +45,6 @@ export default function AiPage() {
             },
             body: JSON.stringify({
                 ingredients: ingredients.join(", "),
-                mealType,
-                skillLevel,
             }),
         });
 
@@ -156,54 +150,6 @@ export default function AiPage() {
                                             />
                                         </div>
                                     </div>
-
-                                    {/* Input 2: Meal Type */}
-                                    {/* <div className="mb-6">
-                        <label
-                            htmlFor="meal"
-                            className="block text-lg font-medium text-gray-700 mb-2"
-                        >
-                            What meal do you want to cook?
-                        </label>
-                        <select
-                            id="meal"
-                            value={mealType}
-                            onChange={handleMealChange}
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
-                            <option disabled value="">
-                                Select your meal type
-                            </option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                            <option value="snack">Snack</option>
-                            <option value="dessert">Dessert</option>
-                        </select>
-                    </div> */}
-
-                                    {/* Input 3: Cooking Skill */}
-                                    {/* <div className="mb-6">
-                        <label
-                            htmlFor="chef"
-                            className="block text-lg font-medium text-gray-700 mb-2"
-                        >
-                            Are you a good chef?
-                        </label>
-                        <select
-                            id="chef"
-                            value={skillLevel}
-                            onChange={handleSkillChange}
-                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
-                            <option disabled value="">
-                                Select your skill level
-                            </option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="expert">Expert</option>
-                        </select>
-                    </div> */}
 
                                     {/* Submit Button */}
                                     <div className="text-center">
