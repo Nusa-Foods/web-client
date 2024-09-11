@@ -64,17 +64,18 @@ export default function ProfilDropdown() {
     };
     if (cookies.get("Authorization"))
         return (
-            <div className="flex justify-center items-center h-[35px]">
+            <div className="flex justify-center items-center h-[35px] z-50">
                 <div
                     ref={dropdownRef}
                     className="w-20 flex justify-center items-center"
                 >
                     <div
                         onClick={() => setOpen(!open)}
-                        className={`flex justify-end border-b-4 border-transparent py-3 ${open
-                            ? "border-indigo-700 transform transition duration-300"
-                            : ""
-                            }`}
+                        className={`flex justify-end border-b-4 border-transparent py-3 ${
+                            open
+                                ? "border-indigo-700 transform transition duration-300"
+                                : ""
+                        }`}
                     >
                         <div className="flex justify-center items-center space-x-3 cursor-pointer">
                             <div className="w-10 h-10 rounded-full overflow-hidden">
@@ -157,9 +158,7 @@ export default function ProfilDropdown() {
                                     <hr className="" />
                                     <li className="font-medium">
                                         <div onClick={handleLogout}>
-                                            <p
-                                                className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
-                                            >
+                                            <p className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
                                                 <div className="mr-3 text-red-600">
                                                     <svg
                                                         className="w-6 h-6"
@@ -186,6 +185,5 @@ export default function ProfilDropdown() {
                     </div>
                 </div>
             </div>
-
         );
 }
