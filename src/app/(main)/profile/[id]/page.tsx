@@ -21,7 +21,7 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
         if (token) {
             const userInfo = await verifyTokenJose(token);
             setCurrentUserId(userInfo);
-            console.log(currentUserId, 'currentUserId>>')
+            // console.log(currentUserId, 'currentUserId>>')
         }
     };
 
@@ -36,7 +36,7 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
             if (response.ok) {
                 const data = await response.json();
                 setUser(data);
-                console.log("user>>>", data);
+                // console.log("user>>>", data);
             } else {
                 console.error("Failed to fetch user data.");
             }
@@ -156,7 +156,7 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
                                 </div>
 
                                 {/* Recipes Section */}
-                                <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 w-full">
+                                <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-10 w-full">
                                     {recipes &&
                                         recipes.map((e, i) => {
                                             return <RecipeProfileCard key={i} recipe={e} />;
