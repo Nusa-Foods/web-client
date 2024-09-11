@@ -10,8 +10,6 @@ export default function AiPage() {
     const [inputValue, setInputValue] = useState<string>("");
     const [recipe, setRecipe] = useState<any>(null);
 
-
-
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && inputValue) {
             e.preventDefault(); // Prevent form submission
@@ -52,7 +50,6 @@ export default function AiPage() {
             const data = await response.json();
             setRecipe(data.response);
         } else {
-            // Handle error response here
             console.error("Failed to fetch recipe");
         }
     };
