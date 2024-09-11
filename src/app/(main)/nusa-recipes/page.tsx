@@ -70,10 +70,11 @@ export default function NusaPage() {
     }, []);
 
     return (
-        <div className="min-h-screen py-5 bg-[#F9FAFB]">
-            <div className="container mx-auto px-4">
+        <div className="min-h-screen flex flex-col md:flex-row  bg-[#F9FAFB] w-full">
+            <div className="w-full">
                 <main className="flex flex-col">
-                    <div className="flex mb-6 justify-between">
+                    {/* navbar */}
+                    <div className="flex mb-6 pt-8 px-4 justify-between">
                         <div className="flex flex-row items-center gap-4">
                             <img
                                 src="https://www.nicepng.com/png/full/71-718556_wonderful-indonesia-logo-logo-pesona-indonesia-png.png"
@@ -86,59 +87,83 @@ export default function NusaPage() {
                         </div>
                         <ProfilDropdown />
                     </div>
-                    <div className="pl-10">
-                        <p>
-                            Each recipe is carefully curated to offer a true
-                            taste of Indonesia's culinary traditions, ensuring
-                            that you experience the full flavors and techniques.
-                        </p>
-                        <p>
-                            Whether you're a seasoned cook or a curious foodie,
-                            Nusa Recipes brings the heart of Nusantara to your
-                            kitchen.
-                        </p>
+
+                    {/* Banner */}
+                    <div className="h-48 sm:h-48 md:h-48 lg:h-64 static relative">
+                        <img
+                            src="banner11.jpg"
+                            alt="banner"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0  flex flex-col justify-center items-center pl-8">
+                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Kangen Masakan Nusantara ?
+                            </p>
+                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Nusa Resep-in aja!
+                            </p>
+                            <p className=" w-2/3 text-sm text-white text-center sm:text-base md:text-sm lg:text-xl text-black"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Each recipe is carefully curated to offer a true
+                                taste of Indonesia's culinary traditions, ensuring
+                                that you experience the full flavors and techniques.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="">
-                        {loading && (
-                            <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                <div>Loading ...</div>
-                            </div>
-                        )}
+                    <div className="container mx-auto px-4">
+                        <main className="flex flex-col">
 
-                        {!loading && (
-                            <InfiniteScroll
-                                dataLength={recipes.length}
-                                next={fetchRecipes}
-                                hasMore={hasMore}
-                                loader={
-                                    <>
-                                        <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                            Loading loader
+                            <div className="">
+                                {loading && (
+                                    <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                        <div>Loading ...</div>
+                                    </div>
+                                )}
+
+                                {!loading && (
+                                    <InfiniteScroll
+                                        dataLength={recipes.length}
+                                        next={fetchRecipes}
+                                        hasMore={hasMore}
+                                        loader={
+                                            <>
+                                                <div className="flex justify-center items-center h-screen font-bold text-lg">
+                                                    Loading loader
+                                                </div>
+                                            </>
+                                        }
+                                        endMessage={
+                                            <div className="flex justify-center items-center h-screen font-bold text-lg">
+                                                <b>End of page</b>
+                                            </div>
+                                        }
+                                    >
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+                                            <div className="grid grid-cols-1 gap-6 justify-items-center">
+                                                {recipes.map((el, index) => {
+                                                    return (
+                                                        <NusaRecipeCard
+                                                            key={index}
+                                                            recipe={el}
+                                                            getBookmarks={getBookmarks}
+                                                        />
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
-                                    </>
-                                }
-                                endMessage={
-                                    <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                        <b>End of page</b>
-                                    </div>
-                                }
-                            >
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-                                    <div className="grid grid-cols-1 gap-6 justify-items-center">
-                                        {recipes.map((el, index) => {
-                                            return (
-                                                <NusaRecipeCard
-                                                    key={index}
-                                                    recipe={el}
-                                                    getBookmarks={getBookmarks}
-                                                />
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            </InfiniteScroll>
-                        )}
+                                    </InfiniteScroll>
+                                )}
+                            </div>
+                        </main>
                     </div>
                 </main>
             </div>

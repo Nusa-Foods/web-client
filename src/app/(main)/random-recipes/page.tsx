@@ -39,10 +39,11 @@ export default function AiPage() {
     };
 
     return (
-        <div className="min-h-screen py-5 bg-[#F9FAFB]">
-            <div className="container mx-auto px-4">
+        <div className="min-h-screen flex flex-col md:flex-row  bg-[#F9FAFB] w-full">
+            <div className="w-full">
                 <main className="flex flex-col">
-                    <div className="flex mb-6 justify-between">
+                    {/* navbar */}
+                    <div className="flex mb-6 pt-8 px-4 justify-between">
                         <div className="flex flex-row items-center gap-4">
                             <img
                                 src="https://atlas-content-cdn.pixelsquid.com/stock-images/dice-B5mdRR0-600.jpg"
@@ -56,92 +57,127 @@ export default function AiPage() {
                         <ProfilDropdown />
                     </div>
 
-                    <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
-                            Do you have the courage to try a random recipe from us?
-                        </h1>
+                    {/* Banner */}
+                    <div className="h-48 sm:h-48 md:h-48 lg:h-64 static relative">
+                        <img
+                            src="banner13.jpg"
+                            alt="banner"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0  flex flex-col justify-center items-center pl-4 pr-4">
+                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Lagi Bingung Mau Masak Apa ?
+                            </p>
+                            <p className="text-lg text-white sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Sini Nusa Food kasih resep surprise untukmu!
+                            </p>
+                            <p className=" w-2/3 text-sm text-white text-center sm:text-base md:text-sm lg:text-xl text-black"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+                                }}>
+                                Mudah ditemukan dan siap diolah—dari hidangan favorit hingga kreasi baru. Semua resep dalam genggamanmu, siap memuaskan selera makanmu!
+                            </p>
+                        </div>
+                    </div>
 
-                        <form onSubmit={handleSubmit}>
-                            {/* Submit Button */}
-                            <div className="text-center">
-                                <button
-                                    className={`bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto ${loading ? "opacity-75 cursor-not-allowed" : ""
-                                        }`}
-                                    disabled={loading} // Disable button during loading
-                                >
-                                    {loading
-                                        ? "Prepare your souls..." // Loading text
-                                        : "Generate Recipe"}
-                                </button>
-                            </div>
-                        </form>
 
-                        {/* Display Recipe */}
-                        {recipe && (
-                            <div className="mt-8">
-                                <h2 className="text-xl font-bold mb-4">
-                                    {recipe.title}
-                                </h2>
-                                <img
-                                    src={recipe.imgUrl}
-                                    alt={recipe.title}
-                                    className="w-full h-auto mb-4"
-                                />
-                                <div className="mb-4">
-                                    <h3 className="text-lg font-semibold mb-2">
-                                        Ingredients:
-                                    </h3>
-                                    <ul className="list-disc list-inside">
-                                        {recipe.ingredients &&
-                                            recipe.ingredients.map(
-                                                (
-                                                    [quantity, ingredient]: [
-                                                        string,
-                                                        string
-                                                    ],
-                                                    index: number
-                                                ) => (
-                                                    <li key={index}>
-                                                        {quantity} {ingredient}
-                                                    </li>
-                                                )
-                                            )}
-                                    </ul>
-                                </div>
-                                <div className="mb-4">
-                                    <h3 className="text-lg font-semibold mb-2">
-                                        Nutrients:
-                                    </h3>
-                                    <ul className="list-disc list-inside">
-                                        {recipe.nutrients &&
-                                            recipe.nutrients.map(
-                                                (
-                                                    [quantity, nutrient]: [
-                                                        string,
-                                                        string
-                                                    ],
-                                                    index: number
-                                                ) => (
-                                                    <li key={index}>
-                                                        {quantity} {nutrient}
-                                                    </li>
-                                                )
-                                            )}
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold mb-2">
-                                        Guide:
-                                    </h3>
-                                    <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        className="prose prose-lg"
-                                    >
-                                        {recipe.guide}
-                                    </ReactMarkdown>
-                                </div>
+                    <div className="container mx-auto px-4">
+                        <main className="flex flex-col">
+
+                            <div className="container mt-10 mx-auto px-4 lg:px-8 max-w-4xl">
+                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
+                                    Do you have the courage to try a random recipe from us?
+                                </h1>
+
+                                <form onSubmit={handleSubmit}>
+                                    {/* Submit Button */}
+                                    <div className="text-center">
+                                        <button
+                                            className={`bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto ${loading ? "opacity-75 cursor-not-allowed" : ""
+                                                }`}
+                                            disabled={loading} // Disable button during loading
+                                        >
+                                            {loading
+                                                ? "Prepare your souls..." // Loading text
+                                                : "Generate Recipe"}
+                                        </button>
+                                    </div>
+                                </form>
+
+                                {/* Display Recipe */}
+                                {recipe && (
+                                    <div className="mt-8">
+                                        <h2 className="text-xl font-bold mb-4">
+                                            {recipe.title}
+                                        </h2>
+                                        <img
+                                            src={recipe.imgUrl}
+                                            alt={recipe.title}
+                                            className="w-full h-auto mb-4"
+                                        />
+                                        <div className="mb-4">
+                                            <h3 className="text-lg font-semibold mb-2">
+                                                Ingredients:
+                                            </h3>
+                                            <ul className="list-disc list-inside">
+                                                {recipe.ingredients &&
+                                                    recipe.ingredients.map(
+                                                        (
+                                                            [quantity, ingredient]: [
+                                                                string,
+                                                                string
+                                                            ],
+                                                            index: number
+                                                        ) => (
+                                                            <li key={index}>
+                                                                {quantity} {ingredient}
+                                                            </li>
+                                                        )
+                                                    )}
+                                            </ul>
+                                        </div>
+                                        <div className="mb-4">
+                                            <h3 className="text-lg font-semibold mb-2">
+                                                Nutrients:
+                                            </h3>
+                                            <ul className="list-disc list-inside">
+                                                {recipe.nutrients &&
+                                                    recipe.nutrients.map(
+                                                        (
+                                                            [quantity, nutrient]: [
+                                                                string,
+                                                                string
+                                                            ],
+                                                            index: number
+                                                        ) => (
+                                                            <li key={index}>
+                                                                {quantity} {nutrient}
+                                                            </li>
+                                                        )
+                                                    )}
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-lg font-semibold mb-2">
+                                                Guide:
+                                            </h3>
+                                            <ReactMarkdown
+                                                remarkPlugins={[remarkGfm]}
+                                                className="prose prose-lg"
+                                            >
+                                                {recipe.guide}
+                                            </ReactMarkdown>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </main>
                     </div>
                 </main>
             </div>

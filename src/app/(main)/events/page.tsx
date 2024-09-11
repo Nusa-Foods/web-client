@@ -119,10 +119,11 @@ export default function EventPage() {
     };
 
     return (
-        <div className="min-h-screen py-5 bg-[#F9FAFB]">
-            <div className="container mx-auto px-4">
+        <div className="min-h-screen flex flex-col md:flex-row  bg-[#F9FAFB] w-full">
+            <div className="w-full">
                 <main className="flex flex-col">
-                    <div className="flex mb-6 justify-between">
+                    {/* navbar */}
+                    <div className="flex mb-6 pt-8 px-4 justify-between">
                         <div className="flex flex-row items-center gap-4">
                             <img
                                 src="https://www.chefgpt.xyz/assets/icons/calendar.webp"
@@ -136,50 +137,96 @@ export default function EventPage() {
                         <ProfilDropdown />
                     </div>
 
-                    <section className="bg-[#F9FAFB] p-5">
-                        <h2 className="flex justify-center text-3xl font-bold mb-8">Upcoming Events</h2>
-                        <div className="">
-                            {loading && events.length === 0 ? (
-                                <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                    <div>Loading ...</div>
-                                </div>
-                            ) : (
-                                <InfiniteScroll
-                                    dataLength={events.length}
-                                    next={() => fetchEvents()}
-                                    hasMore={hasMore}
-                                    loader={
-                                        hasMore && (
-                                            <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
-                                                Loading more events...
-                                            </div>
-                                        )
-                                    }
-                                    endMessage={
-                                        !hasMore && (
-                                            <p style={{ textAlign: "center" }}>
-                                                <b>No more events</b>
-                                            </p>
-                                        )
-                                    }
-                                >
-                                    <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                                        {events.map((el, index) => (
-                                            <EventCard
-                                                key={index}
-                                                eventDetail={el}
-                                                onJoinSuccess={handleJoinSuccess}
-                                                user={user}
-                                            />
-                                        ))}
-                                    </div>
-                                </InfiniteScroll>
-                            )}
+                    {/* Banner */}
+                    <div className="h-48 sm:h-48 md:h-48 lg:h-64 static relative">
+                        <img
+                            src="banner8.jpg"
+                            alt="banner"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0  flex flex-col justify-center items-center pl-4 pr-4">
+                            <p className="text-lg text-black sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '4px 4px 4px rgba(0, 0, 0, 0.6)'
+                                }}>
+                                Ikuti Event menarik Nusa Food!
+                            </p>
+                            <p className="text-lg text-black sm:text-sm  md:text-xl lg:text-2xl font-bold capitalize"
+                                style={{
+                                    textShadow: '4px 4px 4px rgba(100, 100, 100, 100)',
+                                }}>
+
+                            </p>
+                            <p className=" w-4/5 text-sm text-black text-center sm:text-base md:text-sm lg:text-xl text-black"
+                                style={{
+                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)'
+                                }}>
+                                Jangan lewatkan kesempatan untuk mendapatkan inspirasi kuliner yang segar dan bermanfaat untuk kesehatanmu!
+                            </p>
                         </div>
-                    </section>
+                    </div>
+
+
+                    <div className="container mx-auto px-4 mt-10">
+                        <main className="flex flex-col">
+
+
+
+                            <div className="container mx-auto px-4">
+                                <main className="flex flex-col items-center">
+                                    <div className="text-center mb-10 w-full">
+                                        <h2 className="flex justify-center text-3xl font-bold mb-8">Upcoming Events</h2>
+                                        <p>Ikuti event-event menarik untuk memperdalaman wawasanmu mengenai resep-resep sehat, menarik dan ktivitas event lainnya!</p>
+                                    </div>
+                                    {loading && events.length === 0 ? (
+                                        <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                            <div>Loading ...</div>
+                                        </div>
+                                    ) : (
+                                        <InfiniteScroll
+                                            dataLength={events.length}
+                                            next={() => fetchEvents()}
+                                            hasMore={hasMore}
+                                            loader={
+                                                hasMore && (
+                                                    <div className="flex text-center justify-center items-center h-screen font-bold text-lg">
+                                                        Loading more events...
+                                                    </div>
+                                                )
+                                            }
+                                            endMessage={
+                                                !hasMore && (
+                                                    <p style={{ textAlign: "center" }}>
+                                                        <b>No more events</b>
+                                                    </p>
+                                                )
+                                            }
+                                        >
+                                            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-10">
+                                                {events.map((el, index) => (
+                                                    <EventCard
+                                                        key={index}
+                                                        eventDetail={el}
+                                                        onJoinSuccess={handleJoinSuccess}
+                                                        user={user}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </InfiniteScroll>
+                                    )}
+
+                                </main>
+                            </div>
+
+
+
+
+
+
+                        </main>
+                    </div>
                 </main>
             </div>
         </div>
-
     );
 }

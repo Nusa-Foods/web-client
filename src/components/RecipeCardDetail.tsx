@@ -10,6 +10,7 @@ import ButtonLike from "./ButtonLike";
 import ButtonCommentStatic from "./ButtonCommentStatic";
 import ButtonShare from "./ButtonShare";
 import Editor from "./Editor";
+import Link from "next/link";
 
 export default function RecipeCardDetail({
     recipeDetail,
@@ -86,11 +87,11 @@ export default function RecipeCardDetail({
 
     return (
         <div className="flex flex-col bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] !h-auto py-4 px-4">
-            <div className="flex items-center justify-center p-4 w-full mb-4 h-[40%] sm:h-[50%] md:h-[50%] lg:h-[50%] xl:h-[50%] overflow-hidden">
+            <div className="flex items-center justify-center pr-4 pl-4 mt-6 w-full mb-4 h-[60%] sm:h-[60%] md:h-[70%] lg:h-[70%] xl:h-[70%] overflow-hidden rounded">
                 <img
                     src={recipeDetail.imgUrl}
                     alt={recipeDetail.title}
-                    className="rounded-lg object-cover w-full overflow-hidden"
+                    className="rounded-lg object-cover w-full overflow-hidden "
                 />
             </div>
 
@@ -134,9 +135,12 @@ export default function RecipeCardDetail({
                                 d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                             />
                         </svg>
-                        <p className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6">
+                        <Link
+                            href={`/profile/${user._id}`}
+                            className="text-xs sm:text-sm md:text-md mr-2 sm:mr-4 md:mr-6"
+                        >
                             {user.username ? user.username : user.email}
-                        </p>
+                        </Link>
                     </div>
                 </div>
 

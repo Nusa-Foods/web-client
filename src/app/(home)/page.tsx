@@ -23,11 +23,10 @@ export default function Home() {
                             Elevate your dining experience with personalized
                             meal suggestions, easy-to-follow recipes, and a
                             variety of culinary delights. Join our community of
-                            satisfied food enthusiasts and enjoy over 500,000
-                            meals served!
+                            satisfied food enthusiasts!
                         </p>
                         <Link
-                            href="/your-cheff"
+                            href="/discover"
                             className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                         >
                             Get Started
@@ -72,7 +71,7 @@ export default function Home() {
                                         enjoyable and health-conscious.
                                     </p>
                                     <Link
-                                        href="/your-cheff"
+                                        href="/your-chef"
                                         className="bg-custom-brown-3 py-2 px-4 rounded-lg font-semibold text-custom-brown-1 hover:text-custom-brown-3 hover:bg-custom-brown-1"
                                     >
                                         Get Started
