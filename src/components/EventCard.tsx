@@ -126,7 +126,10 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
                     Lihat di maps
                 </button>
             </div>
-            <div className="flex justify-between">
+
+            <div className="flex-grow"></div>
+
+            <div className="flex justify-between mt-auto">
                 <span className=" p-2 bg-custom-brown-3 text-custom-brown-2 text-sm font-medium rounded-full">
                     <b>Kuota:</b> {eventDetail.quota ? eventDetail.quota : 0} {eventDetail.quota > 1 ? "slots" : "slot"}
                 </span>
