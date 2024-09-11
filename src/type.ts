@@ -7,7 +7,7 @@ export interface RecipeType {
     slug: string;
     likes: Like[];
     comments: Comment[];
-    createdAt: Date;
+    createdAt: string;
     updatedAt: Date;
     authorId: AuthorId;
     guide: string;

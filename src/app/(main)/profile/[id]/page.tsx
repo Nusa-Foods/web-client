@@ -8,43 +8,78 @@ import { verifyTokenJose } from "@/helpers/jwt";
 import ButtonChat from "@/components/ButtonChat";
 import ProfilDropdown from "@/components/ProfilDropdown";
 
+
 export default function ProfilePage({ params }: { params: { id: string } }) {
     const cookies = useCookies();
     const [user, setUser] = useState<UserType>({});
-    const [currentUserId, setCurrentUserId] = useState<String>("");
+    const [currentUserId, setCurrentUserId] = useState<string>("");
+    const [recipes, setRecipes] = useState<RecipeType[]>([]);
+
 
     const getCurrentUserId = async () => {
-        const userId = cookies.get("Authorization")?.split(" ")[1];
-        const userInfo = await verifyTokenJose(userId as string);
-        setCurrentUserId(userInfo);
+        const token = cookies.get("Authorization")?.split(" ")[1];
+        if (token) {
+            const userInfo = await verifyTokenJose(token);
+            setCurrentUserId(userInfo);
+            // console.log(currentUserId, 'currentUserId>>')
+        }
     };
+
+    const getUser = async () => {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/user/${params.id}`,
+                {
+                    headers: { "Content-Type": "application/json" },
+                }
+            );
+            if (response.ok) {
+                const data = await response.json();
+                setUser(data);
+                // console.log("user>>>", data);
+            } else {
+                console.error("Failed to fetch user data.");
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
+    };
+
+
+    const getRecipesById = async () => {
+        console.log(params.id, '>>> di getrecipes by id')
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/recipe/byId/${params.id}`,
+                {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                    cache: "no-store",
+                    credentials: "include",
+                }
+            );
+            if (response.ok) {
+                const data = await response.json();
+                setRecipes(data);
+                console.log(" recipes>>>", data);
+            } else {
+                console.error("Failed to fetch recipes.");
+            }
+        } catch (error) {
+            console.error("Error fetching recipes:", error);
+        }
+    };
+
     useEffect(() => {
         getCurrentUserId();
-    }, []);
-
-    const getUser = async (authorId: string) => {
-        const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/user/${params.id}`,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        );
-
-        const data = await response.json();
-        setUser(data);
-    };
-    const getUserId = async () => {
-        const userId = cookies.get("Authorization")?.split(" ")[1];
-        const userInfo = await verifyTokenJose(userId as string);
-        getUser(userInfo);
-    };
+    }, [cookies]);
 
     useEffect(() => {
-        getUserId();
-    }, []);
-    // console.log("ini user", user);
+        getUser();
+        getRecipesById();
+    }, [params.id]);
+
+
     return (
         <>
             <>
@@ -121,9 +156,9 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
                                 </div>
 
                                 {/* Recipes Section */}
-                                <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 w-full">
-                                    {user.recipe &&
-                                        user.recipe.map((e, i) => {
+                                <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-10 w-full">
+                                    {recipes &&
+                                        recipes.map((e, i) => {
                                             return <RecipeProfileCard key={i} recipe={e} />;
                                         })}
                                 </div>
