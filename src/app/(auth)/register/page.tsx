@@ -223,7 +223,7 @@ export default function RegisterPage() {
                             type="submit"
                             className="w-full bg-custom-brown-2 text-white font-medium py-2 rounded-lg hover:bg-custom-brown-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                            {isLoading ? "Memuat..." : "Sign Up"}
+                            {isLoading ? "Loading..." : "Daftar"}
                         </button>
                     </form>
                     <p className="text-center text-sm text-gray-600 mt-4">
