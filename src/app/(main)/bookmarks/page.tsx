@@ -99,16 +99,15 @@ export default function Bookmarks() {
                                 <main className="flex flex-col items-center">
                                     <div className="text-center mb-10 w-full">
                                         <h1 className="text-3xl font-bold mb-4">
-                                            Your Recipes Bookmark
+                                            Resep Pilihan Anda
                                         </h1>
-                                        <p>Keep track of your favorite recipes here.</p>
+                                        <p>Catat resep favoritmu di sini dan simpan dengan mudah!</p>
                                     </div>
                                     {bookmarksData.length == 0 && (
                                         <p className="text-center w-full">
-                                            You dont have any bookmarked recipe, explore our
-                                            recipe on{" "}
+                                            Anda belum memiliki resep pilihan untuk disimpan, cari resep menarik untuk disimpan di{" "}
                                             <Link href="/discover" className="text-blue-400">
-                                                discover
+                                                Jelajah Resep
                                             </Link>
                                         </p>
                                     )}

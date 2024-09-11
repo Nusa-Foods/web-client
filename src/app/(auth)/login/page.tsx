@@ -51,7 +51,7 @@ export default function LoginPage() {
                         ? "Email / Password salah"
                         : data.message
                 );
-                showToast({ message: data.message || "Login failed" });
+                showToast({ message: data.message || "Gagal Masuk" });
             }
         } catch (err) {
             console.error("Error during login:", err);
@@ -88,7 +88,7 @@ export default function LoginPage() {
                 cookies.set("Authorization", "Bearer " + data.accessToken);
                 router.push("/discover");
             } else {
-                showToast({ message: "Login failed" });
+                showToast({ message: "Gagal Masuk" });
             }
         } catch (err) {
             console.error("Error during Google login:", err);
@@ -101,7 +101,7 @@ export default function LoginPage() {
     useGoogleOneTapLogin({
         onSuccess: handleCredentialResponse,
         onError: () => {
-            showToast({ message: "Login failed" });
+            showToast({ message: "Gagal Masuk" });
         },
     });
 
@@ -121,7 +121,7 @@ export default function LoginPage() {
                     </div>
                 </Link>
                 <h2 className="text-md my-5 text-center mb-6">
-                    Sign in to your account
+                    Masuk dengan Akun Anda
                 </h2>
 
                 {/* Google Login */}
@@ -131,13 +131,13 @@ export default function LoginPage() {
                         theme="outline"
                         onSuccess={handleCredentialResponse}
                         onError={() => {
-                            showToast({ message: "Login failed" });
+                            showToast({ message: "Gagal Masuk" });
                         }}
                     />
                 </div>
 
                 <h2 className="text-md  text-gray-500 mb-4 text-center">
-                    or continue with email
+                    atau masuk menggunakan email
                 </h2>
 
                 <form onSubmit={handleSubmit}>
@@ -180,17 +180,17 @@ export default function LoginPage() {
                         className="w-full bg-custom-brown-2 text-white font-medium py-2 rounded-lg hover:bg-custom-brown-1 focus:outline-none"
                         disabled={isLoading}
                     >
-                        {isLoading ? "Loading..." : "Sign In"}
+                        {isLoading ? "Loading..." : "Masuk"}
                     </button>
                 </form>
 
                 <p className="text-center text-sm text-gray-600 mt-4">
-                    Don't have an account?{" "}
+                    Belum punya akun?{" "}
                     <Link
                         href="/register"
                         className="text-custom-brown-1 hover:underline"
                     >
-                        Sign Up
+                        Daftar
                     </Link>
                 </p>
             </div>

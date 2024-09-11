@@ -17,28 +17,28 @@ export default function Footer() {
                                     <span className="text-[#3A2D18]">Food</span>
                                 </span>
                             </div>
-                            <p className="text-gray-500 mt-2">Your Cook Inspiration</p>
+                            <p className="text-gray-500 mt-2">Inspirasi Masakan Anda</p>
                         </aside>
                     </div>
 
                     <div className="flex-1">
                         <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 md:space-x-6 lg:space-x-10 xl:space-x-10">
                             <nav className="flex flex-col text-gray-500">
-                                <p className="footer-title text-gray-700 text-lg mb-2">Services</p>
+                                <p className="footer-title text-gray-700 text-lg mb-2">Layanan Kami</p>
                                 <p className="link link-hover mb-1">Branding</p>
                                 <p className="link link-hover mb-1">Marketing</p>
-                                <p className="link link-hover mb-1">Advertisement</p>
+                                <p className="link link-hover mb-1">Iklan</p>
                             </nav>
                             <nav className="flex flex-col text-gray-500">
-                                <p className="footer-title text-gray-700 text-lg mb-2">Company</p>
-                                <p className="link link-hover mb-1">About us</p>
-                                <p className="link link-hover mb-1">Contact</p>
+                                <p className="footer-title text-gray-700 text-lg mb-2">Perusahaan</p>
+                                <p className="link link-hover mb-1">Tentang Kami</p>
+                                <p className="link link-hover mb-1">Kontak</p>
                             </nav>
                             <nav className="flex flex-col text-gray-500">
                                 <p className="footer-title text-gray-700 text-lg mb-2">Legal</p>
-                                <p className="link link-hover mb-1">Terms of use</p>
-                                <p className="link link-hover mb-1">Privacy policy</p>
-                                <p className="link link-hover mb-1">Cookie policy</p>
+                                <p className="link link-hover mb-1">Syarat dan Ketentuan Penggunaan</p>
+                                <p className="link link-hover mb-1">Kebijakan Privasi</p>
+                                <p className="link link-hover mb-1">Kebijakan Cookie</p>
                             </nav>
                         </div>
 

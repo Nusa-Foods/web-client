@@ -40,7 +40,7 @@ function ChatComponent() {
                     username: "Support Bot",
                     email: "support@default.com",
                     imageUrl: "/cheff.svg",
-                    welcomeMessage: "Hi! How can I assist you today?",
+                    welcomeMessage: "Hai! Bagaimana saya bisa membantu Anda hari ini??",
                     role: "customer service",
                 });
                 return;
@@ -71,7 +71,7 @@ function ChatComponent() {
                 name: currentUser.username as string,
                 email: currentUser.email,
                 photoUrl: currentUser.imageUrl as string,
-                welcomeMessage: "Hello! How can I assist you?",
+                welcomeMessage: "Hai! Bagaimana saya bisa membantu Anda hari ini?",
                 role: "user",
             });
 
@@ -80,7 +80,7 @@ function ChatComponent() {
                 name: chatPartner.username as string,
                 email: chatPartner.email,
                 photoUrl: chatPartner.imageUrl as string,
-                welcomeMessage: "Hello! How can i help you?",
+                welcomeMessage: "Hai! Bagaimana saya bisa membantu Anda hari ini?",
                 role: "user",
             });
 
@@ -111,14 +111,14 @@ function ChatComponent() {
                     className="fixed bottom-[500px] right-0 p-3 bg-gray-300 text-gray-700 mr-3 rounded-t-md delay-500"
                     onClick={toggleChat}
                 >
-                    Close Chat
+                    Tutup Obrolan
                 </button>
             ) : (
                 <button
                     className="fixed bottom-0 right-0 p-3 bg-gray-700 text-gray-300 rounded-tl-md hidden"
                     onClick={toggleChat}
                 >
-                    Open Chat
+                    Buka Obrolan
                 </button>
             )}
 

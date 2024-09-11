@@ -51,13 +51,13 @@ export default function RegisterPage() {
                     });
                 } else {
                     showToast({
-                        message: "Berhasil membuat akun, silakan login",
+                        message: "Berhasil membuat akun, silakan masuk dengan akun anda",
                         type: "success",
                     });
                     router.push("/login");
                 }
             } else {
-                showToast({ message: "Gagal Register" });
+                showToast({ message: "Gagal Mendaftar" });
                 switch (data.msg) {
                     case "email Invalid email format":
                         setError("Format email kurang tepat");
@@ -66,11 +66,11 @@ export default function RegisterPage() {
                         setError("Username minimal 3 huruf");
                         break;
                     case "password String must contain at least 7 character(s)":
-                        setError("Password minimal 7 character");
+                        setError("Password minimal 7 karakter");
                         break;
 
                     default:
-                        setError("Gagal Register");
+                        setError("Gagal Membuat Akun");
                         break;
                 }
             }
@@ -109,7 +109,7 @@ export default function RegisterPage() {
                 cookies.set("Authorization", "Bearer " + data.accessToken);
                 router.push("/");
             } else {
-                showToast({ message: "Login failed" });
+                showToast({ message: "Gagal Masuk" });
             }
         } catch (err) {
             console.error("Error during Google login:", err);
@@ -122,7 +122,7 @@ export default function RegisterPage() {
     useGoogleOneTapLogin({
         onSuccess: handleCredentialResponse,
         onError: () => {
-            showToast({ message: "Login failed" });
+            showToast({ message: "Gagal Masuk" });
         },
     });
 
@@ -144,7 +144,7 @@ export default function RegisterPage() {
                         </div>
                     </Link>
                     <h2 className="text-md my-5 text-center mb-6">
-                        Create an account
+                        Buat Akun
                     </h2>
 
                     {/* Google Login */}
@@ -160,7 +160,7 @@ export default function RegisterPage() {
                     </div>
 
                     <h2 className="text-md  text-gray-500 mb-4 text-center">
-                        or continue with email
+                        atau buat akun menggunakan email
                     </h2>
 
                     <form action="#" onSubmit={handleSubmit}>
@@ -215,7 +215,7 @@ export default function RegisterPage() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <label className="text-sm text-gray-500">
-                                Please ensure to enter at least 6 characters
+                                Pastikan password yang diisi minimal 7 karakter
                             </label>
                         </div>
 
@@ -223,16 +223,16 @@ export default function RegisterPage() {
                             type="submit"
                             className="w-full bg-custom-brown-2 text-white font-medium py-2 rounded-lg hover:bg-custom-brown-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                            {isLoading ? "Memuat..." : "Sign Up"}
+                            {isLoading ? "Loading..." : "Daftar"}
                         </button>
                     </form>
                     <p className="text-center text-sm text-gray-600 mt-4">
-                        Already have an account?{" "}
+                        Sudah memiliki akun?{" "}
                         <Link
                             href="/login"
                             className="text-custom-brown-1 hover:underline"
                         >
-                            Sign In
+                            Masuk
                         </Link>
                     </p>
                 </div>

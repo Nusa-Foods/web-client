@@ -57,13 +57,13 @@ export default function NavBar() {
                             {/* Navigation Links */}
                             <div className="hidden lg:flex space-x-6 text-gray-500 justify-between items-center w-full">
                                 <Link href="/nusa-recipes" className="nav-link">
-                                    Nusa Recipes
+                                    Nusa Resep
                                 </Link>
                                 <Link href="/discover" className="nav-link">
-                                    Discover
+                                    Jelajahi Resep
                                 </Link>
                                 <Link href="/your-chef" className="nav-link">
-                                    Your Personal Chef
+                                    Koki Personalmu
                                 </Link>
                             </div>
                         </div>
@@ -76,13 +76,13 @@ export default function NavBar() {
                                 href={"/login"}
                                 className="w-20 bg-white font-medium py-2 rounded-md"
                             >
-                                Sign In
+                                Masuk
                             </Link>
                             <Link
                                 href={"/register"}
                                 className="w-20 bg-custom-brown-1 text-center text-white font-medium py-2 rounded-md hover:bg-custom-brown-2 focus:outline-none focus:ring-2 focus:ring-custom-brown-4"
                             >
-                                Sign Up
+                                Daftar
                             </Link>
                         </div>
                     )}
@@ -114,27 +114,26 @@ export default function NavBar() {
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden !pl-12 mt-20 fixed inset-0 bg-white p-4 flex flex-col space-y-4 border-t border-gray-200 ${
-                    isMenuOpen ? "block" : "hidden"
-                }`}
+                className={`lg:hidden !pl-12 mt-20 fixed inset-0 bg-white p-4 flex flex-col space-y-4 border-t border-gray-200 ${isMenuOpen ? "block" : "hidden"
+                    }`}
             >
                 {!auth && (
                     <Link
                         href={"/login"}
                         className="w-20 mb-5 bg-white text-custom-brown-1 font-medium py-2 rounded-md"
                     >
-                        <b>Sign In</b>
+                        <b>Masuk</b>
                     </Link>
                 )}
 
                 <Link href="/nusa-recipes" className="nav-link">
-                    Nusa Recipes
+                    Nusa Resep
                 </Link>
                 <Link href="/discover" className="nav-link">
-                    Discover
+                    Jelajahi Resep
                 </Link>
                 <Link href="/your-chef" className="nav-link">
-                    Your Personal Chef
+                    Koki Personalmu
                 </Link>
             </div>
         </div>

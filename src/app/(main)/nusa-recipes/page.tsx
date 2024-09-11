@@ -82,7 +82,7 @@ export default function NusaPage() {
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Curated Flavors of Nusantara Recipes
+                                Resep Nusantara Pilihan
                             </h1>
                         </div>
                         <ProfilDropdown />
@@ -112,9 +112,8 @@ export default function NusaPage() {
                                 style={{
                                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
                                 }}>
-                                Each recipe is carefully curated to offer a true
-                                taste of Indonesia's culinary traditions, ensuring
-                                that you experience the full flavors and techniques.
+
+                                Setiap resep disiapkan dengan cermat untuk memberikan rasa asli dari tradisi kuliner Indonesia, memastikan Anda merasakan seluruh cita rasa dan teknik memasak yang otentik.
                             </p>
                         </div>
                     </div>
@@ -137,17 +136,17 @@ export default function NusaPage() {
                                         loader={
                                             <>
                                                 <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                                    Loading loader
+                                                    Loading ...
                                                 </div>
                                             </>
                                         }
                                         endMessage={
                                             <div className="flex justify-center items-center h-screen font-bold text-lg">
-                                                <b>End of page</b>
+                                                <b>Akhir dari halaman</b>
                                             </div>
                                         }
                                     >
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+                                        <div className="mt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 justify-items-center">
                                             <div className="grid grid-cols-1 gap-6 justify-items-center">
                                                 {recipes.map((el, index) => {
                                                     return (

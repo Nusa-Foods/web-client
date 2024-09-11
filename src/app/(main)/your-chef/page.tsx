@@ -76,7 +76,7 @@ export default function AiPage() {
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Your Personal Recipe
+                                Resep Personal Hanya Untukmu
                             </h1>
                         </div>
                         <ProfilDropdown />
@@ -116,7 +116,7 @@ export default function AiPage() {
 
                             <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
                                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
-                                    Effortless Recipes from What You Have!
+                                    Resep Tanpa Ribet dari Bahan yang Anda Miliki!
                                 </h1>
 
                                 <form onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ export default function AiPage() {
                                             htmlFor="ingredients"
                                             className="block text-lg font-medium text-gray-700 mb-2"
                                         >
-                                            What ingredients do you have?
+                                            Bahan Masak Apa Saja yang Anda Miliki?
                                         </label>
                                         <div className="w-full px-4 py-2 border rounded-md focus-within:ring-2 focus-within:ring-indigo-500">
                                             {ingredients.map((ingredient, index) => (
@@ -151,7 +151,7 @@ export default function AiPage() {
                                                 value={inputValue}
                                                 onChange={handleInputChange}
                                                 onKeyDown={handleKeyDown}
-                                                placeholder="Type an ingredient and press enter"
+                                                placeholder="Tulis bahan masak mu di sini dan tekan 'Enter'"
                                                 className="w-full p-2 outline-none border-none focus:outline-none focus:border-none"
                                             />
                                         </div>
@@ -208,7 +208,7 @@ export default function AiPage() {
                                     {/* Submit Button */}
                                     <div className="text-center">
                                         <button className="bg-custom-brown-2 text-white font-medium py-2 px-6 rounded-md hover:bg-custom-brown-1 focus:outline-none w-full sm:w-auto">
-                                            Generate Recipe
+                                            Buat Resep Personal
                                         </button>
                                     </div>
                                 </form>
@@ -226,7 +226,7 @@ export default function AiPage() {
                                         />
                                         <div className="mb-4">
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Ingredients:
+                                                Bahan Masak:
                                             </h3>
                                             <ul className="list-disc list-inside">
                                                 {recipe.ingredients &&
@@ -247,7 +247,7 @@ export default function AiPage() {
                                         </div>
                                         <div className="mb-4">
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Nutrients:
+                                                Nutrisi:
                                             </h3>
                                             <ul className="list-disc list-inside">
                                                 {recipe.nutrients &&
@@ -268,7 +268,7 @@ export default function AiPage() {
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Guide:
+                                                Cara Memasak:
                                             </h3>
                                             <ReactMarkdown
                                                 remarkPlugins={[remarkGfm]}

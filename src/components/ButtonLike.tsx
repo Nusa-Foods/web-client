@@ -29,7 +29,7 @@ export default function ButtonLike({
             const data = await response.json();
             if (response.ok) {
                 showToast({
-                    message: "You like the recipe",
+                    message: "Anda menyukai resepnya!",
                     type: "success",
                 });
                 if (fetchRecipes) fetchRecipes();

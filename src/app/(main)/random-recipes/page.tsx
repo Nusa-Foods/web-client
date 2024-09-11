@@ -51,7 +51,7 @@ export default function AiPage() {
                                 className="w-8 h-8"
                             />
                             <h1 className="text-3xl font-bold">
-                                Random Recipe
+                                Random Resep
                             </h1>
                         </div>
                         <ProfilDropdown />
@@ -91,8 +91,8 @@ export default function AiPage() {
                         <main className="flex flex-col">
 
                             <div className="container mt-10 mx-auto px-4 lg:px-8 max-w-4xl">
-                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5">
-                                    Do you have the courage to try a random recipe from us?
+                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-5 text-center">
+                                    Berani Coba Resep Random dari NusaFood?
                                 </h1>
 
                                 <form onSubmit={handleSubmit}>
@@ -104,8 +104,8 @@ export default function AiPage() {
                                             disabled={loading} // Disable button during loading
                                         >
                                             {loading
-                                                ? "Prepare your souls..." // Loading text
-                                                : "Generate Recipe"}
+                                                ? "Persiapkan Dirimu..." // Loading text
+                                                : "Buat Resep"}
                                         </button>
                                     </div>
                                 </form>
@@ -123,7 +123,7 @@ export default function AiPage() {
                                         />
                                         <div className="mb-4">
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Ingredients:
+                                                Bahan Masak:
                                             </h3>
                                             <ul className="list-disc list-inside">
                                                 {recipe.ingredients &&
@@ -144,7 +144,7 @@ export default function AiPage() {
                                         </div>
                                         <div className="mb-4">
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Nutrients:
+                                                Nutrisi:
                                             </h3>
                                             <ul className="list-disc list-inside">
                                                 {recipe.nutrients &&
@@ -165,7 +165,7 @@ export default function AiPage() {
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-semibold mb-2">
-                                                Guide:
+                                                Cara Memasak:
                                             </h3>
                                             <ReactMarkdown
                                                 remarkPlugins={[remarkGfm]}

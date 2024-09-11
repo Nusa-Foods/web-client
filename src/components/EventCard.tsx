@@ -43,7 +43,7 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
 
             if (response.ok) {
                 showToast({
-                    message: "Success Join Event",
+                    message: "Berhasil Daftar Event",
                     type: "success",
                 });
                 revalidate();
@@ -80,7 +80,7 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
 
             if (response.ok) {
                 showToast({
-                    message: "Success Cancel Join Event",
+                    message: "Berhasil Membatalkan Mengikuti Event",
                     type: "success",
                 });
                 revalidate();
@@ -115,20 +115,20 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
                 {eventDetail.description}
             </p>
             <p className="text-gray-600 mb-2 text-sm">
-                <b>Date:</b> November 20, 2024
+                <b>Tanggal:</b> {eventDetail.date}
             </p>
 
             <div className="flex justify-between items-center mb-4">
                 <p className="text-gray-600 text-sm">
-                    <b>Location:</b> Surabaya, Indonesia
+                    <b>Lokasi:</b> {eventDetail.location}
                 </p>
                 <button className="bg-custom-brown-3 text-custom-brown-2 font-medium py-1 px-3 rounded-md text-xs hover:bg-custom-brown-1 hover:text-white focus:outline-none ">
-                    See on Maps
+                    Lihat di maps
                 </button>
             </div>
             <div className="flex justify-between">
                 <span className=" p-2 bg-custom-brown-3 text-custom-brown-2 text-sm font-medium rounded-full">
-                    <b>Quota:</b> {eventDetail.quota ? eventDetail.quota : 0} {eventDetail.quota > 1 ? "slots" : "slot"}
+                    <b>Kuota:</b> {eventDetail.quota ? eventDetail.quota : 0} {eventDetail.quota > 1 ? "slots" : "slot"}
                 </span>
 
                 {user ? (
@@ -137,21 +137,21 @@ export default function EventCard({ eventDetail, onJoinSuccess, user }: EventCar
                             className="bg-red-500 text-white font-medium px-4 py-2 rounded-md"
                             onClick={handleCancelEvent}
                         >
-                            Cancel Join
+                            Batal Daftar
                         </button>
                     ) : (
                         <button
                             className="bg-custom-brown-1 text-custom-brown-4 font-medium px-4 py-2 rounded-md"
                             onClick={handleJoinEvent}
                         >
-                            Join Event
+                            Daftar Event
                         </button>
                     )
                 ) : (
                     <button
                         className="bg-custom-brown-3 text-custom-brown-1 font-medium px-4 py-2 rounded-md" onClick={handleJoinEvent}
                     >
-                        Join Event
+                        Daftar Event
                     </button>
                 )}
             </div>

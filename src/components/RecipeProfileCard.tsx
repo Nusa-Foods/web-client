@@ -17,7 +17,7 @@ export default function RecipeProfileCard({ recipe }: { recipe: RecipeType }) {
             </div>
             <div className="flex flex-col justify-between flex-grow">
                 <div className="px-4 mt-2">
-                    <h1 className="text-lg font-bold sm:text-xl md:text-2xl">{recipe.title}</h1>
+                    <h1 className="text-lg font-bold sm:text-xl md:text-2xl capitalize">{recipe.title}</h1>
                     <p className="text-md text-gray-600 sm:text-lg md:text-xl">
                         {recipe.description}
                     </p>
