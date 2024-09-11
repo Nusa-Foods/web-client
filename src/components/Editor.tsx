@@ -34,7 +34,7 @@ const Editor: React.FC<EditorProps> = ({
     };
 
     return (
-        <div className="-mx-[40px] my-4">
+        <div className="-mx-[55px] my-4">
             <BlockNoteView
                 editor={editor}
                 editable={editable}

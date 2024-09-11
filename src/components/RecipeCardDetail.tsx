@@ -35,13 +35,12 @@ export default function RecipeCardDetail({
 
         const data = await response.json();
         setUser(data);
-        console.log(user, 'user<<<')
+        console.log(user, "user<<<");
     };
 
     useEffect(() => {
         getUser(String(recipeDetail.authorId));
     }, []);
-
 
     const handleComment = async (event: MouseEvent<SVGSVGElement>) => {
         event.preventDefault();
@@ -154,17 +153,17 @@ export default function RecipeCardDetail({
             </div>
 
             <div>
-                <div className="p-4">
+                <div className="p-4 overflow-hidden">
                     <h1 className="text-4xl font-bold capitalize">
                         {recipeDetail.title}
                     </h1>
                     <p className="text-gray-600">{recipeDetail.description}</p>
                     {recipeDetail.guide && (
                         <Editor
-                            onChange={() => { }}
+                            onChange={() => {}}
                             initialContent={recipeDetail.guide}
                             editable={false}
-                        // onGetContent={handleEditorChange} // Pass callback
+                            // onGetContent={handleEditorChange} // Pass callback
                         />
                     )}
                 </div>

@@ -115,7 +115,7 @@ function ChatComponent() {
                 </button>
             ) : (
                 <button
-                    className="fixed bottom-0 right-0 p-3 bg-gray-700 text-gray-300 rounded-tl-md"
+                    className="fixed bottom-0 right-0 p-3 bg-gray-700 text-gray-300 rounded-tl-md hidden"
                     onClick={toggleChat}
                 >
                     Open Chat
@@ -125,7 +125,7 @@ function ChatComponent() {
             {isChatOpen && (
                 <div
                     id="talkjs-container"
-                    className="chat-container fixed bottom-0 right-0 h-[500px] w-[400px]"
+                    className="chat-container fixed bottom-0 right-0 h-[500px] w-[400px] z-[9999]"
                 />
             )}
         </>
